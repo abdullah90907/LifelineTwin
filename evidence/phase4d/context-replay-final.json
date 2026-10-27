@@ -1,0 +1,41 @@
+{
+  "method": "Offline historical replay with current static schemas/system and compact serializer held equal; estimates are not provider token counts.",
+  "live_provider_calls": 0,
+  "rows": [
+    {
+      "before_step": 1,
+      "old_history_bytes": 6543,
+      "managed_bytes": 6918,
+      "old_estimated_input_tokens": 2341,
+      "managed_estimated_input_tokens": 2482,
+      "strategy": "catalog_only"
+    },
+    {
+      "before_step": 2,
+      "old_history_bytes": 7531,
+      "managed_bytes": 8131,
+      "old_estimated_input_tokens": 2703,
+      "managed_estimated_input_tokens": 2919,
+      "strategy": "recent_exchange"
+    },
+    {
+      "before_step": 3,
+      "old_history_bytes": 15313,
+      "managed_bytes": 9305,
+      "old_estimated_input_tokens": 5329,
+      "managed_estimated_input_tokens": 3326,
+      "strategy": "recent_exchange"
+    },
+    {
+      "before_step": 4,
+      "old_history_bytes": 30247,
+      "managed_bytes": 9381,
+      "old_estimated_input_tokens": 10339,
+      "managed_estimated_input_tokens": 3367,
+      "strategy": "compact_recent_exchange"
+    }
+  ],
+  "final_byte_reduction_percent": 68.99,
+  "schema_bytes_current": 4017,
+  "system_bytes_current": 1141
+}

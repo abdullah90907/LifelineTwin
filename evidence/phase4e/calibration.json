@@ -1,0 +1,260 @@
+{
+  "live_requests": 0,
+  "source": "evidence\\phase4c-final\\live-aj_5_217",
+  "usage_samples": [
+    {
+      "estimated_input": 2482,
+      "reported_input": 1351,
+      "overestimate_tokens": 1131,
+      "ratio": 1.8371576609918578
+    },
+    {
+      "estimated_input": 2919,
+      "reported_input": 1623,
+      "overestimate_tokens": 1296,
+      "ratio": 1.798521256931608
+    },
+    {
+      "estimated_input": 3217,
+      "reported_input": 1855,
+      "overestimate_tokens": 1362,
+      "ratio": 1.734231805929919
+    },
+    {
+      "estimated_input": 3324,
+      "reported_input": 1925,
+      "overestimate_tokens": 1399,
+      "ratio": 1.7267532467532467
+    },
+    {
+      "estimated_input": 3414,
+      "reported_input": 1941,
+      "overestimate_tokens": 1473,
+      "ratio": 1.758887171561051
+    },
+    {
+      "estimated_input": 3429,
+      "reported_input": 1941,
+      "overestimate_tokens": 1488,
+      "ratio": 1.76661514683153
+    }
+  ],
+  "replay": [
+    {
+      "before_step": 1,
+      "old": {
+        "request_bytes": 6918,
+        "estimated_input_tokens": 2482,
+        "reserved_output_tokens": 1800,
+        "estimated_reserved_tokens": 4282,
+        "max_request_bytes": 12000,
+        "max_input_tokens": 3500,
+        "token_count_method": "utf8_bytes_divided_by_3_plus_framing_estimate",
+        "unmanaged_request_bytes": 6543,
+        "archived_exchanges": 0,
+        "retained_exchanges": 0,
+        "strategy": "catalog_only",
+        "admitted": true
+      },
+      "new": {
+        "request_bytes": 6918,
+        "estimated_input_tokens": 2482,
+        "reserved_output_tokens": 1800,
+        "estimated_reserved_tokens": 4282,
+        "max_request_bytes": 12000,
+        "max_input_tokens": 4200,
+        "token_count_method": "utf8_bytes_divided_by_3_plus_framing_estimate",
+        "unmanaged_request_bytes": 6543,
+        "archived_exchanges": 0,
+        "retained_exchanges": 0,
+        "strategy": "catalog_only",
+        "admitted": true
+      }
+    },
+    {
+      "before_step": 2,
+      "old": {
+        "request_bytes": 8131,
+        "estimated_input_tokens": 2919,
+        "reserved_output_tokens": 1800,
+        "estimated_reserved_tokens": 4719,
+        "max_request_bytes": 12000,
+        "max_input_tokens": 3500,
+        "token_count_method": "utf8_bytes_divided_by_3_plus_framing_estimate",
+        "unmanaged_request_bytes": 7573,
+        "archived_exchanges": 0,
+        "retained_exchanges": 1,
+        "strategy": "recent_exchange",
+        "admitted": true
+      },
+      "new": {
+        "request_bytes": 8131,
+        "estimated_input_tokens": 2919,
+        "reserved_output_tokens": 1800,
+        "estimated_reserved_tokens": 4719,
+        "max_request_bytes": 12000,
+        "max_input_tokens": 4200,
+        "token_count_method": "utf8_bytes_divided_by_3_plus_framing_estimate",
+        "unmanaged_request_bytes": 7573,
+        "archived_exchanges": 0,
+        "retained_exchanges": 1,
+        "strategy": "recent_exchange",
+        "admitted": true
+      }
+    },
+    {
+      "before_step": 3,
+      "old": {
+        "request_bytes": 8980,
+        "estimated_input_tokens": 3218,
+        "reserved_output_tokens": 1800,
+        "estimated_reserved_tokens": 5018,
+        "max_request_bytes": 12000,
+        "max_input_tokens": 3500,
+        "token_count_method": "utf8_bytes_divided_by_3_plus_framing_estimate",
+        "unmanaged_request_bytes": 11180,
+        "archived_exchanges": 1,
+        "retained_exchanges": 1,
+        "strategy": "compact_recent_exchange",
+        "admitted": true
+      },
+      "new": {
+        "request_bytes": 11550,
+        "estimated_input_tokens": 4074,
+        "reserved_output_tokens": 1800,
+        "estimated_reserved_tokens": 5874,
+        "max_request_bytes": 12000,
+        "max_input_tokens": 4200,
+        "token_count_method": "utf8_bytes_divided_by_3_plus_framing_estimate",
+        "unmanaged_request_bytes": 11180,
+        "archived_exchanges": 1,
+        "retained_exchanges": 1,
+        "strategy": "recent_exchange",
+        "admitted": true
+      }
+    },
+    {
+      "before_step": 4,
+      "old": {
+        "request_bytes": 9251,
+        "estimated_input_tokens": 3324,
+        "reserved_output_tokens": 1800,
+        "estimated_reserved_tokens": 5124,
+        "max_request_bytes": 12000,
+        "max_input_tokens": 3500,
+        "token_count_method": "utf8_bytes_divided_by_3_plus_framing_estimate",
+        "unmanaged_request_bytes": 13911,
+        "archived_exchanges": 2,
+        "retained_exchanges": 1,
+        "strategy": "compact_recent_exchange",
+        "admitted": true
+      },
+      "new": {
+        "request_bytes": 11248,
+        "estimated_input_tokens": 3990,
+        "reserved_output_tokens": 1800,
+        "estimated_reserved_tokens": 5790,
+        "max_request_bytes": 12000,
+        "max_input_tokens": 4200,
+        "token_count_method": "utf8_bytes_divided_by_3_plus_framing_estimate",
+        "unmanaged_request_bytes": 13911,
+        "archived_exchanges": 2,
+        "retained_exchanges": 1,
+        "strategy": "recent_exchange",
+        "admitted": true
+      }
+    },
+    {
+      "before_step": 5,
+      "old": {
+        "request_bytes": 9473,
+        "estimated_input_tokens": 3414,
+        "reserved_output_tokens": 1800,
+        "estimated_reserved_tokens": 5214,
+        "max_request_bytes": 12000,
+        "max_input_tokens": 3500,
+        "token_count_method": "utf8_bytes_divided_by_3_plus_framing_estimate",
+        "unmanaged_request_bytes": 15719,
+        "archived_exchanges": 3,
+        "retained_exchanges": 1,
+        "strategy": "compact_recent_exchange",
+        "admitted": true
+      },
+      "new": {
+        "request_bytes": 10725,
+        "estimated_input_tokens": 3831,
+        "reserved_output_tokens": 1800,
+        "estimated_reserved_tokens": 5631,
+        "max_request_bytes": 12000,
+        "max_input_tokens": 4200,
+        "token_count_method": "utf8_bytes_divided_by_3_plus_framing_estimate",
+        "unmanaged_request_bytes": 15719,
+        "archived_exchanges": 3,
+        "retained_exchanges": 1,
+        "strategy": "recent_exchange",
+        "admitted": true
+      }
+    },
+    {
+      "before_step": 6,
+      "old": {
+        "request_bytes": 9470,
+        "estimated_input_tokens": 3429,
+        "reserved_output_tokens": 1800,
+        "estimated_reserved_tokens": 5229,
+        "max_request_bytes": 12000,
+        "max_input_tokens": 3500,
+        "token_count_method": "utf8_bytes_divided_by_3_plus_framing_estimate",
+        "unmanaged_request_bytes": 16749,
+        "archived_exchanges": 4,
+        "retained_exchanges": 1,
+        "strategy": "compact_recent_exchange",
+        "admitted": true
+      },
+      "new": {
+        "request_bytes": 10057,
+        "estimated_input_tokens": 3625,
+        "reserved_output_tokens": 1800,
+        "estimated_reserved_tokens": 5425,
+        "max_request_bytes": 12000,
+        "max_input_tokens": 4200,
+        "token_count_method": "utf8_bytes_divided_by_3_plus_framing_estimate",
+        "unmanaged_request_bytes": 16749,
+        "archived_exchanges": 4,
+        "retained_exchanges": 1,
+        "strategy": "recent_exchange",
+        "admitted": true
+      }
+    },
+    {
+      "before_step": 7,
+      "old": {
+        "request_bytes": 10142,
+        "estimated_input_tokens": 3653,
+        "reserved_output_tokens": 1800,
+        "estimated_reserved_tokens": 5453,
+        "max_request_bytes": 12000,
+        "max_input_tokens": 3500,
+        "token_count_method": "utf8_bytes_divided_by_3_plus_framing_estimate",
+        "unmanaged_request_bytes": 18222,
+        "strategy": "minimum_context_rejected",
+        "admitted": false
+      },
+      "new": {
+        "request_bytes": 11510,
+        "estimated_input_tokens": 4125,
+        "reserved_output_tokens": 1800,
+        "estimated_reserved_tokens": 5925,
+        "max_request_bytes": 12000,
+        "max_input_tokens": 4200,
+        "token_count_method": "utf8_bytes_divided_by_3_plus_framing_estimate",
+        "unmanaged_request_bytes": 18222,
+        "archived_exchanges": 5,
+        "retained_exchanges": 1,
+        "strategy": "recent_exchange",
+        "admitted": true
+      }
+    }
+  ],
+  "note": "Reconstructed from redacted decisions/tools; not stored raw wire payloads. No token count exists for the unsent step."
+}

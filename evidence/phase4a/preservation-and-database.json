@@ -1,0 +1,11 @@
+{
+  "original_files_checked": 29,
+  "changed_original_files": [],
+  "demo_sqlite_integrity": "ok",
+  "demo_table_counts": {
+    "incidents": 1,
+    "investigations": 1,
+    "observations": 1,
+    "recommendations": 2
+  }
+}

@@ -1,0 +1,10 @@
+# LifelineTwin Phase 3 Requirements: Environmental Intelligence & Forecasting
+requests>=2.34.0
+torch==2.14.1+cpu; sys_platform == 'win32'
+transformers>=5.20.0
+datasets>=5.1.0
+einops>=0.8.0
+scikit-learn>=1.9.0
+deprecated>=3.0.0
+# granite-tsfm from official IBM repository
+git+https://github.com/ibm-granite/granite-tsfm.git#egg=granite-tsfm

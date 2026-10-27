@@ -1,0 +1,46 @@
+test_atomic_recent_exchange_and_archives_have_no_orphan_tools (test_agent_optimization.ContextContractTests.test_atomic_recent_exchange_and_archives_have_no_orphan_tools) ... ok
+test_compact_schemas_keep_validation_and_all_tool_choices (test_agent_optimization.ContextContractTests.test_compact_schemas_keep_validation_and_all_tool_choices) ... ok
+test_large_objects_and_items_expose_drilldown_without_replacing_evidence (test_agent_optimization.ContextContractTests.test_large_objects_and_items_expose_drilldown_without_replacing_evidence) ... ok
+test_long_raw_incident_is_not_repeated_and_question_survives (test_agent_optimization.ContextContractTests.test_long_raw_incident_is_not_repeated_and_question_survives) ... ok
+test_minimum_context_rejected_without_dropping_goal (test_agent_optimization.ContextContractTests.test_minimum_context_rejected_without_dropping_goal) ... ok
+test_paged_arrays_text_and_escaped_pointers_preserve_full_source (test_agent_optimization.ContextContractTests.test_paged_arrays_text_and_escaped_pointers_preserve_full_source) ... ok
+test_provider_guard_rejects_oversize_before_sdk_construction (test_agent_optimization.ContextContractTests.test_provider_guard_rejects_oversize_before_sdk_construction) ... ok
+test_rate_window_charges_success_and_retains_failed_reservation (test_agent_optimization.ContextContractTests.test_rate_window_charges_success_and_retains_failed_reservation) ... ok
+test_request_byte_measurement_and_estimate_are_labeled (test_agent_optimization.ContextContractTests.test_request_byte_measurement_and_estimate_are_labeled) ... ok
+test_different_weather_first_investigation_order (test_agent_optimization.RealAnalyticalIntegrationTests.test_different_weather_first_investigation_order) ... W1025 23:05:02.499000 39140 .venv-migration\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 134/134 [00:00<00:00, 5032.56it/s]
+ERROR
+test_real_geo_weather_forecast_and_evidence_dependent_followup (test_agent_optimization.RealAnalyticalIntegrationTests.test_real_geo_weather_forecast_and_evidence_dependent_followup) ... W1025 23:05:27.095000 32472 .venv-migration\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 134/134 [00:00<00:00, 6004.60it/s]
+ERROR
+
+======================================================================
+ERROR: test_different_weather_first_investigation_order (test_agent_optimization.RealAnalyticalIntegrationTests.test_different_weather_first_investigation_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\tests\test_agent_optimization.py", line 158, in test_different_weather_first_investigation_order
+    saved,trace,checkpoint=self.run_case('Weather first, then evaluate the approved road scenario and interventions.')
+                           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\tests\test_agent_optimization.py", line 143, in run_case
+    best=next(f['value'] for f in saved['result']['findings'] if isinstance(f['value'],dict) and 'osm_segments' in f['value'])
+StopIteration
+
+======================================================================
+ERROR: test_real_geo_weather_forecast_and_evidence_dependent_followup (test_agent_optimization.RealAnalyticalIntegrationTests.test_real_geo_weather_forecast_and_evidence_dependent_followup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\tests\test_agent_optimization.py", line 153, in test_real_geo_weather_forecast_and_evidence_dependent_followup
+    saved,trace,checkpoint=self.run_case('Compare approved geographic disruptions with environmental evidence and forecast.')
+                           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\tests\test_agent_optimization.py", line 143, in run_case
+    best=next(f['value'] for f in saved['result']['findings'] if isinstance(f['value'],dict) and 'osm_segments' in f['value'])
+StopIteration
+
+----------------------------------------------------------------------
+Ran 11 tests in 39.785s
+
+FAILED (errors=2)

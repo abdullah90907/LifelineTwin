@@ -1,0 +1,40 @@
+{
+  "method": "Offline historical tool-output replay. Static current system/schemas and compact serializer held equal. No provider calls or true token counts.",
+  "rows": [
+    {
+      "before_step": 1,
+      "old_history_bytes": 7000,
+      "managed_bytes": 7375,
+      "old_estimated_input_tokens": 2494,
+      "managed_estimated_input_tokens": 2635,
+      "strategy": "catalog_only"
+    },
+    {
+      "before_step": 2,
+      "old_history_bytes": 7988,
+      "managed_bytes": 8588,
+      "old_estimated_input_tokens": 2855,
+      "managed_estimated_input_tokens": 3071,
+      "strategy": "recent_exchange"
+    },
+    {
+      "before_step": 3,
+      "old_history_bytes": 15770,
+      "managed_bytes": 9791,
+      "old_estimated_input_tokens": 5481,
+      "managed_estimated_input_tokens": 3488,
+      "strategy": "recent_exchange"
+    },
+    {
+      "before_step": 4,
+      "old_history_bytes": 30704,
+      "managed_bytes": 8992,
+      "old_estimated_input_tokens": 10491,
+      "managed_estimated_input_tokens": 3222,
+      "strategy": "catalog_only"
+    }
+  ],
+  "final_byte_reduction_percent": 70.71,
+  "schema_bytes_current": 4478,
+  "system_bytes_current": 1141
+}

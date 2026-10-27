@@ -1,0 +1,1805 @@
+test_http_categories_and_permanent_no_retry (test_agent_reliability.ClassificationTests.test_http_categories_and_permanent_no_retry) ... ok
+test_retry_after_numeric_http_date_and_invalid (test_agent_reliability.ClassificationTests.test_retry_after_numeric_http_date_and_invalid) ... ok
+test_timeout_and_transport_are_distinct_and_not_retried (test_agent_reliability.ClassificationTests.test_timeout_and_transport_are_distinct_and_not_retried) ... ok
+test_unknown_codes_sensitive_headers_and_bodies_are_not_serialized (test_agent_reliability.ClassificationTests.test_unknown_codes_sensitive_headers_and_bodies_are_not_serialized) ... ok
+test_real_spawn_boundary_keeps_classification (test_agent_reliability.FailureBoundaryTests.test_real_spawn_boundary_keeps_classification) ... ERROR
+test_worker_drops_exception_messages_and_arbitrary_body_fields (test_agent_reliability.FailureBoundaryTests.test_worker_drops_exception_messages_and_arbitrary_body_fields) ... ok
+test_worker_preserves_sanitized_http_classification (test_agent_reliability.FailureBoundaryTests.test_worker_preserves_sanitized_http_classification) ... ok
+test_assembled_raw_prompt_not_in_failure_trace_or_checkpoint (test_agent_reliability.RunnerReliabilityTests.test_assembled_raw_prompt_not_in_failure_trace_or_checkpoint) ... ERROR
+test_duplicate_success_uses_same_evidence_without_reexecution_or_payload_rewrite (test_agent_reliability.RunnerReliabilityTests.test_duplicate_success_uses_same_evidence_without_reexecution_or_payload_rewrite) ... ERROR
+test_invalid_agent_response_is_distinct (test_agent_reliability.RunnerReliabilityTests.test_invalid_agent_response_is_distinct) ... ERROR
+test_invalid_tool_arguments_and_invalid_final_output_not_auto_retried (test_agent_reliability.RunnerReliabilityTests.test_invalid_tool_arguments_and_invalid_final_output_not_auto_retried) ... ERROR
+test_long_invalid_or_unaffordable_retry_after_is_not_shortened (test_agent_reliability.RunnerReliabilityTests.test_long_invalid_or_unaffordable_retry_after_is_not_shortened) ... ERROR
+test_malformed_call_has_no_retry_or_analytical_execution (test_agent_reliability.RunnerReliabilityTests.test_malformed_call_has_no_retry_or_analytical_execution) ... ERROR
+test_one_retry_for_entire_run_not_per_step (test_agent_reliability.RunnerReliabilityTests.test_one_retry_for_entire_run_not_per_step) ... ERROR
+test_parent_worker_timeout_is_classified_without_retry (test_agent_reliability.RunnerReliabilityTests.test_parent_worker_timeout_is_classified_without_retry) ... ERROR
+test_permanent_sdk_failures_have_no_retry (test_agent_reliability.RunnerReliabilityTests.test_permanent_sdk_failures_have_no_retry) ... ERROR
+test_retry_does_not_expand_attempt_or_token_budget (test_agent_reliability.RunnerReliabilityTests.test_retry_does_not_expand_attempt_or_token_budget) ... ERROR
+test_transient_retry_preserves_accepted_evidence_and_identical_prompt (test_agent_reliability.RunnerReliabilityTests.test_transient_retry_preserves_accepted_evidence_and_identical_prompt) ... ERROR
+
+======================================================================
+ERROR: test_real_spawn_boundary_keeps_classification (test_agent_reliability.FailureBoundaryTests.test_real_spawn_boundary_keeps_classification)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\tests\test_agent_reliability.py", line 61, in test_real_spawn_boundary_keeps_classification
+    bounded_call(raise_rate_limit, (), 10)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\lifelinetwin_backend\agent_limits.py", line 29, in bounded_call
+    raise ExecutionLimit("Execution deadline exceeded; worker terminated")
+lifelinetwin_backend.agent_limits.ExecutionLimit: Execution deadline exceeded; worker terminated
+
+======================================================================
+ERROR: test_assembled_raw_prompt_not_in_failure_trace_or_checkpoint (test_agent_reliability.RunnerReliabilityTests.test_assembled_raw_prompt_not_in_failure_trace_or_checkpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3326, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 1320, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 178, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 176, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 921, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 917, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\default.py", line 642, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\tests\test_agent_reliability.py", line 139, in setUp
+    self.db.initialize()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\lifelinetwin_backend\database.py", line 70, in initialize
+    Base.metadata.create_all(self.engine)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\sql\schema.py", line 5931, in create_all
+    bind._run_ddl_visitor(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        ddl.SchemaGenerator, self, checkfirst=checkfirst, tables=tables
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3276, in _run_ddl_visitor
+    with self.begin() as conn:
+         ~~~~~~~~~~^^
+  File "C:\Python313\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3266, in begin
+    with self.connect() as conn:
+         ~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3302, in connect
+    return self._connection_cls(self)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        err, dialect, engine
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 2457, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3326, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 1320, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 178, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 176, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 921, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 917, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\default.py", line 642, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+======================================================================
+ERROR: test_duplicate_success_uses_same_evidence_without_reexecution_or_payload_rewrite (test_agent_reliability.RunnerReliabilityTests.test_duplicate_success_uses_same_evidence_without_reexecution_or_payload_rewrite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3326, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 1320, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 178, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 176, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 921, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 917, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\default.py", line 642, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\tests\test_agent_reliability.py", line 139, in setUp
+    self.db.initialize()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\lifelinetwin_backend\database.py", line 70, in initialize
+    Base.metadata.create_all(self.engine)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\sql\schema.py", line 5931, in create_all
+    bind._run_ddl_visitor(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        ddl.SchemaGenerator, self, checkfirst=checkfirst, tables=tables
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3276, in _run_ddl_visitor
+    with self.begin() as conn:
+         ~~~~~~~~~~^^
+  File "C:\Python313\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3266, in begin
+    with self.connect() as conn:
+         ~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3302, in connect
+    return self._connection_cls(self)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        err, dialect, engine
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 2457, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3326, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 1320, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 178, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 176, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 921, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 917, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\default.py", line 642, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+======================================================================
+ERROR: test_invalid_agent_response_is_distinct (test_agent_reliability.RunnerReliabilityTests.test_invalid_agent_response_is_distinct)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3326, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 1320, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 178, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 176, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 921, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 917, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\default.py", line 642, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\tests\test_agent_reliability.py", line 139, in setUp
+    self.db.initialize()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\lifelinetwin_backend\database.py", line 70, in initialize
+    Base.metadata.create_all(self.engine)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\sql\schema.py", line 5931, in create_all
+    bind._run_ddl_visitor(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        ddl.SchemaGenerator, self, checkfirst=checkfirst, tables=tables
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3276, in _run_ddl_visitor
+    with self.begin() as conn:
+         ~~~~~~~~~~^^
+  File "C:\Python313\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3266, in begin
+    with self.connect() as conn:
+         ~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3302, in connect
+    return self._connection_cls(self)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        err, dialect, engine
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 2457, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3326, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 1320, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 178, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 176, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 921, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 917, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\default.py", line 642, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+======================================================================
+ERROR: test_invalid_tool_arguments_and_invalid_final_output_not_auto_retried (test_agent_reliability.RunnerReliabilityTests.test_invalid_tool_arguments_and_invalid_final_output_not_auto_retried)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3326, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 1320, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 178, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 176, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 921, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 917, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\default.py", line 642, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\tests\test_agent_reliability.py", line 139, in setUp
+    self.db.initialize()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\lifelinetwin_backend\database.py", line 70, in initialize
+    Base.metadata.create_all(self.engine)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\sql\schema.py", line 5931, in create_all
+    bind._run_ddl_visitor(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        ddl.SchemaGenerator, self, checkfirst=checkfirst, tables=tables
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3276, in _run_ddl_visitor
+    with self.begin() as conn:
+         ~~~~~~~~~~^^
+  File "C:\Python313\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3266, in begin
+    with self.connect() as conn:
+         ~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3302, in connect
+    return self._connection_cls(self)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        err, dialect, engine
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 2457, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3326, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 1320, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 178, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 176, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 921, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 917, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\default.py", line 642, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+======================================================================
+ERROR: test_long_invalid_or_unaffordable_retry_after_is_not_shortened (test_agent_reliability.RunnerReliabilityTests.test_long_invalid_or_unaffordable_retry_after_is_not_shortened)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3326, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 1320, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 178, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 176, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 921, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 917, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\default.py", line 642, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\tests\test_agent_reliability.py", line 139, in setUp
+    self.db.initialize()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\lifelinetwin_backend\database.py", line 70, in initialize
+    Base.metadata.create_all(self.engine)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\sql\schema.py", line 5931, in create_all
+    bind._run_ddl_visitor(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        ddl.SchemaGenerator, self, checkfirst=checkfirst, tables=tables
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3276, in _run_ddl_visitor
+    with self.begin() as conn:
+         ~~~~~~~~~~^^
+  File "C:\Python313\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3266, in begin
+    with self.connect() as conn:
+         ~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3302, in connect
+    return self._connection_cls(self)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        err, dialect, engine
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 2457, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3326, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 1320, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 178, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 176, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 921, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 917, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\default.py", line 642, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+======================================================================
+ERROR: test_malformed_call_has_no_retry_or_analytical_execution (test_agent_reliability.RunnerReliabilityTests.test_malformed_call_has_no_retry_or_analytical_execution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3326, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 1320, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 178, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 176, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 921, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 917, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\default.py", line 642, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\tests\test_agent_reliability.py", line 139, in setUp
+    self.db.initialize()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\lifelinetwin_backend\database.py", line 70, in initialize
+    Base.metadata.create_all(self.engine)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\sql\schema.py", line 5931, in create_all
+    bind._run_ddl_visitor(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        ddl.SchemaGenerator, self, checkfirst=checkfirst, tables=tables
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3276, in _run_ddl_visitor
+    with self.begin() as conn:
+         ~~~~~~~~~~^^
+  File "C:\Python313\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3266, in begin
+    with self.connect() as conn:
+         ~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3302, in connect
+    return self._connection_cls(self)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        err, dialect, engine
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 2457, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3326, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 1320, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 178, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 176, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 921, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 917, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\default.py", line 642, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+======================================================================
+ERROR: test_one_retry_for_entire_run_not_per_step (test_agent_reliability.RunnerReliabilityTests.test_one_retry_for_entire_run_not_per_step)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3326, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 1320, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 178, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 176, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 921, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 917, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\default.py", line 642, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\tests\test_agent_reliability.py", line 139, in setUp
+    self.db.initialize()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\lifelinetwin_backend\database.py", line 70, in initialize
+    Base.metadata.create_all(self.engine)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\sql\schema.py", line 5931, in create_all
+    bind._run_ddl_visitor(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        ddl.SchemaGenerator, self, checkfirst=checkfirst, tables=tables
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3276, in _run_ddl_visitor
+    with self.begin() as conn:
+         ~~~~~~~~~~^^
+  File "C:\Python313\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3266, in begin
+    with self.connect() as conn:
+         ~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3302, in connect
+    return self._connection_cls(self)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        err, dialect, engine
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 2457, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3326, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 1320, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 178, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 176, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 921, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 917, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\default.py", line 642, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+======================================================================
+ERROR: test_parent_worker_timeout_is_classified_without_retry (test_agent_reliability.RunnerReliabilityTests.test_parent_worker_timeout_is_classified_without_retry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3326, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 1320, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 178, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 176, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 921, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 917, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\default.py", line 642, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\tests\test_agent_reliability.py", line 139, in setUp
+    self.db.initialize()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\lifelinetwin_backend\database.py", line 70, in initialize
+    Base.metadata.create_all(self.engine)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\sql\schema.py", line 5931, in create_all
+    bind._run_ddl_visitor(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        ddl.SchemaGenerator, self, checkfirst=checkfirst, tables=tables
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3276, in _run_ddl_visitor
+    with self.begin() as conn:
+         ~~~~~~~~~~^^
+  File "C:\Python313\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3266, in begin
+    with self.connect() as conn:
+         ~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3302, in connect
+    return self._connection_cls(self)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        err, dialect, engine
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 2457, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3326, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 1320, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 178, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 176, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 921, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 917, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\default.py", line 642, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+======================================================================
+ERROR: test_permanent_sdk_failures_have_no_retry (test_agent_reliability.RunnerReliabilityTests.test_permanent_sdk_failures_have_no_retry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3326, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 1320, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 178, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 176, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 921, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 917, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\default.py", line 642, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\tests\test_agent_reliability.py", line 139, in setUp
+    self.db.initialize()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\lifelinetwin_backend\database.py", line 70, in initialize
+    Base.metadata.create_all(self.engine)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\sql\schema.py", line 5931, in create_all
+    bind._run_ddl_visitor(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        ddl.SchemaGenerator, self, checkfirst=checkfirst, tables=tables
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3276, in _run_ddl_visitor
+    with self.begin() as conn:
+         ~~~~~~~~~~^^
+  File "C:\Python313\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3266, in begin
+    with self.connect() as conn:
+         ~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3302, in connect
+    return self._connection_cls(self)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        err, dialect, engine
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 2457, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3326, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 1320, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 178, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 176, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 921, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 917, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\default.py", line 642, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+======================================================================
+ERROR: test_retry_does_not_expand_attempt_or_token_budget (test_agent_reliability.RunnerReliabilityTests.test_retry_does_not_expand_attempt_or_token_budget)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3326, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 1320, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 178, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 176, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 921, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 917, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\default.py", line 642, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\tests\test_agent_reliability.py", line 139, in setUp
+    self.db.initialize()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\lifelinetwin_backend\database.py", line 70, in initialize
+    Base.metadata.create_all(self.engine)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\sql\schema.py", line 5931, in create_all
+    bind._run_ddl_visitor(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        ddl.SchemaGenerator, self, checkfirst=checkfirst, tables=tables
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3276, in _run_ddl_visitor
+    with self.begin() as conn:
+         ~~~~~~~~~~^^
+  File "C:\Python313\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3266, in begin
+    with self.connect() as conn:
+         ~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3302, in connect
+    return self._connection_cls(self)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        err, dialect, engine
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 2457, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3326, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 1320, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 178, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 176, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 921, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 917, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\default.py", line 642, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+======================================================================
+ERROR: test_transient_retry_preserves_accepted_evidence_and_identical_prompt (test_agent_reliability.RunnerReliabilityTests.test_transient_retry_preserves_accepted_evidence_and_identical_prompt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3326, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 1320, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 178, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 176, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 921, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 917, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\default.py", line 642, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\tests\test_agent_reliability.py", line 139, in setUp
+    self.db.initialize()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\lifelinetwin_backend\database.py", line 70, in initialize
+    Base.metadata.create_all(self.engine)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\sql\schema.py", line 5931, in create_all
+    bind._run_ddl_visitor(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        ddl.SchemaGenerator, self, checkfirst=checkfirst, tables=tables
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3276, in _run_ddl_visitor
+    with self.begin() as conn:
+         ~~~~~~~~~~^^
+  File "C:\Python313\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3266, in begin
+    with self.connect() as conn:
+         ~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3302, in connect
+    return self._connection_cls(self)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        err, dialect, engine
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 2457, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\base.py", line 3326, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 1320, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 178, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\impl.py", line 176, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 921, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\pool\base.py", line 917, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\sqlalchemy\engine\default.py", line 642, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+----------------------------------------------------------------------
+Ran 18 tests in 10.685s
+
+FAILED (errors=12)
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\mrabd\\AppData\\Local\\Packages\\sandbox.{b49204b6-97ff-4d78-b477-c35e18d425f2}\\AC\\Temp\\tmpr2uubynh'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 939, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 934, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 906, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 286, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 275, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\mrabd\\AppData\\Local\\Packages\\sandbox.{b49204b6-97ff-4d78-b477-c35e18d425f2}\\AC\\Temp\\tmpr2uubynh'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\mrabd\\AppData\\Local\\Packages\\sandbox.{b49204b6-97ff-4d78-b477-c35e18d425f2}\\AC\\Temp\\tmpwo84nys4'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 939, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 934, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 906, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 286, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 275, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\mrabd\\AppData\\Local\\Packages\\sandbox.{b49204b6-97ff-4d78-b477-c35e18d425f2}\\AC\\Temp\\tmpwo84nys4'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\mrabd\\AppData\\Local\\Packages\\sandbox.{b49204b6-97ff-4d78-b477-c35e18d425f2}\\AC\\Temp\\tmpta8ammm2'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 939, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 934, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 906, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 286, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 275, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\mrabd\\AppData\\Local\\Packages\\sandbox.{b49204b6-97ff-4d78-b477-c35e18d425f2}\\AC\\Temp\\tmpta8ammm2'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\mrabd\\AppData\\Local\\Packages\\sandbox.{b49204b6-97ff-4d78-b477-c35e18d425f2}\\AC\\Temp\\tmpmmv8ifjs'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 939, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 934, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 906, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 286, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 275, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\mrabd\\AppData\\Local\\Packages\\sandbox.{b49204b6-97ff-4d78-b477-c35e18d425f2}\\AC\\Temp\\tmpmmv8ifjs'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\mrabd\\AppData\\Local\\Packages\\sandbox.{b49204b6-97ff-4d78-b477-c35e18d425f2}\\AC\\Temp\\tmp9ck8jst_'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 939, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 934, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 906, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 286, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 275, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\mrabd\\AppData\\Local\\Packages\\sandbox.{b49204b6-97ff-4d78-b477-c35e18d425f2}\\AC\\Temp\\tmp9ck8jst_'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\mrabd\\AppData\\Local\\Packages\\sandbox.{b49204b6-97ff-4d78-b477-c35e18d425f2}\\AC\\Temp\\tmp_vpp9w3t'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 939, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 934, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 906, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 286, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 275, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\mrabd\\AppData\\Local\\Packages\\sandbox.{b49204b6-97ff-4d78-b477-c35e18d425f2}\\AC\\Temp\\tmp_vpp9w3t'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\mrabd\\AppData\\Local\\Packages\\sandbox.{b49204b6-97ff-4d78-b477-c35e18d425f2}\\AC\\Temp\\tmpoc81xpu1'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 939, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 934, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 906, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 286, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 275, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\mrabd\\AppData\\Local\\Packages\\sandbox.{b49204b6-97ff-4d78-b477-c35e18d425f2}\\AC\\Temp\\tmpoc81xpu1'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\mrabd\\AppData\\Local\\Packages\\sandbox.{b49204b6-97ff-4d78-b477-c35e18d425f2}\\AC\\Temp\\tmp24jq78gr'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 939, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 934, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 906, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 286, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 275, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\mrabd\\AppData\\Local\\Packages\\sandbox.{b49204b6-97ff-4d78-b477-c35e18d425f2}\\AC\\Temp\\tmp24jq78gr'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\mrabd\\AppData\\Local\\Packages\\sandbox.{b49204b6-97ff-4d78-b477-c35e18d425f2}\\AC\\Temp\\tmp0bqbhdva'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 939, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 934, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 906, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 286, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 275, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\mrabd\\AppData\\Local\\Packages\\sandbox.{b49204b6-97ff-4d78-b477-c35e18d425f2}\\AC\\Temp\\tmp0bqbhdva'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\mrabd\\AppData\\Local\\Packages\\sandbox.{b49204b6-97ff-4d78-b477-c35e18d425f2}\\AC\\Temp\\tmp6lnes1_4'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 939, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 934, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 906, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 286, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 275, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\mrabd\\AppData\\Local\\Packages\\sandbox.{b49204b6-97ff-4d78-b477-c35e18d425f2}\\AC\\Temp\\tmp6lnes1_4'
+Traceback (most recent call last):
+  File "C:\Python313\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\mrabd\\AppData\\Local\\Packages\\sandbox.{b49204b6-97ff-4d78-b477-c35e18d425f2}\\AC\\Temp\\tmpud_s02nm'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\weakref.py", line 666, in _exitfunc
+    f()
+    ~^^
+  File "C:\Python313\Lib\weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 939, in _cleanup
+    cls._rmtree(name, ignore_errors=ignore_errors)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 934, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Python313\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 906, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 286, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\tempfile.py", line 275, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\mrabd\\AppData\\Local\\Packages\\sandbox.{b49204b6-97ff-4d78-b477-c35e18d425f2}\\AC\\Temp\\tmpud_s02nm'

@@ -1,0 +1,16 @@
+test_closes_both_directions_all_parallel_without_mutation (test_geo.EngineTests.test_closes_both_directions_all_parallel_without_mutation) ... ok
+test_direction_is_preserved (test_geo.EngineTests.test_direction_is_preserved) ... ok
+test_distance_change (test_geo.EngineTests.test_distance_change) ... ok
+test_distance_savings_rank (test_geo.EngineTests.test_distance_savings_rank) ... ok
+test_invalid_weights_rejected (test_geo.EngineTests.test_invalid_weights_rejected) ... ok
+test_missing_facility_rejected (test_geo.EngineTests.test_missing_facility_rejected) ... ok
+test_nearest_of_multiple_facilities (test_geo.EngineTests.test_nearest_of_multiple_facilities) ... ok
+test_origin_at_hospital (test_geo.EngineTests.test_origin_at_hospital) ... ok
+test_reconnection_and_independent_restoration (test_geo.EngineTests.test_reconnection_and_independent_restoration) ... ok
+test_shortest_parallel_edge_and_unreachable (test_geo.EngineTests.test_shortest_parallel_edge_and_unreachable) ... ok
+test_offline_repeatable_and_monotonic (test_geo.OfflineRealDataTests.test_offline_repeatable_and_monotonic) ... skipped 'Real OSM cache not downloaded'
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.004s
+
+OK (skipped=1)

@@ -1,0 +1,18 @@
+{
+  "os": {
+    "Caption": "Microsoft Windows 11 Pro",
+    "Version": "10.0.26300",
+    "TotalVisibleMemorySize": 16436204,
+    "FreePhysicalMemory": 5254620
+  },
+  "cpu": {
+    "Name": "Intel(R) Core(TM) i7-10610U CPU @ 1.80GHz",
+    "NumberOfCores": 4,
+    "NumberOfLogicalProcessors": 8,
+    "VirtualizationFirmwareEnabled": false,
+    "SecondLevelAddressTranslationExtensions": false
+  },
+  "computer": {
+    "HypervisorPresent": true
+  }
+}

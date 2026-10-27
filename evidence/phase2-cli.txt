@@ -1,0 +1,49 @@
+Central Heidelberg, Baden-Wurttemberg, Germany | 1060 nodes / 2331 directed edges
+OpenStreetMap contributors | DISTANCE ONLY, not travel time | HYPOTHETICAL closures
+Hospital: Kurpfalzkrankenhaus [node/678470357] snap=86 m
+Hospital: Klinik für Allgemeine Innere Medizin und Psychosomatik [node/2343179537] snap=103 m
+Hospital: Institut für Humangenetik [node/5890803043] snap=223 m
+Hospital: Frauenklinik [node/5890803044] snap=241 m
+Hospital: Hautklinik [node/5890803045] snap=199 m
+Hospital: Unnamed OSM hospital ('node', 12478205837) [node/12478205837] snap=72 m
+Hospital: Kopfklinik [relation/19540] snap=105 m
+Hospital: Kinderklinik [relation/20945] snap=121 m
+Hospital: Klinik für Allgemeine Psychiatrie [relation/4505865] snap=73 m
+Hospital: Heidelberger Ionenstrahl-Therapiezentrum [way/25771232] snap=156 m
+Hospital: Zentrum für Schmerztherapie und Palliativmedizin [way/25813173] snap=329 m
+Hospital: Innere Medizin X: Klinik für Nephrologie [way/26006151] snap=70 m
+Hospital: Nationales Centrum für Tumorerkrankungen [way/35534679] snap=77 m
+Hospital: Unnamed OSM hospital ('way', 35842577) [way/35842577] snap=44 m
+Hospital: Unfallchirurgie - ATOS [way/96690377] snap=49 m
+Hospital: Institut für Psychosomatische Kooperationsforschung und Familientherapie, Personalwohngebäude [way/140128817] snap=32 m
+Hospital: Tropenmedizinische Ambulanz / Heidelberg Institute of Global Health (HIGH) / Zentrum für Infektiologie [way/141216666] snap=221 m
+Hospital: Kinder- & Jugendpsychiatrie Heidelberg [way/155203932] snap=68 m
+Hospital: Ethianum [way/209189456] snap=72 m
+Hospital: St. Josefskrankenhaus [way/259039249] snap=44 m
+Hospital: Zentrum für Psychosoziale Medizin [way/323478250] snap=101 m
+Hospital: Medizinische Klinik [way/342036341] snap=130 m
+Hospital: Klinik Sankt Elisabeth [way/342045912] snap=69 m
+Hospital: ATOS Klinik [way/560031595] snap=41 m
+Hospital: Salem [way/783859869] snap=46 m
+Hospital: Chirurgische Klinik [way/857476895] snap=74 m
+Hospital: Universitätsklinikum Heidelberg [way/894614246] snap=213 m
+Origin    Baseline m   Closures m    Increase m
+O1            2166.9       2213.4          46.5
+O2            1244.8       1244.8           0.0
+O3             489.2        489.2           0.0
+O4              18.4         18.4           0.0
+O5             885.0        885.0           0.0
+O6             749.5        749.5           0.0
+O7            1253.1       1253.1           0.0
+O8             788.8        800.5          11.7
+O9             694.7        694.7           0.0
+Origin snap offsets (metres, excluded from routing): O1=78, O2=45, O3=100, O4=285, O5=58, O6=20, O7=58, O8=49, O9=203
+Newly disconnected: 0
+C1: Vangerowstraße endpoints 11247599 <-> 11247600
+C2: Iqbal-Ufer endpoints 11247645 <-> 645759168
+C3: Furtwänglerstraße endpoints 13888159 <-> 301109705
+Restorations ranked by reconnected origins, then metres saved for already-reachable origins:
+1. Reopen C2: reconnect 0; save 13.2 origin-metres
+2. Reopen C3: reconnect 0; save 11.7 origin-metres
+3. Reopen C1: reconnect 0; save 0.0 origin-metres
+Detailed routes, provenance, and scenario distances: evidence/phase2-results.json

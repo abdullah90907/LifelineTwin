@@ -1,0 +1,4 @@
+# Preserve checksum-verified datasets and saved evidence byte-for-byte.
+data/** -text
+frontend/public/data/** -text
+evidence/** -text

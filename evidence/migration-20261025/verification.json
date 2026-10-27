@@ -1,0 +1,60 @@
+{
+  "graph_nodes": 1060,
+  "graph_edges": 2331,
+  "origins": 9,
+  "facilities": 27,
+  "cache_sha256_verified": true,
+  "saved_results_comparison": {
+    "phase2": {
+      "changes": true,
+      "closures": true,
+      "restorations": true
+    },
+    "phase25": {
+      "changes": true,
+      "closures": true,
+      "restorations": true
+    }
+  },
+  "ttm": {
+    "model_id": "ibm-granite/granite-timeseries-ttm-r1",
+    "forecast_horizon_hours": 96,
+    "metadata": {
+      "context_length": 512,
+      "context_start": "2026-10-09T16:00",
+      "context_end": "2026-10-30T23:00",
+      "imputed_count": 0,
+      "raw_min": 5.199999809265137,
+      "raw_max": 21.200000762939453,
+      "raw_mean": 11.723827362060547,
+      "inference_device": "cpu",
+      "inference_time_ms": 16.71,
+      "parameter_count": 805280,
+      "clip_nonnegative": false
+    },
+    "finite_predictions": true,
+    "first_five": [
+      8.765932083129883,
+      8.819766998291016,
+      8.707077980041504,
+      8.580591201782227,
+      8.423613548278809
+    ],
+    "actual_parameter_device": "cpu"
+  },
+  "live_open_meteo": {
+    "ok": true,
+    "source": "https://api.open-meteo.com/v1/forecast",
+    "n_hours": 72,
+    "variables": [
+      "temperature_2m",
+      "precipitation",
+      "wind_speed_10m",
+      "wind_direction_10m",
+      "relative_humidity_2m",
+      "surface_pressure"
+    ]
+  },
+  "preserved_file_count": 64,
+  "changed_original_files": []
+}

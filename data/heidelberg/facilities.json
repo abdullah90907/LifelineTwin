@@ -1,0 +1,218 @@
+[
+  {
+    "id": "node/678470357",
+    "name": "Kurpfalzkrankenhaus",
+    "node": 271328792,
+    "lon": 8.6538078,
+    "lat": 49.4136043,
+    "snap_distance_m": 85.99979716020705
+  },
+  {
+    "id": "node/2343179537",
+    "name": "Klinik für Allgemeine Innere Medizin und Psychosomatik",
+    "node": 281086737,
+    "lon": 8.6663847,
+    "lat": 49.4155972,
+    "snap_distance_m": 103.25753960472481
+  },
+  {
+    "id": "node/5890803043",
+    "name": "Institut für Humangenetik",
+    "node": 21697660,
+    "lon": 8.6628963,
+    "lat": 49.4168447,
+    "snap_distance_m": 222.93914081213777
+  },
+  {
+    "id": "node/5890803044",
+    "name": "Frauenklinik",
+    "node": 21697660,
+    "lon": 8.6628954,
+    "lat": 49.4166199,
+    "snap_distance_m": 240.7521347721751
+  },
+  {
+    "id": "node/5890803045",
+    "name": "Hautklinik",
+    "node": 21697660,
+    "lon": 8.662535,
+    "lat": 49.4169203,
+    "snap_distance_m": 198.52445810560178
+  },
+  {
+    "id": "node/12478205837",
+    "name": "Unnamed OSM hospital ('node', 12478205837)",
+    "node": 266595541,
+    "lon": 8.6878497,
+    "lat": 49.4251462,
+    "snap_distance_m": 71.88936246169669
+  },
+  {
+    "id": "relation/19540",
+    "name": "Kopfklinik",
+    "node": 283220775,
+    "lon": 8.66656915781508,
+    "lat": 49.417823150000004,
+    "snap_distance_m": 104.60902285080321
+  },
+  {
+    "id": "relation/20945",
+    "name": "Kinderklinik",
+    "node": 21697660,
+    "lon": 8.662121386025895,
+    "lat": 49.4176927,
+    "snap_distance_m": 121.20713496147502
+  },
+  {
+    "id": "relation/4505865",
+    "name": "Klinik für Allgemeine Psychiatrie",
+    "node": 11247645,
+    "lon": 8.685657540123561,
+    "lat": 49.40965205,
+    "snap_distance_m": 73.42972425794451
+  },
+  {
+    "id": "way/25771232",
+    "name": "Heidelberger Ionenstrahl-Therapiezentrum",
+    "node": 278914938,
+    "lon": 8.664195894424385,
+    "lat": 49.417672249999995,
+    "snap_distance_m": 156.29924510368545
+  },
+  {
+    "id": "way/25813173",
+    "name": "Zentrum für Schmerztherapie und Palliativmedizin",
+    "node": 281086737,
+    "lon": 8.669625653393336,
+    "lat": 49.4130549,
+    "snap_distance_m": 328.64099524817755
+  },
+  {
+    "id": "way/26006151",
+    "name": "Innere Medizin X: Klinik für Nephrologie",
+    "node": 281086737,
+    "lon": 8.665812848386452,
+    "lat": 49.414104550000005,
+    "snap_distance_m": 69.53345376260478
+  },
+  {
+    "id": "way/35534679",
+    "name": "Nationales Centrum für Tumorerkrankungen",
+    "node": 278914938,
+    "lon": 8.663978184549265,
+    "lat": 49.4184652,
+    "snap_distance_m": 76.86688557234429
+  },
+  {
+    "id": "way/35842577",
+    "name": "Unnamed OSM hospital ('way', 35842577)",
+    "node": 258376790,
+    "lon": 8.690420158764816,
+    "lat": 49.408978700000006,
+    "snap_distance_m": 43.81118006096213
+  },
+  {
+    "id": "way/96690377",
+    "name": "Unfallchirurgie - ATOS",
+    "node": 364059069,
+    "lon": 8.691221593197136,
+    "lat": 49.41040405,
+    "snap_distance_m": 49.01849612018545
+  },
+  {
+    "id": "way/140128817",
+    "name": "Institut für Psychosomatische Kooperationsforschung und Familientherapie, Personalwohngebäude",
+    "node": 742682561,
+    "lon": 8.68634922917395,
+    "lat": 49.40825805,
+    "snap_distance_m": 32.23702844252783
+  },
+  {
+    "id": "way/141216666",
+    "name": "Tropenmedizinische Ambulanz / Heidelberg Institute of Global Health (HIGH) / Zentrum für Infektiologie",
+    "node": 283220775,
+    "lon": 8.669820477364865,
+    "lat": 49.415841900000004,
+    "snap_distance_m": 220.57117625516005
+  },
+  {
+    "id": "way/155203932",
+    "name": "Kinder- & Jugendpsychiatrie Heidelberg",
+    "node": 742682579,
+    "lon": 8.685258415784116,
+    "lat": 49.408777,
+    "snap_distance_m": 68.4215436422453
+  },
+  {
+    "id": "way/209189456",
+    "name": "Ethianum",
+    "node": 11247645,
+    "lon": 8.684305984020252,
+    "lat": 49.4093181,
+    "snap_distance_m": 71.97486286407047
+  },
+  {
+    "id": "way/259039249",
+    "name": "St. Josefskrankenhaus",
+    "node": 312805609,
+    "lon": 8.689109735545756,
+    "lat": 49.402488149999996,
+    "snap_distance_m": 44.16070571225084
+  },
+  {
+    "id": "way/323478250",
+    "name": "Zentrum für Psychosoziale Medizin",
+    "node": 60697794,
+    "lon": 8.686075205232093,
+    "lat": 49.4092375,
+    "snap_distance_m": 100.50045451524561
+  },
+  {
+    "id": "way/342036341",
+    "name": "Medizinische Klinik",
+    "node": 283220775,
+    "lon": 8.666715451971113,
+    "lat": 49.4163876,
+    "snap_distance_m": 130.3348653072449
+  },
+  {
+    "id": "way/342045912",
+    "name": "Klinik Sankt Elisabeth",
+    "node": 269428281,
+    "lon": 8.681537588995784,
+    "lat": 49.4213425,
+    "snap_distance_m": 68.73862907369077
+  },
+  {
+    "id": "way/560031595",
+    "name": "ATOS Klinik",
+    "node": 247696064,
+    "lon": 8.691932465368687,
+    "lat": 49.410437099999996,
+    "snap_distance_m": 41.18205957842157
+  },
+  {
+    "id": "way/783859869",
+    "name": "Salem",
+    "node": 267889582,
+    "lon": 8.683786866438108,
+    "lat": 49.423354149999994,
+    "snap_distance_m": 46.34978674395675
+  },
+  {
+    "id": "way/857476895",
+    "name": "Chirurgische Klinik",
+    "node": 262808548,
+    "lon": 8.665137208974357,
+    "lat": 49.41559085,
+    "snap_distance_m": 74.21469799899648
+  },
+  {
+    "id": "way/894614246",
+    "name": "Universitätsklinikum Heidelberg",
+    "node": 278914938,
+    "lon": 8.664722641669236,
+    "lat": 49.41715225,
+    "snap_distance_m": 212.9752939493077
+  }
+]

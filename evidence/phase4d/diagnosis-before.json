@@ -1,0 +1,51 @@
+{
+  "method": "Offline reconstruction using recorded inputs/tool outputs, null assistant notes; not exact provider token counts",
+  "system_bytes": 1562,
+  "schema_bytes": 4727,
+  "payload_bytes_before_each_call": [
+    7932,
+    8940,
+    16742,
+    31696
+  ],
+  "tools": [
+    {
+      "tool": "retrieve_incident",
+      "raw_output_bytes": 511,
+      "generic_preview_bytes": 511,
+      "actual_reply_bytes": 671,
+      "lost_preview_to_cap": false
+    },
+    {
+      "tool": "baseline_accessibility",
+      "raw_output_bytes": 12480,
+      "generic_preview_bytes": 6730,
+      "actual_reply_bytes": 6895,
+      "lost_preview_to_cap": false
+    },
+    {
+      "tool": "analyze_closures",
+      "raw_output_bytes": 26396,
+      "generic_preview_bytes": 13163,
+      "actual_reply_bytes": 13328,
+      "lost_preview_to_cap": false
+    }
+  ],
+  "confirmed_failure": [
+    {
+      "category": "provider_request",
+      "http_status": 413,
+      "provider_code": "rate_limit_exceeded",
+      "request_id": "req_01m5t1r65tetssem5vzbed6p1r",
+      "transient": false,
+      "retry_after_seconds": 36.0,
+      "retry_after_supplied": true,
+      "stage": "provider_sdk",
+      "agent_step": 4,
+      "provider_attempt": 4,
+      "retry_scheduled": false,
+      "retry_decision": "not_transient"
+    }
+  ],
+  "provider_limit_exactly_known": false
+}

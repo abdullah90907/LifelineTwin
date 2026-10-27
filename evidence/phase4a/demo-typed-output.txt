@@ -1,0 +1,39 @@
+{
+  "evidence_directory": "D:\\Projects 2026\\LIfelineTwin\\evidence\\phase4a\\heidelberg-demo-08okk56k",
+  "hypothetical": true,
+  "incident_id": "0739b1d9-2169-4fad-9fd8-c22deb19fa45",
+  "investigation_id": "81dc11c1-fed0-4cef-9a26-8a0eb2257b10",
+  "server_process_restarted": true,
+  "persisted_result_identical": true,
+  "graph_nodes": 1060,
+  "graph_edges": 2331,
+  "pair_restorations": [
+    {
+      "reopened": [
+        "D1",
+        "D2"
+      ],
+      "reconnected_origins": 0,
+      "distance_saved_m_for_already_reachable": 432.8682130453435
+    },
+    {
+      "reopened": [
+        "D1",
+        "D3"
+      ],
+      "reconnected_origins": 0,
+      "distance_saved_m_for_already_reachable": 0.0
+    },
+    {
+      "reopened": [
+        "D2",
+        "D3"
+      ],
+      "reconnected_origins": 0,
+      "distance_saved_m_for_already_reachable": 0.0
+    }
+  ],
+  "model": "ibm-granite/granite-timeseries-ttm-r1",
+  "observed_context_hours": 740,
+  "forecast_horizon_hours": 96
+}

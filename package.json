@@ -1,0 +1,8 @@
+{
+  "name": "lifelinetwin-phase1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:road": "node vendor/Meterless/engines/world-model/reference/node_modules/tsx/dist/cli.mjs scripts/meterless-road-check.ts"
+  }
+}

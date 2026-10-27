@@ -1,0 +1,2781 @@
+[
+  {
+    "sequence": 1,
+    "kind": "start",
+    "created_at": "2026-10-25T17:28:54.560059+00:00",
+    "payload": {
+      "model_identity": {
+        "adapter": "openai_python_chat_completions",
+        "configured_model": "openai/gpt-oss-20b",
+        "base_url": "https://api.groq.com/openai/v1",
+        "live_llm": true
+      },
+      "evidence_id": "E0"
+    }
+  },
+  {
+    "sequence": 2,
+    "kind": "decision",
+    "created_at": "2026-10-25T17:28:58.914981+00:00",
+    "payload": {
+      "model": "openai/gpt-oss-20b",
+      "selected_tools": [
+        "retrieve_incident"
+      ],
+      "assistant_note_untrusted": "",
+      "provider_attempt": 1,
+      "request_id": "req_01m5t1qdrxejqr960qe2twn1a1"
+    }
+  },
+  {
+    "sequence": 3,
+    "kind": "tool",
+    "created_at": "2026-10-25T17:28:58.921562+00:00",
+    "payload": {
+      "tool": "retrieve_incident",
+      "call_id": "fc_9b20dd4b-139e-4366-bd01-d2d3ee378050",
+      "input": {},
+      "output": {
+        "title": "Hypothetical Heidelberg live LLM verification (Phase 4C final)",
+        "description": "Research scenario only; approved cached road segments are hypothetical closures, not real incident reports.",
+        "kind": "hypothetical",
+        "occurred_at": "2026-10-24T19:55:49.074511Z",
+        "context": {
+          "latitude": 49.415,
+          "longitude": 8.6775,
+          "origin_ids": []
+        },
+        "claims": [],
+        "id": "216db365-781b-4fdd-b116-394f7f5856f2",
+        "status": "open",
+        "created_at": "2026-10-25T17:28:43.087278Z",
+        "updated_at": "2026-10-25T17:28:43.087287Z"
+      },
+      "error": null,
+      "evidence_id": "E1",
+      "category": "attributed_incident_claims",
+      "reused": false,
+      "failure": null
+    }
+  },
+  {
+    "sequence": 4,
+    "kind": "decision",
+    "created_at": "2026-10-25T17:29:02.474374+00:00",
+    "payload": {
+      "model": "openai/gpt-oss-20b",
+      "selected_tools": [
+        "baseline_accessibility"
+      ],
+      "assistant_note_untrusted": "",
+      "provider_attempt": 2,
+      "request_id": "req_01m5t1qht9ebda5z3wzsxqchap"
+    }
+  },
+  {
+    "sequence": 5,
+    "kind": "tool",
+    "created_at": "2026-10-25T17:29:08.015203+00:00",
+    "payload": {
+      "tool": "baseline_accessibility",
+      "call_id": "fc_69eb80df-14c3-4fc1-baf5-7f853a96b039",
+      "input": {},
+      "output": {
+        "scenario_type": "hypothetical",
+        "analysis": {
+          "baseline": [
+            {
+              "id": "O1",
+              "node": 3100180496,
+              "distance_m": 2166.8823030963176,
+              "facility_node": 11247645,
+              "path": [
+                3100180496,
+                2400540515,
+                6696634421,
+                5308873276,
+                3656305957,
+                3764988766,
+                285880240,
+                11335824279,
+                11335824278,
+                263082742,
+                263082737,
+                61089615,
+                61089617,
+                26912618,
+                21698118,
+                269603405,
+                11247599,
+                11247600,
+                269603381,
+                645759165,
+                645759170,
+                270237889,
+                645759168,
+                11247645
+              ]
+            },
+            {
+              "id": "O2",
+              "node": 269790906,
+              "distance_m": 1244.8360074474808,
+              "facility_node": 312805609,
+              "path": [
+                269790906,
+                269790915,
+                271947697,
+                272399942,
+                272399933,
+                272401627,
+                272401628,
+                272401630,
+                269902967,
+                274348364,
+                267766048,
+                1995904956,
+                11891142439,
+                312805607,
+                312805609
+              ]
+            },
+            {
+              "id": "O3",
+              "node": 260807376,
+              "distance_m": 489.19991828527054,
+              "facility_node": 312805609,
+              "path": [
+                260807376,
+                300155469,
+                269902955,
+                269902952,
+                270934378,
+                312805609
+              ]
+            },
+            {
+              "id": "O4",
+              "node": 283751939,
+              "distance_m": 18.43321387739125,
+              "facility_node": 262808548,
+              "path": [
+                283751939,
+                262808548
+              ]
+            },
+            {
+              "id": "O5",
+              "node": 281572580,
+              "distance_m": 884.9766439904336,
+              "facility_node": 269428281,
+              "path": [
+                281572580,
+                281572582,
+                281572531,
+                281565044,
+                285261352,
+                269428273,
+                21697629,
+                269428277,
+                281484026,
+                35677171,
+                269428281
+              ]
+            },
+            {
+              "id": "O6",
+              "node": 267161325,
+              "distance_m": 749.478014132016,
+              "facility_node": 247696064,
+              "path": [
+                267161325,
+                267161282,
+                267161351,
+                11930453336,
+                260807377,
+                33811019,
+                928125779,
+                146000024,
+                60697812,
+                298538536,
+                60697818,
+                247696064
+              ]
+            },
+            {
+              "id": "O7",
+              "node": 772443402,
+              "distance_m": 1253.0909339857844,
+              "facility_node": 21697660,
+              "path": [
+                772443402,
+                281063628,
+                21697660
+              ]
+            },
+            {
+              "id": "O8",
+              "node": 1341408296,
+              "distance_m": 788.8054360437479,
+              "facility_node": 269428281,
+              "path": [
+                1341408296,
+                35483110,
+                267889590,
+                267889588,
+                261076966,
+                269726704,
+                301109705,
+                13888159,
+                2304964680,
+                269428281
+              ]
+            },
+            {
+              "id": "O9",
+              "node": 267040686,
+              "distance_m": 694.6652785757433,
+              "facility_node": 266595541,
+              "path": [
+                267040686,
+                267040672,
+                267040664,
+                267040727,
+                267040783,
+                264047240,
+                264047241,
+                266595541
+              ]
+            }
+          ],
+          "closures": [],
+          "disrupted": [
+            {
+              "id": "O1",
+              "node": 3100180496,
+              "distance_m": 2166.8823030963176,
+              "facility_node": 11247645,
+              "path": [
+                3100180496,
+                2400540515,
+                6696634421,
+                5308873276,
+                3656305957,
+                3764988766,
+                285880240,
+                11335824279,
+                11335824278,
+                263082742,
+                263082737,
+                61089615,
+                61089617,
+                26912618,
+                21698118,
+                269603405,
+                11247599,
+                11247600,
+                269603381,
+                645759165,
+                645759170,
+                270237889,
+                645759168,
+                11247645
+              ]
+            },
+            {
+              "id": "O2",
+              "node": 269790906,
+              "distance_m": 1244.8360074474808,
+              "facility_node": 312805609,
+              "path": [
+                269790906,
+                269790915,
+                271947697,
+                272399942,
+                272399933,
+                272401627,
+                272401628,
+                272401630,
+                269902967,
+                274348364,
+                267766048,
+                1995904956,
+                11891142439,
+                312805607,
+                312805609
+              ]
+            },
+            {
+              "id": "O3",
+              "node": 260807376,
+              "distance_m": 489.19991828527054,
+              "facility_node": 312805609,
+              "path": [
+                260807376,
+                300155469,
+                269902955,
+                269902952,
+                270934378,
+                312805609
+              ]
+            },
+            {
+              "id": "O4",
+              "node": 283751939,
+              "distance_m": 18.43321387739125,
+              "facility_node": 262808548,
+              "path": [
+                283751939,
+                262808548
+              ]
+            },
+            {
+              "id": "O5",
+              "node": 281572580,
+              "distance_m": 884.9766439904336,
+              "facility_node": 269428281,
+              "path": [
+                281572580,
+                281572582,
+                281572531,
+                281565044,
+                285261352,
+                269428273,
+                21697629,
+                269428277,
+                281484026,
+                35677171,
+                269428281
+              ]
+            },
+            {
+              "id": "O6",
+              "node": 267161325,
+              "distance_m": 749.478014132016,
+              "facility_node": 247696064,
+              "path": [
+                267161325,
+                267161282,
+                267161351,
+                11930453336,
+                260807377,
+                33811019,
+                928125779,
+                146000024,
+                60697812,
+                298538536,
+                60697818,
+                247696064
+              ]
+            },
+            {
+              "id": "O7",
+              "node": 772443402,
+              "distance_m": 1253.0909339857844,
+              "facility_node": 21697660,
+              "path": [
+                772443402,
+                281063628,
+                21697660
+              ]
+            },
+            {
+              "id": "O8",
+              "node": 1341408296,
+              "distance_m": 788.8054360437479,
+              "facility_node": 269428281,
+              "path": [
+                1341408296,
+                35483110,
+                267889590,
+                267889588,
+                261076966,
+                269726704,
+                301109705,
+                13888159,
+                2304964680,
+                269428281
+              ]
+            },
+            {
+              "id": "O9",
+              "node": 267040686,
+              "distance_m": 694.6652785757433,
+              "facility_node": 266595541,
+              "path": [
+                267040686,
+                267040672,
+                267040664,
+                267040727,
+                267040783,
+                264047240,
+                264047241,
+                266595541
+              ]
+            }
+          ],
+          "changes": [
+            {
+              "id": "O1",
+              "baseline_m": 2166.8823030963176,
+              "scenario_m": 2166.8823030963176,
+              "newly_disconnected": false,
+              "increase_m": 0.0
+            },
+            {
+              "id": "O2",
+              "baseline_m": 1244.8360074474808,
+              "scenario_m": 1244.8360074474808,
+              "newly_disconnected": false,
+              "increase_m": 0.0
+            },
+            {
+              "id": "O3",
+              "baseline_m": 489.19991828527054,
+              "scenario_m": 489.19991828527054,
+              "newly_disconnected": false,
+              "increase_m": 0.0
+            },
+            {
+              "id": "O4",
+              "baseline_m": 18.43321387739125,
+              "scenario_m": 18.43321387739125,
+              "newly_disconnected": false,
+              "increase_m": 0.0
+            },
+            {
+              "id": "O5",
+              "baseline_m": 884.9766439904336,
+              "scenario_m": 884.9766439904336,
+              "newly_disconnected": false,
+              "increase_m": 0.0
+            },
+            {
+              "id": "O6",
+              "baseline_m": 749.478014132016,
+              "scenario_m": 749.478014132016,
+              "newly_disconnected": false,
+              "increase_m": 0.0
+            },
+            {
+              "id": "O7",
+              "baseline_m": 1253.0909339857844,
+              "scenario_m": 1253.0909339857844,
+              "newly_disconnected": false,
+              "increase_m": 0.0
+            },
+            {
+              "id": "O8",
+              "baseline_m": 788.8054360437479,
+              "scenario_m": 788.8054360437479,
+              "newly_disconnected": false,
+              "increase_m": 0.0
+            },
+            {
+              "id": "O9",
+              "baseline_m": 694.6652785757433,
+              "scenario_m": 694.6652785757433,
+              "newly_disconnected": false,
+              "increase_m": 0.0
+            }
+          ],
+          "restorations": []
+        },
+        "pair_restorations": [],
+        "dataset": {
+          "area": "Central Heidelberg, Baden-Wurttemberg, Germany",
+          "bbox_wsen": [
+            8.65,
+            49.395,
+            8.705,
+            49.435
+          ],
+          "download_completed_utc": "2026-10-24T16:15:39.266217+00:00",
+          "source": "OpenStreetMap via OSMnx/Overpass",
+          "overpass_url": "https://overpass-api.de/api",
+          "attribution": "(c) OpenStreetMap contributors; ODbL https://www.openstreetmap.org/copyright",
+          "osmnx": "2.1.1",
+          "network_type": "drive",
+          "weight": "length (metres)",
+          "nodes": 1060,
+          "directed_edges": 2331,
+          "sha256": {
+            "roads.graphml": "e076e080fd2fa9e0d9accc092770ec63ceb6adc30dfa2480c7ec50e4e98fefe9",
+            "hospitals.geojson": "ac4a6861bae392a376c218a5eaae3aa4351b29f17c9be706d718b7fc2d84db8b",
+            "facilities.json": "12b48ecfb50ee592644be3b4b196b3063814ed5c04cdfabd8fd841f8c5e7cbb2",
+            "origins.json": "53b99d720446d9fd090b99895c5a2dc2dad8980501e6eae42f234023bf2f30aa"
+          }
+        },
+        "origins": [
+          {
+            "id": "O1",
+            "node": 3100180496,
+            "lon": 8.661,
+            "lat": 49.403000000000006,
+            "snap_distance_m": 77.728764198427
+          },
+          {
+            "id": "O2",
+            "node": 269790906,
+            "lon": 8.6775,
+            "lat": 49.403000000000006,
+            "snap_distance_m": 44.9009702429288
+          },
+          {
+            "id": "O3",
+            "node": 260807376,
+            "lon": 8.694,
+            "lat": 49.403000000000006,
+            "snap_distance_m": 100.2754711235693
+          },
+          {
+            "id": "O4",
+            "node": 283751939,
+            "lon": 8.661,
+            "lat": 49.415000000000006,
+            "snap_distance_m": 284.8922925165652
+          },
+          {
+            "id": "O5",
+            "node": 281572580,
+            "lon": 8.6775,
+            "lat": 49.415000000000006,
+            "snap_distance_m": 58.138908408139976
+          },
+          {
+            "id": "O6",
+            "node": 267161325,
+            "lon": 8.694,
+            "lat": 49.415000000000006,
+            "snap_distance_m": 19.51677136794441
+          },
+          {
+            "id": "O7",
+            "node": 772443402,
+            "lon": 8.661,
+            "lat": 49.427,
+            "snap_distance_m": 58.3330576361885
+          },
+          {
+            "id": "O8",
+            "node": 1341408296,
+            "lon": 8.6775,
+            "lat": 49.427,
+            "snap_distance_m": 48.843406349642436
+          },
+          {
+            "id": "O9",
+            "node": 267040686,
+            "lon": 8.694,
+            "lat": 49.427,
+            "snap_distance_m": 203.47346825492988
+          }
+        ],
+        "facilities": [
+          {
+            "id": "node/678470357",
+            "name": "Kurpfalzkrankenhaus",
+            "node": 271328792,
+            "lon": 8.6538078,
+            "lat": 49.4136043,
+            "snap_distance_m": 85.99979716020705
+          },
+          {
+            "id": "node/2343179537",
+            "name": "Klinik f\u00fcr Allgemeine Innere Medizin und Psychosomatik",
+            "node": 281086737,
+            "lon": 8.6663847,
+            "lat": 49.4155972,
+            "snap_distance_m": 103.25753960472481
+          },
+          {
+            "id": "node/5890803043",
+            "name": "Institut f\u00fcr Humangenetik",
+            "node": 21697660,
+            "lon": 8.6628963,
+            "lat": 49.4168447,
+            "snap_distance_m": 222.93914081213777
+          },
+          {
+            "id": "node/5890803044",
+            "name": "Frauenklinik",
+            "node": 21697660,
+            "lon": 8.6628954,
+            "lat": 49.4166199,
+            "snap_distance_m": 240.7521347721751
+          },
+          {
+            "id": "node/5890803045",
+            "name": "Hautklinik",
+            "node": 21697660,
+            "lon": 8.662535,
+            "lat": 49.4169203,
+            "snap_distance_m": 198.52445810560178
+          },
+          {
+            "id": "node/12478205837",
+            "name": "Unnamed OSM hospital ('node', 12478205837)",
+            "node": 266595541,
+            "lon": 8.6878497,
+            "lat": 49.4251462,
+            "snap_distance_m": 71.88936246169669
+          },
+          {
+            "id": "relation/19540",
+            "name": "Kopfklinik",
+            "node": 283220775,
+            "lon": 8.66656915781508,
+            "lat": 49.417823150000004,
+            "snap_distance_m": 104.60902285080321
+          },
+          {
+            "id": "relation/20945",
+            "name": "Kinderklinik",
+            "node": 21697660,
+            "lon": 8.662121386025895,
+            "lat": 49.4176927,
+            "snap_distance_m": 121.20713496147502
+          },
+          {
+            "id": "relation/4505865",
+            "name": "Klinik f\u00fcr Allgemeine Psychiatrie",
+            "node": 11247645,
+            "lon": 8.685657540123561,
+            "lat": 49.40965205,
+            "snap_distance_m": 73.42972425794451
+          },
+          {
+            "id": "way/25771232",
+            "name": "Heidelberger Ionenstrahl-Therapiezentrum",
+            "node": 278914938,
+            "lon": 8.664195894424385,
+            "lat": 49.417672249999995,
+            "snap_distance_m": 156.29924510368545
+          },
+          {
+            "id": "way/25813173",
+            "name": "Zentrum f\u00fcr Schmerztherapie und Palliativmedizin",
+            "node": 281086737,
+            "lon": 8.669625653393336,
+            "lat": 49.4130549,
+            "snap_distance_m": 328.64099524817755
+          },
+          {
+            "id": "way/26006151",
+            "name": "Innere Medizin X: Klinik f\u00fcr Nephrologie",
+            "node": 281086737,
+            "lon": 8.665812848386452,
+            "lat": 49.414104550000005,
+            "snap_distance_m": 69.53345376260478
+          },
+          {
+            "id": "way/35534679",
+            "name": "Nationales Centrum f\u00fcr Tumorerkrankungen",
+            "node": 278914938,
+            "lon": 8.663978184549265,
+            "lat": 49.4184652,
+            "snap_distance_m": 76.86688557234429
+          },
+          {
+            "id": "way/35842577",
+            "name": "Unnamed OSM hospital ('way', 35842577)",
+            "node": 258376790,
+            "lon": 8.690420158764816,
+            "lat": 49.408978700000006,
+            "snap_distance_m": 43.81118006096213
+          },
+          {
+            "id": "way/96690377",
+            "name": "Unfallchirurgie - ATOS",
+            "node": 364059069,
+            "lon": 8.691221593197136,
+            "lat": 49.41040405,
+            "snap_distance_m": 49.01849612018545
+          },
+          {
+            "id": "way/140128817",
+            "name": "Institut f\u00fcr Psychosomatische Kooperationsforschung und Familientherapie, Personalwohngeb\u00e4ude",
+            "node": 742682561,
+            "lon": 8.68634922917395,
+            "lat": 49.40825805,
+            "snap_distance_m": 32.23702844252783
+          },
+          {
+            "id": "way/141216666",
+            "name": "Tropenmedizinische Ambulanz / Heidelberg Institute of Global Health (HIGH) / Zentrum f\u00fcr Infektiologie",
+            "node": 283220775,
+            "lon": 8.669820477364865,
+            "lat": 49.415841900000004,
+            "snap_distance_m": 220.57117625516005
+          },
+          {
+            "id": "way/155203932",
+            "name": "Kinder- & Jugendpsychiatrie Heidelberg",
+            "node": 742682579,
+            "lon": 8.685258415784116,
+            "lat": 49.408777,
+            "snap_distance_m": 68.4215436422453
+          },
+          {
+            "id": "way/209189456",
+            "name": "Ethianum",
+            "node": 11247645,
+            "lon": 8.684305984020252,
+            "lat": 49.4093181,
+            "snap_distance_m": 71.97486286407047
+          },
+          {
+            "id": "way/259039249",
+            "name": "St. Josefskrankenhaus",
+            "node": 312805609,
+            "lon": 8.689109735545756,
+            "lat": 49.402488149999996,
+            "snap_distance_m": 44.16070571225084
+          },
+          {
+            "id": "way/323478250",
+            "name": "Zentrum f\u00fcr Psychosoziale Medizin",
+            "node": 60697794,
+            "lon": 8.686075205232093,
+            "lat": 49.4092375,
+            "snap_distance_m": 100.50045451524561
+          },
+          {
+            "id": "way/342036341",
+            "name": "Medizinische Klinik",
+            "node": 283220775,
+            "lon": 8.666715451971113,
+            "lat": 49.4163876,
+            "snap_distance_m": 130.3348653072449
+          },
+          {
+            "id": "way/342045912",
+            "name": "Klinik Sankt Elisabeth",
+            "node": 269428281,
+            "lon": 8.681537588995784,
+            "lat": 49.4213425,
+            "snap_distance_m": 68.73862907369077
+          },
+          {
+            "id": "way/560031595",
+            "name": "ATOS Klinik",
+            "node": 247696064,
+            "lon": 8.691932465368687,
+            "lat": 49.410437099999996,
+            "snap_distance_m": 41.18205957842157
+          },
+          {
+            "id": "way/783859869",
+            "name": "Salem",
+            "node": 267889582,
+            "lon": 8.683786866438108,
+            "lat": 49.423354149999994,
+            "snap_distance_m": 46.34978674395675
+          },
+          {
+            "id": "way/857476895",
+            "name": "Chirurgische Klinik",
+            "node": 262808548,
+            "lon": 8.665137208974357,
+            "lat": 49.41559085,
+            "snap_distance_m": 74.21469799899648
+          },
+          {
+            "id": "way/894614246",
+            "name": "Universit\u00e4tsklinikum Heidelberg",
+            "node": 278914938,
+            "lon": 8.664722641669236,
+            "lat": 49.41715225,
+            "snap_distance_m": 212.9752939493077
+          }
+        ],
+        "context": {
+          "latitude": 49.415,
+          "longitude": 8.6775,
+          "origin_ids": []
+        },
+        "limitations": [
+          "All closures are conditional hypothetical graph scenarios; no current road state is established.",
+          "Distances are between snapped road nodes, not travel times or door-to-door access; facility capability is unverified.",
+          "Incident coordinates validate study-area membership; analysis uses the selected cached grid origins, not a new incident-point route.",
+          "The fixed 2026-10-24 OSM snapshot excludes external roads/hospitals; origins have equal weight.",
+          "All parallel edges between both endpoint directions are removed; other carriageways are unaffected.",
+          "Pairs are evaluated only if every individual reopening has zero benefit; at most six supplied closures (15 pairs)."
+        ]
+      },
+      "error": null,
+      "evidence_id": "E2",
+      "category": "computed_hypothetical_geography",
+      "reused": false,
+      "failure": null
+    }
+  },
+  {
+    "sequence": 6,
+    "kind": "decision",
+    "created_at": "2026-10-25T17:29:12.828967+00:00",
+    "payload": {
+      "model": "openai/gpt-oss-20b",
+      "selected_tools": [
+        "analyze_closures"
+      ],
+      "assistant_note_untrusted": "",
+      "provider_attempt": 3,
+      "request_id": "req_01m5t1qvnveejrw701rpt060fg"
+    }
+  },
+  {
+    "sequence": 7,
+    "kind": "tool",
+    "created_at": "2026-10-25T17:29:19.427974+00:00",
+    "payload": {
+      "tool": "analyze_closures",
+      "call_id": "fc_138c58db-4108-43d8-93f8-080b81271c69",
+      "input": {
+        "closure_ids": [
+          "D1",
+          "D2",
+          "D3"
+        ]
+      },
+      "output": {
+        "scenario_type": "hypothetical",
+        "analysis": {
+          "baseline": [
+            {
+              "id": "O1",
+              "node": 3100180496,
+              "distance_m": 2166.8823030963176,
+              "facility_node": 11247645,
+              "path": [
+                3100180496,
+                2400540515,
+                6696634421,
+                5308873276,
+                3656305957,
+                3764988766,
+                285880240,
+                11335824279,
+                11335824278,
+                263082742,
+                263082737,
+                61089615,
+                61089617,
+                26912618,
+                21698118,
+                269603405,
+                11247599,
+                11247600,
+                269603381,
+                645759165,
+                645759170,
+                270237889,
+                645759168,
+                11247645
+              ]
+            },
+            {
+              "id": "O2",
+              "node": 269790906,
+              "distance_m": 1244.8360074474808,
+              "facility_node": 312805609,
+              "path": [
+                269790906,
+                269790915,
+                271947697,
+                272399942,
+                272399933,
+                272401627,
+                272401628,
+                272401630,
+                269902967,
+                274348364,
+                267766048,
+                1995904956,
+                11891142439,
+                312805607,
+                312805609
+              ]
+            },
+            {
+              "id": "O3",
+              "node": 260807376,
+              "distance_m": 489.19991828527054,
+              "facility_node": 312805609,
+              "path": [
+                260807376,
+                300155469,
+                269902955,
+                269902952,
+                270934378,
+                312805609
+              ]
+            },
+            {
+              "id": "O4",
+              "node": 283751939,
+              "distance_m": 18.43321387739125,
+              "facility_node": 262808548,
+              "path": [
+                283751939,
+                262808548
+              ]
+            },
+            {
+              "id": "O5",
+              "node": 281572580,
+              "distance_m": 884.9766439904336,
+              "facility_node": 269428281,
+              "path": [
+                281572580,
+                281572582,
+                281572531,
+                281565044,
+                285261352,
+                269428273,
+                21697629,
+                269428277,
+                281484026,
+                35677171,
+                269428281
+              ]
+            },
+            {
+              "id": "O6",
+              "node": 267161325,
+              "distance_m": 749.478014132016,
+              "facility_node": 247696064,
+              "path": [
+                267161325,
+                267161282,
+                267161351,
+                11930453336,
+                260807377,
+                33811019,
+                928125779,
+                146000024,
+                60697812,
+                298538536,
+                60697818,
+                247696064
+              ]
+            },
+            {
+              "id": "O7",
+              "node": 772443402,
+              "distance_m": 1253.0909339857844,
+              "facility_node": 21697660,
+              "path": [
+                772443402,
+                281063628,
+                21697660
+              ]
+            },
+            {
+              "id": "O8",
+              "node": 1341408296,
+              "distance_m": 788.8054360437479,
+              "facility_node": 269428281,
+              "path": [
+                1341408296,
+                35483110,
+                267889590,
+                267889588,
+                261076966,
+                269726704,
+                301109705,
+                13888159,
+                2304964680,
+                269428281
+              ]
+            },
+            {
+              "id": "O9",
+              "node": 267040686,
+              "distance_m": 694.6652785757433,
+              "facility_node": 266595541,
+              "path": [
+                267040686,
+                267040672,
+                267040664,
+                267040727,
+                267040783,
+                264047240,
+                264047241,
+                266595541
+              ]
+            }
+          ],
+          "closures": [
+            {
+              "id": "D1",
+              "u": 33811019,
+              "v": 928125779,
+              "hypothetical": true
+            },
+            {
+              "id": "D2",
+              "u": 60697812,
+              "v": 146000024,
+              "hypothetical": true
+            },
+            {
+              "id": "D3",
+              "u": 60697818,
+              "v": 298538536,
+              "hypothetical": true
+            }
+          ],
+          "disrupted": [
+            {
+              "id": "O1",
+              "node": 3100180496,
+              "distance_m": 2166.8823030963176,
+              "facility_node": 11247645,
+              "path": [
+                3100180496,
+                2400540515,
+                6696634421,
+                5308873276,
+                3656305957,
+                3764988766,
+                285880240,
+                11335824279,
+                11335824278,
+                263082742,
+                263082737,
+                61089615,
+                61089617,
+                26912618,
+                21698118,
+                269603405,
+                11247599,
+                11247600,
+                269603381,
+                645759165,
+                645759170,
+                270237889,
+                645759168,
+                11247645
+              ]
+            },
+            {
+              "id": "O2",
+              "node": 269790906,
+              "distance_m": 1244.8360074474808,
+              "facility_node": 312805609,
+              "path": [
+                269790906,
+                269790915,
+                271947697,
+                272399942,
+                272399933,
+                272401627,
+                272401628,
+                272401630,
+                269902967,
+                274348364,
+                267766048,
+                1995904956,
+                11891142439,
+                312805607,
+                312805609
+              ]
+            },
+            {
+              "id": "O3",
+              "node": 260807376,
+              "distance_m": 489.19991828527054,
+              "facility_node": 312805609,
+              "path": [
+                260807376,
+                300155469,
+                269902955,
+                269902952,
+                270934378,
+                312805609
+              ]
+            },
+            {
+              "id": "O4",
+              "node": 283751939,
+              "distance_m": 18.43321387739125,
+              "facility_node": 262808548,
+              "path": [
+                283751939,
+                262808548
+              ]
+            },
+            {
+              "id": "O5",
+              "node": 281572580,
+              "distance_m": 884.9766439904336,
+              "facility_node": 269428281,
+              "path": [
+                281572580,
+                281572582,
+                281572531,
+                281565044,
+                285261352,
+                269428273,
+                21697629,
+                269428277,
+                281484026,
+                35677171,
+                269428281
+              ]
+            },
+            {
+              "id": "O6",
+              "node": 267161325,
+              "distance_m": 1515.3044450550988,
+              "facility_node": 266595541,
+              "path": [
+                267161325,
+                267161282,
+                267161351,
+                11930453336,
+                260807377,
+                33811019,
+                33811020,
+                712866997,
+                267889578,
+                33811027,
+                145994144,
+                267161508,
+                2308341338,
+                645738540,
+                1995271013,
+                267161590,
+                61100280,
+                267161595,
+                275914345,
+                1995271037,
+                33811046,
+                267161625,
+                145994123,
+                21697619,
+                266595541
+              ]
+            },
+            {
+              "id": "O7",
+              "node": 772443402,
+              "distance_m": 1253.0909339857844,
+              "facility_node": 21697660,
+              "path": [
+                772443402,
+                281063628,
+                21697660
+              ]
+            },
+            {
+              "id": "O8",
+              "node": 1341408296,
+              "distance_m": 788.8054360437479,
+              "facility_node": 269428281,
+              "path": [
+                1341408296,
+                35483110,
+                267889590,
+                267889588,
+                261076966,
+                269726704,
+                301109705,
+                13888159,
+                2304964680,
+                269428281
+              ]
+            },
+            {
+              "id": "O9",
+              "node": 267040686,
+              "distance_m": 694.6652785757433,
+              "facility_node": 266595541,
+              "path": [
+                267040686,
+                267040672,
+                267040664,
+                267040727,
+                267040783,
+                264047240,
+                264047241,
+                266595541
+              ]
+            }
+          ],
+          "changes": [
+            {
+              "id": "O1",
+              "baseline_m": 2166.8823030963176,
+              "scenario_m": 2166.8823030963176,
+              "newly_disconnected": false,
+              "increase_m": 0.0
+            },
+            {
+              "id": "O2",
+              "baseline_m": 1244.8360074474808,
+              "scenario_m": 1244.8360074474808,
+              "newly_disconnected": false,
+              "increase_m": 0.0
+            },
+            {
+              "id": "O3",
+              "baseline_m": 489.19991828527054,
+              "scenario_m": 489.19991828527054,
+              "newly_disconnected": false,
+              "increase_m": 0.0
+            },
+            {
+              "id": "O4",
+              "baseline_m": 18.43321387739125,
+              "scenario_m": 18.43321387739125,
+              "newly_disconnected": false,
+              "increase_m": 0.0
+            },
+            {
+              "id": "O5",
+              "baseline_m": 884.9766439904336,
+              "scenario_m": 884.9766439904336,
+              "newly_disconnected": false,
+              "increase_m": 0.0
+            },
+            {
+              "id": "O6",
+              "baseline_m": 749.478014132016,
+              "scenario_m": 1515.3044450550988,
+              "newly_disconnected": false,
+              "increase_m": 765.8264309230827
+            },
+            {
+              "id": "O7",
+              "baseline_m": 1253.0909339857844,
+              "scenario_m": 1253.0909339857844,
+              "newly_disconnected": false,
+              "increase_m": 0.0
+            },
+            {
+              "id": "O8",
+              "baseline_m": 788.8054360437479,
+              "scenario_m": 788.8054360437479,
+              "newly_disconnected": false,
+              "increase_m": 0.0
+            },
+            {
+              "id": "O9",
+              "baseline_m": 694.6652785757433,
+              "scenario_m": 694.6652785757433,
+              "newly_disconnected": false,
+              "increase_m": 0.0
+            }
+          ],
+          "restorations": [
+            {
+              "reopened": "D1",
+              "reconnected_origins": 0,
+              "distance_saved_m_for_already_reachable": 0.0,
+              "accessibility": [
+                {
+                  "id": "O1",
+                  "node": 3100180496,
+                  "distance_m": 2166.8823030963176,
+                  "facility_node": 11247645,
+                  "path": [
+                    3100180496,
+                    2400540515,
+                    6696634421,
+                    5308873276,
+                    3656305957,
+                    3764988766,
+                    285880240,
+                    11335824279,
+                    11335824278,
+                    263082742,
+                    263082737,
+                    61089615,
+                    61089617,
+                    26912618,
+                    21698118,
+                    269603405,
+                    11247599,
+                    11247600,
+                    269603381,
+                    645759165,
+                    645759170,
+                    270237889,
+                    645759168,
+                    11247645
+                  ]
+                },
+                {
+                  "id": "O2",
+                  "node": 269790906,
+                  "distance_m": 1244.8360074474808,
+                  "facility_node": 312805609,
+                  "path": [
+                    269790906,
+                    269790915,
+                    271947697,
+                    272399942,
+                    272399933,
+                    272401627,
+                    272401628,
+                    272401630,
+                    269902967,
+                    274348364,
+                    267766048,
+                    1995904956,
+                    11891142439,
+                    312805607,
+                    312805609
+                  ]
+                },
+                {
+                  "id": "O3",
+                  "node": 260807376,
+                  "distance_m": 489.19991828527054,
+                  "facility_node": 312805609,
+                  "path": [
+                    260807376,
+                    300155469,
+                    269902955,
+                    269902952,
+                    270934378,
+                    312805609
+                  ]
+                },
+                {
+                  "id": "O4",
+                  "node": 283751939,
+                  "distance_m": 18.43321387739125,
+                  "facility_node": 262808548,
+                  "path": [
+                    283751939,
+                    262808548
+                  ]
+                },
+                {
+                  "id": "O5",
+                  "node": 281572580,
+                  "distance_m": 884.9766439904336,
+                  "facility_node": 269428281,
+                  "path": [
+                    281572580,
+                    281572582,
+                    281572531,
+                    281565044,
+                    285261352,
+                    269428273,
+                    21697629,
+                    269428277,
+                    281484026,
+                    35677171,
+                    269428281
+                  ]
+                },
+                {
+                  "id": "O6",
+                  "node": 267161325,
+                  "distance_m": 1515.3044450550988,
+                  "facility_node": 266595541,
+                  "path": [
+                    267161325,
+                    267161282,
+                    267161351,
+                    11930453336,
+                    260807377,
+                    33811019,
+                    33811020,
+                    712866997,
+                    267889578,
+                    33811027,
+                    145994144,
+                    267161508,
+                    2308341338,
+                    645738540,
+                    1995271013,
+                    267161590,
+                    61100280,
+                    267161595,
+                    275914345,
+                    1995271037,
+                    33811046,
+                    267161625,
+                    145994123,
+                    21697619,
+                    266595541
+                  ]
+                },
+                {
+                  "id": "O7",
+                  "node": 772443402,
+                  "distance_m": 1253.0909339857844,
+                  "facility_node": 21697660,
+                  "path": [
+                    772443402,
+                    281063628,
+                    21697660
+                  ]
+                },
+                {
+                  "id": "O8",
+                  "node": 1341408296,
+                  "distance_m": 788.8054360437479,
+                  "facility_node": 269428281,
+                  "path": [
+                    1341408296,
+                    35483110,
+                    267889590,
+                    267889588,
+                    261076966,
+                    269726704,
+                    301109705,
+                    13888159,
+                    2304964680,
+                    269428281
+                  ]
+                },
+                {
+                  "id": "O9",
+                  "node": 267040686,
+                  "distance_m": 694.6652785757433,
+                  "facility_node": 266595541,
+                  "path": [
+                    267040686,
+                    267040672,
+                    267040664,
+                    267040727,
+                    267040783,
+                    264047240,
+                    264047241,
+                    266595541
+                  ]
+                }
+              ],
+              "osm_segments": [
+                {
+                  "u": 33811019,
+                  "v": 928125779
+                }
+              ]
+            },
+            {
+              "reopened": "D2",
+              "reconnected_origins": 0,
+              "distance_saved_m_for_already_reachable": 0.0,
+              "accessibility": [
+                {
+                  "id": "O1",
+                  "node": 3100180496,
+                  "distance_m": 2166.8823030963176,
+                  "facility_node": 11247645,
+                  "path": [
+                    3100180496,
+                    2400540515,
+                    6696634421,
+                    5308873276,
+                    3656305957,
+                    3764988766,
+                    285880240,
+                    11335824279,
+                    11335824278,
+                    263082742,
+                    263082737,
+                    61089615,
+                    61089617,
+                    26912618,
+                    21698118,
+                    269603405,
+                    11247599,
+                    11247600,
+                    269603381,
+                    645759165,
+                    645759170,
+                    270237889,
+                    645759168,
+                    11247645
+                  ]
+                },
+                {
+                  "id": "O2",
+                  "node": 269790906,
+                  "distance_m": 1244.8360074474808,
+                  "facility_node": 312805609,
+                  "path": [
+                    269790906,
+                    269790915,
+                    271947697,
+                    272399942,
+                    272399933,
+                    272401627,
+                    272401628,
+                    272401630,
+                    269902967,
+                    274348364,
+                    267766048,
+                    1995904956,
+                    11891142439,
+                    312805607,
+                    312805609
+                  ]
+                },
+                {
+                  "id": "O3",
+                  "node": 260807376,
+                  "distance_m": 489.19991828527054,
+                  "facility_node": 312805609,
+                  "path": [
+                    260807376,
+                    300155469,
+                    269902955,
+                    269902952,
+                    270934378,
+                    312805609
+                  ]
+                },
+                {
+                  "id": "O4",
+                  "node": 283751939,
+                  "distance_m": 18.43321387739125,
+                  "facility_node": 262808548,
+                  "path": [
+                    283751939,
+                    262808548
+                  ]
+                },
+                {
+                  "id": "O5",
+                  "node": 281572580,
+                  "distance_m": 884.9766439904336,
+                  "facility_node": 269428281,
+                  "path": [
+                    281572580,
+                    281572582,
+                    281572531,
+                    281565044,
+                    285261352,
+                    269428273,
+                    21697629,
+                    269428277,
+                    281484026,
+                    35677171,
+                    269428281
+                  ]
+                },
+                {
+                  "id": "O6",
+                  "node": 267161325,
+                  "distance_m": 1515.3044450550988,
+                  "facility_node": 266595541,
+                  "path": [
+                    267161325,
+                    267161282,
+                    267161351,
+                    11930453336,
+                    260807377,
+                    33811019,
+                    33811020,
+                    712866997,
+                    267889578,
+                    33811027,
+                    145994144,
+                    267161508,
+                    2308341338,
+                    645738540,
+                    1995271013,
+                    267161590,
+                    61100280,
+                    267161595,
+                    275914345,
+                    1995271037,
+                    33811046,
+                    267161625,
+                    145994123,
+                    21697619,
+                    266595541
+                  ]
+                },
+                {
+                  "id": "O7",
+                  "node": 772443402,
+                  "distance_m": 1253.0909339857844,
+                  "facility_node": 21697660,
+                  "path": [
+                    772443402,
+                    281063628,
+                    21697660
+                  ]
+                },
+                {
+                  "id": "O8",
+                  "node": 1341408296,
+                  "distance_m": 788.8054360437479,
+                  "facility_node": 269428281,
+                  "path": [
+                    1341408296,
+                    35483110,
+                    267889590,
+                    267889588,
+                    261076966,
+                    269726704,
+                    301109705,
+                    13888159,
+                    2304964680,
+                    269428281
+                  ]
+                },
+                {
+                  "id": "O9",
+                  "node": 267040686,
+                  "distance_m": 694.6652785757433,
+                  "facility_node": 266595541,
+                  "path": [
+                    267040686,
+                    267040672,
+                    267040664,
+                    267040727,
+                    267040783,
+                    264047240,
+                    264047241,
+                    266595541
+                  ]
+                }
+              ],
+              "osm_segments": [
+                {
+                  "u": 60697812,
+                  "v": 146000024
+                }
+              ]
+            },
+            {
+              "reopened": "D3",
+              "reconnected_origins": 0,
+              "distance_saved_m_for_already_reachable": 0.0,
+              "accessibility": [
+                {
+                  "id": "O1",
+                  "node": 3100180496,
+                  "distance_m": 2166.8823030963176,
+                  "facility_node": 11247645,
+                  "path": [
+                    3100180496,
+                    2400540515,
+                    6696634421,
+                    5308873276,
+                    3656305957,
+                    3764988766,
+                    285880240,
+                    11335824279,
+                    11335824278,
+                    263082742,
+                    263082737,
+                    61089615,
+                    61089617,
+                    26912618,
+                    21698118,
+                    269603405,
+                    11247599,
+                    11247600,
+                    269603381,
+                    645759165,
+                    645759170,
+                    270237889,
+                    645759168,
+                    11247645
+                  ]
+                },
+                {
+                  "id": "O2",
+                  "node": 269790906,
+                  "distance_m": 1244.8360074474808,
+                  "facility_node": 312805609,
+                  "path": [
+                    269790906,
+                    269790915,
+                    271947697,
+                    272399942,
+                    272399933,
+                    272401627,
+                    272401628,
+                    272401630,
+                    269902967,
+                    274348364,
+                    267766048,
+                    1995904956,
+                    11891142439,
+                    312805607,
+                    312805609
+                  ]
+                },
+                {
+                  "id": "O3",
+                  "node": 260807376,
+                  "distance_m": 489.19991828527054,
+                  "facility_node": 312805609,
+                  "path": [
+                    260807376,
+                    300155469,
+                    269902955,
+                    269902952,
+                    270934378,
+                    312805609
+                  ]
+                },
+                {
+                  "id": "O4",
+                  "node": 283751939,
+                  "distance_m": 18.43321387739125,
+                  "facility_node": 262808548,
+                  "path": [
+                    283751939,
+                    262808548
+                  ]
+                },
+                {
+                  "id": "O5",
+                  "node": 281572580,
+                  "distance_m": 884.9766439904336,
+                  "facility_node": 269428281,
+                  "path": [
+                    281572580,
+                    281572582,
+                    281572531,
+                    281565044,
+                    285261352,
+                    269428273,
+                    21697629,
+                    269428277,
+                    281484026,
+                    35677171,
+                    269428281
+                  ]
+                },
+                {
+                  "id": "O6",
+                  "node": 267161325,
+                  "distance_m": 1515.3044450550988,
+                  "facility_node": 266595541,
+                  "path": [
+                    267161325,
+                    267161282,
+                    267161351,
+                    11930453336,
+                    260807377,
+                    33811019,
+                    33811020,
+                    712866997,
+                    267889578,
+                    33811027,
+                    145994144,
+                    267161508,
+                    2308341338,
+                    645738540,
+                    1995271013,
+                    267161590,
+                    61100280,
+                    267161595,
+                    275914345,
+                    1995271037,
+                    33811046,
+                    267161625,
+                    145994123,
+                    21697619,
+                    266595541
+                  ]
+                },
+                {
+                  "id": "O7",
+                  "node": 772443402,
+                  "distance_m": 1253.0909339857844,
+                  "facility_node": 21697660,
+                  "path": [
+                    772443402,
+                    281063628,
+                    21697660
+                  ]
+                },
+                {
+                  "id": "O8",
+                  "node": 1341408296,
+                  "distance_m": 788.8054360437479,
+                  "facility_node": 269428281,
+                  "path": [
+                    1341408296,
+                    35483110,
+                    267889590,
+                    267889588,
+                    261076966,
+                    269726704,
+                    301109705,
+                    13888159,
+                    2304964680,
+                    269428281
+                  ]
+                },
+                {
+                  "id": "O9",
+                  "node": 267040686,
+                  "distance_m": 694.6652785757433,
+                  "facility_node": 266595541,
+                  "path": [
+                    267040686,
+                    267040672,
+                    267040664,
+                    267040727,
+                    267040783,
+                    264047240,
+                    264047241,
+                    266595541
+                  ]
+                }
+              ],
+              "osm_segments": [
+                {
+                  "u": 60697818,
+                  "v": 298538536
+                }
+              ]
+            }
+          ]
+        },
+        "pair_restorations": [
+          {
+            "reopened": [
+              "D1",
+              "D2"
+            ],
+            "reconnected_origins": 0,
+            "distance_saved_m_for_already_reachable": 432.8682130453435,
+            "accessibility": [
+              {
+                "id": "O1",
+                "node": 3100180496,
+                "distance_m": 2166.8823030963176,
+                "facility_node": 11247645,
+                "path": [
+                  3100180496,
+                  2400540515,
+                  6696634421,
+                  5308873276,
+                  3656305957,
+                  3764988766,
+                  285880240,
+                  11335824279,
+                  11335824278,
+                  263082742,
+                  263082737,
+                  61089615,
+                  61089617,
+                  26912618,
+                  21698118,
+                  269603405,
+                  11247599,
+                  11247600,
+                  269603381,
+                  645759165,
+                  645759170,
+                  270237889,
+                  645759168,
+                  11247645
+                ]
+              },
+              {
+                "id": "O2",
+                "node": 269790906,
+                "distance_m": 1244.8360074474808,
+                "facility_node": 312805609,
+                "path": [
+                  269790906,
+                  269790915,
+                  271947697,
+                  272399942,
+                  272399933,
+                  272401627,
+                  272401628,
+                  272401630,
+                  269902967,
+                  274348364,
+                  267766048,
+                  1995904956,
+                  11891142439,
+                  312805607,
+                  312805609
+                ]
+              },
+              {
+                "id": "O3",
+                "node": 260807376,
+                "distance_m": 489.19991828527054,
+                "facility_node": 312805609,
+                "path": [
+                  260807376,
+                  300155469,
+                  269902955,
+                  269902952,
+                  270934378,
+                  312805609
+                ]
+              },
+              {
+                "id": "O4",
+                "node": 283751939,
+                "distance_m": 18.43321387739125,
+                "facility_node": 262808548,
+                "path": [
+                  283751939,
+                  262808548
+                ]
+              },
+              {
+                "id": "O5",
+                "node": 281572580,
+                "distance_m": 884.9766439904336,
+                "facility_node": 269428281,
+                "path": [
+                  281572580,
+                  281572582,
+                  281572531,
+                  281565044,
+                  285261352,
+                  269428273,
+                  21697629,
+                  269428277,
+                  281484026,
+                  35677171,
+                  269428281
+                ]
+              },
+              {
+                "id": "O6",
+                "node": 267161325,
+                "distance_m": 1082.4362320097553,
+                "facility_node": 60697794,
+                "path": [
+                  267161325,
+                  267161282,
+                  267161351,
+                  11930453336,
+                  260807377,
+                  33811019,
+                  928125779,
+                  146000024,
+                  60697812,
+                  298538534,
+                  247696062,
+                  1446890374,
+                  247696063,
+                  473159769,
+                  419077705,
+                  5181212458,
+                  60697796,
+                  60697794
+                ]
+              },
+              {
+                "id": "O7",
+                "node": 772443402,
+                "distance_m": 1253.0909339857844,
+                "facility_node": 21697660,
+                "path": [
+                  772443402,
+                  281063628,
+                  21697660
+                ]
+              },
+              {
+                "id": "O8",
+                "node": 1341408296,
+                "distance_m": 788.8054360437479,
+                "facility_node": 269428281,
+                "path": [
+                  1341408296,
+                  35483110,
+                  267889590,
+                  267889588,
+                  261076966,
+                  269726704,
+                  301109705,
+                  13888159,
+                  2304964680,
+                  269428281
+                ]
+              },
+              {
+                "id": "O9",
+                "node": 267040686,
+                "distance_m": 694.6652785757433,
+                "facility_node": 266595541,
+                "path": [
+                  267040686,
+                  267040672,
+                  267040664,
+                  267040727,
+                  267040783,
+                  264047240,
+                  264047241,
+                  266595541
+                ]
+              }
+            ],
+            "osm_segments": [
+              {
+                "u": 33811019,
+                "v": 928125779
+              },
+              {
+                "u": 60697812,
+                "v": 146000024
+              }
+            ]
+          },
+          {
+            "reopened": [
+              "D1",
+              "D3"
+            ],
+            "reconnected_origins": 0,
+            "distance_saved_m_for_already_reachable": 0.0,
+            "accessibility": [
+              {
+                "id": "O1",
+                "node": 3100180496,
+                "distance_m": 2166.8823030963176,
+                "facility_node": 11247645,
+                "path": [
+                  3100180496,
+                  2400540515,
+                  6696634421,
+                  5308873276,
+                  3656305957,
+                  3764988766,
+                  285880240,
+                  11335824279,
+                  11335824278,
+                  263082742,
+                  263082737,
+                  61089615,
+                  61089617,
+                  26912618,
+                  21698118,
+                  269603405,
+                  11247599,
+                  11247600,
+                  269603381,
+                  645759165,
+                  645759170,
+                  270237889,
+                  645759168,
+                  11247645
+                ]
+              },
+              {
+                "id": "O2",
+                "node": 269790906,
+                "distance_m": 1244.8360074474808,
+                "facility_node": 312805609,
+                "path": [
+                  269790906,
+                  269790915,
+                  271947697,
+                  272399942,
+                  272399933,
+                  272401627,
+                  272401628,
+                  272401630,
+                  269902967,
+                  274348364,
+                  267766048,
+                  1995904956,
+                  11891142439,
+                  312805607,
+                  312805609
+                ]
+              },
+              {
+                "id": "O3",
+                "node": 260807376,
+                "distance_m": 489.19991828527054,
+                "facility_node": 312805609,
+                "path": [
+                  260807376,
+                  300155469,
+                  269902955,
+                  269902952,
+                  270934378,
+                  312805609
+                ]
+              },
+              {
+                "id": "O4",
+                "node": 283751939,
+                "distance_m": 18.43321387739125,
+                "facility_node": 262808548,
+                "path": [
+                  283751939,
+                  262808548
+                ]
+              },
+              {
+                "id": "O5",
+                "node": 281572580,
+                "distance_m": 884.9766439904336,
+                "facility_node": 269428281,
+                "path": [
+                  281572580,
+                  281572582,
+                  281572531,
+                  281565044,
+                  285261352,
+                  269428273,
+                  21697629,
+                  269428277,
+                  281484026,
+                  35677171,
+                  269428281
+                ]
+              },
+              {
+                "id": "O6",
+                "node": 267161325,
+                "distance_m": 1515.3044450550988,
+                "facility_node": 266595541,
+                "path": [
+                  267161325,
+                  267161282,
+                  267161351,
+                  11930453336,
+                  260807377,
+                  33811019,
+                  33811020,
+                  712866997,
+                  267889578,
+                  33811027,
+                  145994144,
+                  267161508,
+                  2308341338,
+                  645738540,
+                  1995271013,
+                  267161590,
+                  61100280,
+                  267161595,
+                  275914345,
+                  1995271037,
+                  33811046,
+                  267161625,
+                  145994123,
+                  21697619,
+                  266595541
+                ]
+              },
+              {
+                "id": "O7",
+                "node": 772443402,
+                "distance_m": 1253.0909339857844,
+                "facility_node": 21697660,
+                "path": [
+                  772443402,
+                  281063628,
+                  21697660
+                ]
+              },
+              {
+                "id": "O8",
+                "node": 1341408296,
+                "distance_m": 788.8054360437479,
+                "facility_node": 269428281,
+                "path": [
+                  1341408296,
+                  35483110,
+                  267889590,
+                  267889588,
+                  261076966,
+                  269726704,
+                  301109705,
+                  13888159,
+                  2304964680,
+                  269428281
+                ]
+              },
+              {
+                "id": "O9",
+                "node": 267040686,
+                "distance_m": 694.6652785757433,
+                "facility_node": 266595541,
+                "path": [
+                  267040686,
+                  267040672,
+                  267040664,
+                  267040727,
+                  267040783,
+                  264047240,
+                  264047241,
+                  266595541
+                ]
+              }
+            ],
+            "osm_segments": [
+              {
+                "u": 33811019,
+                "v": 928125779
+              },
+              {
+                "u": 60697818,
+                "v": 298538536
+              }
+            ]
+          },
+          {
+            "reopened": [
+              "D2",
+              "D3"
+            ],
+            "reconnected_origins": 0,
+            "distance_saved_m_for_already_reachable": 0.0,
+            "accessibility": [
+              {
+                "id": "O1",
+                "node": 3100180496,
+                "distance_m": 2166.8823030963176,
+                "facility_node": 11247645,
+                "path": [
+                  3100180496,
+                  2400540515,
+                  6696634421,
+                  5308873276,
+                  3656305957,
+                  3764988766,
+                  285880240,
+                  11335824279,
+                  11335824278,
+                  263082742,
+                  263082737,
+                  61089615,
+                  61089617,
+                  26912618,
+                  21698118,
+                  269603405,
+                  11247599,
+                  11247600,
+                  269603381,
+                  645759165,
+                  645759170,
+                  270237889,
+                  645759168,
+                  11247645
+                ]
+              },
+              {
+                "id": "O2",
+                "node": 269790906,
+                "distance_m": 1244.8360074474808,
+                "facility_node": 312805609,
+                "path": [
+                  269790906,
+                  269790915,
+                  271947697,
+                  272399942,
+                  272399933,
+                  272401627,
+                  272401628,
+                  272401630,
+                  269902967,
+                  274348364,
+                  267766048,
+                  1995904956,
+                  11891142439,
+                  312805607,
+                  312805609
+                ]
+              },
+              {
+                "id": "O3",
+                "node": 260807376,
+                "distance_m": 489.19991828527054,
+                "facility_node": 312805609,
+                "path": [
+                  260807376,
+                  300155469,
+                  269902955,
+                  269902952,
+                  270934378,
+                  312805609
+                ]
+              },
+              {
+                "id": "O4",
+                "node": 283751939,
+                "distance_m": 18.43321387739125,
+                "facility_node": 262808548,
+                "path": [
+                  283751939,
+                  262808548
+                ]
+              },
+              {
+                "id": "O5",
+                "node": 281572580,
+                "distance_m": 884.9766439904336,
+                "facility_node": 269428281,
+                "path": [
+                  281572580,
+                  281572582,
+                  281572531,
+                  281565044,
+                  285261352,
+                  269428273,
+                  21697629,
+                  269428277,
+                  281484026,
+                  35677171,
+                  269428281
+                ]
+              },
+              {
+                "id": "O6",
+                "node": 267161325,
+                "distance_m": 1515.3044450550988,
+                "facility_node": 266595541,
+                "path": [
+                  267161325,
+                  267161282,
+                  267161351,
+                  11930453336,
+                  260807377,
+                  33811019,
+                  33811020,
+                  712866997,
+                  267889578,
+                  33811027,
+                  145994144,
+                  267161508,
+                  2308341338,
+                  645738540,
+                  1995271013,
+                  267161590,
+                  61100280,
+                  267161595,
+                  275914345,
+                  1995271037,
+                  33811046,
+                  267161625,
+                  145994123,
+                  21697619,
+                  266595541
+                ]
+              },
+              {
+                "id": "O7",
+                "node": 772443402,
+                "distance_m": 1253.0909339857844,
+                "facility_node": 21697660,
+                "path": [
+                  772443402,
+                  281063628,
+                  21697660
+                ]
+              },
+              {
+                "id": "O8",
+                "node": 1341408296,
+                "distance_m": 788.8054360437479,
+                "facility_node": 269428281,
+                "path": [
+                  1341408296,
+                  35483110,
+                  267889590,
+                  267889588,
+                  261076966,
+                  269726704,
+                  301109705,
+                  13888159,
+                  2304964680,
+                  269428281
+                ]
+              },
+              {
+                "id": "O9",
+                "node": 267040686,
+                "distance_m": 694.6652785757433,
+                "facility_node": 266595541,
+                "path": [
+                  267040686,
+                  267040672,
+                  267040664,
+                  267040727,
+                  267040783,
+                  264047240,
+                  264047241,
+                  266595541
+                ]
+              }
+            ],
+            "osm_segments": [
+              {
+                "u": 60697812,
+                "v": 146000024
+              },
+              {
+                "u": 60697818,
+                "v": 298538536
+              }
+            ]
+          }
+        ],
+        "dataset": {
+          "area": "Central Heidelberg, Baden-Wurttemberg, Germany",
+          "bbox_wsen": [
+            8.65,
+            49.395,
+            8.705,
+            49.435
+          ],
+          "download_completed_utc": "2026-10-24T16:15:39.266217+00:00",
+          "source": "OpenStreetMap via OSMnx/Overpass",
+          "overpass_url": "https://overpass-api.de/api",
+          "attribution": "(c) OpenStreetMap contributors; ODbL https://www.openstreetmap.org/copyright",
+          "osmnx": "2.1.1",
+          "network_type": "drive",
+          "weight": "length (metres)",
+          "nodes": 1060,
+          "directed_edges": 2331,
+          "sha256": {
+            "roads.graphml": "e076e080fd2fa9e0d9accc092770ec63ceb6adc30dfa2480c7ec50e4e98fefe9",
+            "hospitals.geojson": "ac4a6861bae392a376c218a5eaae3aa4351b29f17c9be706d718b7fc2d84db8b",
+            "facilities.json": "12b48ecfb50ee592644be3b4b196b3063814ed5c04cdfabd8fd841f8c5e7cbb2",
+            "origins.json": "53b99d720446d9fd090b99895c5a2dc2dad8980501e6eae42f234023bf2f30aa"
+          }
+        },
+        "origins": [
+          {
+            "id": "O1",
+            "node": 3100180496,
+            "lon": 8.661,
+            "lat": 49.403000000000006,
+            "snap_distance_m": 77.728764198427
+          },
+          {
+            "id": "O2",
+            "node": 269790906,
+            "lon": 8.6775,
+            "lat": 49.403000000000006,
+            "snap_distance_m": 44.9009702429288
+          },
+          {
+            "id": "O3",
+            "node": 260807376,
+            "lon": 8.694,
+            "lat": 49.403000000000006,
+            "snap_distance_m": 100.2754711235693
+          },
+          {
+            "id": "O4",
+            "node": 283751939,
+            "lon": 8.661,
+            "lat": 49.415000000000006,
+            "snap_distance_m": 284.8922925165652
+          },
+          {
+            "id": "O5",
+            "node": 281572580,
+            "lon": 8.6775,
+            "lat": 49.415000000000006,
+            "snap_distance_m": 58.138908408139976
+          },
+          {
+            "id": "O6",
+            "node": 267161325,
+            "lon": 8.694,
+            "lat": 49.415000000000006,
+            "snap_distance_m": 19.51677136794441
+          },
+          {
+            "id": "O7",
+            "node": 772443402,
+            "lon": 8.661,
+            "lat": 49.427,
+            "snap_distance_m": 58.3330576361885
+          },
+          {
+            "id": "O8",
+            "node": 1341408296,
+            "lon": 8.6775,
+            "lat": 49.427,
+            "snap_distance_m": 48.843406349642436
+          },
+          {
+            "id": "O9",
+            "node": 267040686,
+            "lon": 8.694,
+            "lat": 49.427,
+            "snap_distance_m": 203.47346825492988
+          }
+        ],
+        "facilities": [
+          {
+            "id": "node/678470357",
+            "name": "Kurpfalzkrankenhaus",
+            "node": 271328792,
+            "lon": 8.6538078,
+            "lat": 49.4136043,
+            "snap_distance_m": 85.99979716020705
+          },
+          {
+            "id": "node/2343179537",
+            "name": "Klinik f\u00fcr Allgemeine Innere Medizin und Psychosomatik",
+            "node": 281086737,
+            "lon": 8.6663847,
+            "lat": 49.4155972,
+            "snap_distance_m": 103.25753960472481
+          },
+          {
+            "id": "node/5890803043",
+            "name": "Institut f\u00fcr Humangenetik",
+            "node": 21697660,
+            "lon": 8.6628963,
+            "lat": 49.4168447,
+            "snap_distance_m": 222.93914081213777
+          },
+          {
+            "id": "node/5890803044",
+            "name": "Frauenklinik",
+            "node": 21697660,
+            "lon": 8.6628954,
+            "lat": 49.4166199,
+            "snap_distance_m": 240.7521347721751
+          },
+          {
+            "id": "node/5890803045",
+            "name": "Hautklinik",
+            "node": 21697660,
+            "lon": 8.662535,
+            "lat": 49.4169203,
+            "snap_distance_m": 198.52445810560178
+          },
+          {
+            "id": "node/12478205837",
+            "name": "Unnamed OSM hospital ('node', 12478205837)",
+            "node": 266595541,
+            "lon": 8.6878497,
+            "lat": 49.4251462,
+            "snap_distance_m": 71.88936246169669
+          },
+          {
+            "id": "relation/19540",
+            "name": "Kopfklinik",
+            "node": 283220775,
+            "lon": 8.66656915781508,
+            "lat": 49.417823150000004,
+            "snap_distance_m": 104.60902285080321
+          },
+          {
+            "id": "relation/20945",
+            "name": "Kinderklinik",
+            "node": 21697660,
+            "lon": 8.662121386025895,
+            "lat": 49.4176927,
+            "snap_distance_m": 121.20713496147502
+          },
+          {
+            "id": "relation/4505865",
+            "name": "Klinik f\u00fcr Allgemeine Psychiatrie",
+            "node": 11247645,
+            "lon": 8.685657540123561,
+            "lat": 49.40965205,
+            "snap_distance_m": 73.42972425794451
+          },
+          {
+            "id": "way/25771232",
+            "name": "Heidelberger Ionenstrahl-Therapiezentrum",
+            "node": 278914938,
+            "lon": 8.664195894424385,
+            "lat": 49.417672249999995,
+            "snap_distance_m": 156.29924510368545
+          },
+          {
+            "id": "way/25813173",
+            "name": "Zentrum f\u00fcr Schmerztherapie und Palliativmedizin",
+            "node": 281086737,
+            "lon": 8.669625653393336,
+            "lat": 49.4130549,
+            "snap_distance_m": 328.64099524817755
+          },
+          {
+            "id": "way/26006151",
+            "name": "Innere Medizin X: Klinik f\u00fcr Nephrologie",
+            "node": 281086737,
+            "lon": 8.665812848386452,
+            "lat": 49.414104550000005,
+            "snap_distance_m": 69.53345376260478
+          },
+          {
+            "id": "way/35534679",
+            "name": "Nationales Centrum f\u00fcr Tumorerkrankungen",
+            "node": 278914938,
+            "lon": 8.663978184549265,
+            "lat": 49.4184652,
+            "snap_distance_m": 76.86688557234429
+          },
+          {
+            "id": "way/35842577",
+            "name": "Unnamed OSM hospital ('way', 35842577)",
+            "node": 258376790,
+            "lon": 8.690420158764816,
+            "lat": 49.408978700000006,
+            "snap_distance_m": 43.81118006096213
+          },
+          {
+            "id": "way/96690377",
+            "name": "Unfallchirurgie - ATOS",
+            "node": 364059069,
+            "lon": 8.691221593197136,
+            "lat": 49.41040405,
+            "snap_distance_m": 49.01849612018545
+          },
+          {
+            "id": "way/140128817",
+            "name": "Institut f\u00fcr Psychosomatische Kooperationsforschung und Familientherapie, Personalwohngeb\u00e4ude",
+            "node": 742682561,
+            "lon": 8.68634922917395,
+            "lat": 49.40825805,
+            "snap_distance_m": 32.23702844252783
+          },
+          {
+            "id": "way/141216666",
+            "name": "Tropenmedizinische Ambulanz / Heidelberg Institute of Global Health (HIGH) / Zentrum f\u00fcr Infektiologie",
+            "node": 283220775,
+            "lon": 8.669820477364865,
+            "lat": 49.415841900000004,
+            "snap_distance_m": 220.57117625516005
+          },
+          {
+            "id": "way/155203932",
+            "name": "Kinder- & Jugendpsychiatrie Heidelberg",
+            "node": 742682579,
+            "lon": 8.685258415784116,
+            "lat": 49.408777,
+            "snap_distance_m": 68.4215436422453
+          },
+          {
+            "id": "way/209189456",
+            "name": "Ethianum",
+            "node": 11247645,
+            "lon": 8.684305984020252,
+            "lat": 49.4093181,
+            "snap_distance_m": 71.97486286407047
+          },
+          {
+            "id": "way/259039249",
+            "name": "St. Josefskrankenhaus",
+            "node": 312805609,
+            "lon": 8.689109735545756,
+            "lat": 49.402488149999996,
+            "snap_distance_m": 44.16070571225084
+          },
+          {
+            "id": "way/323478250",
+            "name": "Zentrum f\u00fcr Psychosoziale Medizin",
+            "node": 60697794,
+            "lon": 8.686075205232093,
+            "lat": 49.4092375,
+            "snap_distance_m": 100.50045451524561
+          },
+          {
+            "id": "way/342036341",
+            "name": "Medizinische Klinik",
+            "node": 283220775,
+            "lon": 8.666715451971113,
+            "lat": 49.4163876,
+            "snap_distance_m": 130.3348653072449
+          },
+          {
+            "id": "way/342045912",
+            "name": "Klinik Sankt Elisabeth",
+            "node": 269428281,
+            "lon": 8.681537588995784,
+            "lat": 49.4213425,
+            "snap_distance_m": 68.73862907369077
+          },
+          {
+            "id": "way/560031595",
+            "name": "ATOS Klinik",
+            "node": 247696064,
+            "lon": 8.691932465368687,
+            "lat": 49.410437099999996,
+            "snap_distance_m": 41.18205957842157
+          },
+          {
+            "id": "way/783859869",
+            "name": "Salem",
+            "node": 267889582,
+            "lon": 8.683786866438108,
+            "lat": 49.423354149999994,
+            "snap_distance_m": 46.34978674395675
+          },
+          {
+            "id": "way/857476895",
+            "name": "Chirurgische Klinik",
+            "node": 262808548,
+            "lon": 8.665137208974357,
+            "lat": 49.41559085,
+            "snap_distance_m": 74.21469799899648
+          },
+          {
+            "id": "way/894614246",
+            "name": "Universit\u00e4tsklinikum Heidelberg",
+            "node": 278914938,
+            "lon": 8.664722641669236,
+            "lat": 49.41715225,
+            "snap_distance_m": 212.9752939493077
+          }
+        ],
+        "context": {
+          "latitude": 49.415,
+          "longitude": 8.6775,
+          "origin_ids": []
+        },
+        "limitations": [
+          "All closures are conditional hypothetical graph scenarios; no current road state is established.",
+          "Distances are between snapped road nodes, not travel times or door-to-door access; facility capability is unverified.",
+          "Incident coordinates validate study-area membership; analysis uses the selected cached grid origins, not a new incident-point route.",
+          "The fixed 2026-10-24 OSM snapshot excludes external roads/hospitals; origins have equal weight.",
+          "All parallel edges between both endpoint directions are removed; other carriageways are unaffected.",
+          "Pairs are evaluated only if every individual reopening has zero benefit; at most six supplied closures (15 pairs)."
+        ]
+      },
+      "error": null,
+      "evidence_id": "E3",
+      "category": "computed_hypothetical_geography",
+      "reused": false,
+      "failure": null
+    }
+  },
+  {
+    "sequence": 8,
+    "kind": "provider_failure",
+    "created_at": "2026-10-25T17:29:22.948724+00:00",
+    "payload": {
+      "category": "provider_request",
+      "http_status": 413,
+      "provider_code": "rate_limit_exceeded",
+      "request_id": "req_01m5t1r65tetssem5vzbed6p1r",
+      "transient": false,
+      "retry_after_seconds": 36.0,
+      "retry_after_supplied": true,
+      "stage": "provider_sdk",
+      "agent_step": 4,
+      "provider_attempt": 4,
+      "retry_scheduled": false,
+      "retry_decision": "not_transient"
+    }
+  },
+  {
+    "sequence": 9,
+    "kind": "end",
+    "created_at": "2026-10-25T17:29:22.963140+00:00",
+    "payload": {
+      "status": "failed",
+      "error": "Provider failure: provider_request; sanitized metadata retained in trace"
+    }
+  }
+]

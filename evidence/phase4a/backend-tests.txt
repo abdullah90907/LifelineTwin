@@ -1,0 +1,78 @@
+test_actual_investigation_persistence_and_provenance (test_backend.BackendApiTests.test_actual_investigation_persistence_and_provenance) ... W1025 19:29:49.572000 37700 .venv-migration\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 134/134 [00:00<00:00, 5944.59it/s]
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents/47998b20-4354-48f4-9768-3360f8105bb4/investigations "HTTP/1.1 201 Created"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: GET http://testserver/investigations/418da9d8-5fa8-4186-b82a-6620469a71fe "HTTP/1.1 200 OK"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: GET http://testserver/incidents/47998b20-4354-48f4-9768-3360f8105bb4/observations "HTTP/1.1 200 OK"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: GET http://testserver/investigations/418da9d8-5fa8-4186-b82a-6620469a71fe/recommendations "HTTP/1.1 200 OK"
+ok
+test_failed_tools_are_persisted_without_partial_outputs (test_backend.BackendApiTests.test_failed_tools_are_persisted_without_partial_outputs) ... INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 201 Created"
+ERROR:p-37700:t-38596:main.py:run_investigation:Investigation tool failure
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\lifelinetwin_backend\main.py", line 122, in run_investigation
+    result = investigate(incident, body, tools)
+  File "D:\Projects 2026\LIfelineTwin\lifelinetwin_backend\investigation.py", line 10, in investigate
+    environment = tools.environment(request)
+  File "C:\Python313\Lib\unittest\mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\unittest\mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\unittest\mock.py", line 1228, in _execute_mock_call
+    raise effect
+lifelinetwin_backend.services.ToolUnavailable: Model cache unavailable
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents/66de44db-06d9-44b2-8366-e130b5118a6f/investigations "HTTP/1.1 503 Service Unavailable"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: GET http://testserver/incidents/66de44db-06d9-44b2-8366-e130b5118a6f/investigations "HTTP/1.1 200 OK"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: GET http://testserver/incidents/66de44db-06d9-44b2-8366-e130b5118a6f/observations "HTTP/1.1 200 OK"
+ok
+test_incident_creation_status_and_history (test_backend.BackendApiTests.test_incident_creation_status_and_history) ... INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 201 Created"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: GET http://testserver/incidents "HTTP/1.1 200 OK"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: PATCH http://testserver/incidents/6237820c-517d-44af-9186-ce2a9ca3b1b6/status "HTTP/1.1 200 OK"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: GET http://testserver/incidents/6237820c-517d-44af-9186-ce2a9ca3b1b6/investigations "HTTP/1.1 200 OK"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: GET http://testserver/incidents/6237820c-517d-44af-9186-ce2a9ca3b1b6/observations "HTTP/1.1 200 OK"
+ok
+test_invalid_closure_requests (test_backend.BackendApiTests.test_invalid_closure_requests) ... INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 201 Created"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents/406dd8c9-1c9e-4ddd-8bb3-47f9fd924d0b/investigations "HTTP/1.1 422 Unprocessable Content"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents/406dd8c9-1c9e-4ddd-8bb3-47f9fd924d0b/investigations "HTTP/1.1 422 Unprocessable Content"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents/406dd8c9-1c9e-4ddd-8bb3-47f9fd924d0b/investigations "HTTP/1.1 422 Unprocessable Content"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents/406dd8c9-1c9e-4ddd-8bb3-47f9fd924d0b/investigations "HTTP/1.1 422 Unprocessable Content"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents/406dd8c9-1c9e-4ddd-8bb3-47f9fd924d0b/investigations "HTTP/1.1 422 Unprocessable Content"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 201 Created"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents/cdb8fdf7-74f4-4287-9ded-52e9f23ac75c/investigations "HTTP/1.1 422 Unprocessable Content"
+ok
+test_invalid_incident_status_location_and_claims (test_backend.BackendApiTests.test_invalid_incident_status_location_and_claims) ... INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 422 Unprocessable Content"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 422 Unprocessable Content"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 422 Unprocessable Content"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 422 Unprocessable Content"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 422 Unprocessable Content"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 422 Unprocessable Content"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 422 Unprocessable Content"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 201 Created"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: PATCH http://testserver/incidents/f0b51967-bf78-4703-903a-da7a46d000b1/status "HTTP/1.1 422 Unprocessable Content"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: GET http://testserver/incidents?limit=10000 "HTTP/1.1 422 Unprocessable Content"
+ok
+test_missing_ids_and_malformed_uuid (test_backend.BackendApiTests.test_missing_ids_and_malformed_uuid) ... INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: GET http://testserver/incidents/73e01cbd-78f0-4c7d-b4e7-ee3adf21760a "HTTP/1.1 404 Not Found"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: GET http://testserver/investigations/7c58bbe6-7b04-4b3b-99b3-c32810beb925 "HTTP/1.1 404 Not Found"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: GET http://testserver/incidents/8996a8b3-9fcb-4041-aea7-b29c7bbb717a/investigations "HTTP/1.1 404 Not Found"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: GET http://testserver/investigations/dc48273a-b33e-4a78-bde0-cd15444a4549/recommendations "HTTP/1.1 404 Not Found"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: GET http://testserver/incidents/not-a-uuid "HTTP/1.1 422 Unprocessable Content"
+ok
+test_unknown_geography_and_segment_rejected (test_backend.BackendApiTests.test_unknown_geography_and_segment_rejected) ... INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/analysis/geographic "HTTP/1.1 422 Unprocessable Content"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/analysis/geographic "HTTP/1.1 422 Unprocessable Content"
+ok
+test_verified_and_user_reported_are_distinct (test_backend.BackendApiTests.test_verified_and_user_reported_are_distinct) ... INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 201 Created"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 422 Unprocessable Content"
+INFO:p-37700:t-37676:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 201 Created"
+ok
+test_heidelberg_pair_improvement_matches_direct_graph_calculation (test_backend.ToolIntegrationTests.test_heidelberg_pair_improvement_matches_direct_graph_calculation) ... ok
+test_insufficient_past_context_fails_honestly (test_backend.ToolIntegrationTests.test_insufficient_past_context_fails_honestly) ... ok
+test_missing_model_never_downloads (test_backend.ToolIntegrationTests.test_missing_model_never_downloads) ... ok
+test_pair_restoration_computed_for_generic_series_bottleneck (test_backend.ToolIntegrationTests.test_pair_restoration_computed_for_generic_series_bottleneck) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 14.756s
+
+OK

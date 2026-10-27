@@ -1,0 +1,42 @@
+{
+  "incident": {
+    "title": "Hypothetical Heidelberg corridor investigation",
+    "kind": "hypothetical",
+    "description": "Reproducible research stress test; no real-world disruption is asserted.",
+    "occurred_at": "2026-10-24T19:55:49.074511+00:00",
+    "context": {
+      "latitude": 49.415,
+      "longitude": 8.6775
+    },
+    "claims": [
+      {
+        "kind": "hypothetical",
+        "source": "Computed baseline-used edge betweenness; Phase 2 pairs excluded",
+        "statement": "Assume these graph segments are closed simultaneously for comparison only.",
+        "observed_at": "2026-10-24T19:55:49.074511+00:00"
+      }
+    ]
+  },
+  "investigation": {
+    "as_of": "2026-10-24T19:55:49.074511+00:00",
+    "mode": "cache",
+    "variable": "temperature_2m",
+    "closures": [
+      {
+        "id": "D1",
+        "u": 33811019,
+        "v": 928125779
+      },
+      {
+        "id": "D2",
+        "u": 60697812,
+        "v": 146000024
+      },
+      {
+        "id": "D3",
+        "u": 60697818,
+        "v": 298538536
+      }
+    ]
+  }
+}

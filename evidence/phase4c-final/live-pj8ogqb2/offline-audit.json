@@ -1,0 +1,21 @@
+{
+  "single_agent_run": true,
+  "no_probe": true,
+  "trace_contiguous": true,
+  "status": "failed",
+  "accepted_final_result": false,
+  "provider_failure_count": 1,
+  "checkpoint_has_raw_messages": false,
+  "provider_attempts": 4,
+  "retry_used": false,
+  "baseline_and_scenario_comparison": [
+    {
+      "tool": "analyze_closures",
+      "closure_endpoints_equal": true,
+      "baseline_equal": true,
+      "changes_equal": true,
+      "pairs_equal": true
+    }
+  ],
+  "no_provider_key_prefix_in_artifacts": true
+}

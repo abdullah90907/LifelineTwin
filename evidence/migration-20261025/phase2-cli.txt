@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 189, in _run_module_as_main
+  File "<frozen runpy>", line 148, in _get_module_details
+  File "<frozen runpy>", line 112, in _get_module_details
+  File "D:\Projects 2026\LIfelineTwin\lifelinetwin_geo\__init__.py", line 13, in <module>
+    from .forecasting import (
+    ...<3 lines>...
+    )
+  File "D:\Projects 2026\LIfelineTwin\lifelinetwin_geo\forecasting.py", line 17, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'

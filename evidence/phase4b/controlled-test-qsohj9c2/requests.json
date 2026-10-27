@@ -1,0 +1,34 @@
+{
+  "incident": {
+    "title": "Hypothetical Heidelberg Phase 4B research demonstration",
+    "kind": "hypothetical",
+    "description": "Research scenario only. These cached endpoints are not evidence of real closures.",
+    "occurred_at": "2026-10-24T19:55:49.074511+00:00"
+  },
+  "agent_request": {
+    "question": "Investigate the approved hypothetical closures, compare hospital accessibility and restoration pairs by OSM endpoints, and inspect cached environmental observations and TTM forecasts. Give cited advisory findings and limitations.",
+    "as_of": "2026-10-24T19:55:49.074511+00:00",
+    "allowed_closures": [
+      {
+        "id": "D1",
+        "u": 33811019,
+        "v": 928125779
+      },
+      {
+        "id": "D2",
+        "u": 60697812,
+        "v": 146000024
+      },
+      {
+        "id": "D3",
+        "u": 60697818,
+        "v": 298538536
+      }
+    ],
+    "mode": "cache",
+    "max_iterations": 8,
+    "max_tool_calls": 14,
+    "timeout_seconds": 240,
+    "tool_timeout_seconds": 60
+  }
+}

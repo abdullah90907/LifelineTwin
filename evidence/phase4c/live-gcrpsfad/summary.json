@@ -1,0 +1,37 @@
+{
+  "provider": "Groq",
+  "base_url": "https://api.groq.com/openai/v1",
+  "configured_model": "openai/gpt-oss-20b",
+  "token_parameter": "max_tokens",
+  "fake_provider_used": false,
+  "minimal_probe_attempted": false,
+  "agent_endpoint_attempted": false,
+  "live_agent_completed": false,
+  "evidence_directory": "D:\\Projects 2026\\LIfelineTwin\\evidence\\phase4c\\live-gcrpsfad",
+  "checkpoint_diagnostic_attempted": true,
+  "diagnostic_input_characters": 15859,
+  "diagnostic": {
+    "actual_model": "openai/gpt-oss-20b",
+    "finish_reason": "tool_calls",
+    "selected_tools": [
+      "generate_forecast"
+    ],
+    "usage": {
+      "completion_tokens": 231,
+      "prompt_tokens": 5485,
+      "total_tokens": 5716,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": null,
+        "reasoning_tokens": 214,
+        "rejected_prediction_tokens": null
+      },
+      "prompt_tokens_details": null,
+      "queue_time": 0.246476432,
+      "prompt_time": 0.343387072,
+      "completion_time": 0.248316888,
+      "total_time": 0.59170396
+    }
+  },
+  "credential_present_in_saved_files": false
+}

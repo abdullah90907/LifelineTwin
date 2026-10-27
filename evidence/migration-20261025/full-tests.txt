@@ -1,0 +1,91 @@
+test_assessment_structure_and_safety_guardrails (test_assessment.AssessmentTests.test_assessment_structure_and_safety_guardrails)
+Tests that assessment contains all sections and explicitly guarantees routing engine isolation. ... W1025 14:51:18.420000 22828 .venv-migration\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+INFO:p-22828:t-25800:_client.py:_send_single_request:HTTP Request: GET https://huggingface.co/api/models/ibm-granite/granite-timeseries-ttm-r1/revision/main "HTTP/1.1 200 OK"
+
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 134/134 [00:00<00:00, 1920.01it/s]
+ok
+test_risk_threshold_triggers_freezing (test_assessment.AssessmentTests.test_risk_threshold_triggers_freezing)
+Tests freezing risk indicator detection. ... ok
+test_risk_threshold_triggers_heavy_rain (test_assessment.AssessmentTests.test_risk_threshold_triggers_heavy_rain)
+Tests heavy rain threshold detection. ... ok
+test_calculate_metrics_exact_values (test_evaluation.EvaluationTests.test_calculate_metrics_exact_values)
+Verifies calculation of MAE, RMSE, and bias against exact hand-calculated values. ... ok
+test_calculate_metrics_length_mismatch (test_evaluation.EvaluationTests.test_calculate_metrics_length_mismatch) ... ok
+test_calculate_metrics_nan_and_none_filtering (test_evaluation.EvaluationTests.test_calculate_metrics_nan_and_none_filtering)
+Pairs with NaN or None are excluded without errors. ... ok
+test_evaluate_forecast_historical_backtest (test_evaluation.EvaluationTests.test_evaluate_forecast_historical_backtest)
+Runs full evaluation pipeline on authentic cached observations and validates outputs. ... INFO:p-22828:t-25800:_client.py:_send_single_request:HTTP Request: GET https://huggingface.co/api/models/ibm-granite/granite-timeseries-ttm-r1/revision/main "HTTP/1.1 200 OK"
+
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 134/134 [00:00<00:00, 2310.02it/s]
+ok
+test_actual_ttm_model_inference_cpu (test_forecasting.ForecastingTests.test_actual_ttm_model_inference_cpu)
+Runs genuine CPU inference with pretrained IBM Granite TinyTimeMixer. ... INFO:p-22828:t-25800:_client.py:_send_single_request:HTTP Request: GET https://huggingface.co/api/models/ibm-granite/granite-timeseries-ttm-r1/revision/main "HTTP/1.1 200 OK"
+
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 134/134 [00:00<00:00, 2101.27it/s]
+ok
+test_input_preparation_context_length_check (test_forecasting.ForecastingTests.test_input_preparation_context_length_check)
+Must raise ValueError when fewer than 512 context hours are provided. ... ok
+test_input_preparation_imputation (test_forecasting.ForecastingTests.test_input_preparation_imputation)
+Verifies None and NaN values are interpolated and counted. ... ok
+test_input_preparation_tensor_shape (test_forecasting.ForecastingTests.test_input_preparation_tensor_shape)
+Passes 512 points and verifies tensor shape is (1, 512, 1). ... ok
+test_persistence_forecast_diurnal (test_forecasting.ForecastingTests.test_persistence_forecast_diurnal)
+Verifies diurnal persistence repeats the 24-hour cycle. ... ok
+test_persistence_forecast_last_value (test_forecasting.ForecastingTests.test_persistence_forecast_last_value)
+Verifies last-value persistence replicates the last valid observation. ... ok
+test_precipitation_nonnegativity_clipping (test_forecasting.ForecastingTests.test_precipitation_nonnegativity_clipping)
+Verifies non-negativity clipping prevents negative rainfall predictions. ... ok
+test_variable_compatibility_classification (test_forecasting.ForecastingTests.test_variable_compatibility_classification)
+Verifies continuous, special, and unsupported classifications. ... ok
+test_closes_both_directions_all_parallel_without_mutation (test_geo.EngineTests.test_closes_both_directions_all_parallel_without_mutation) ... ok
+test_direction_is_preserved (test_geo.EngineTests.test_direction_is_preserved) ... ok
+test_distance_change (test_geo.EngineTests.test_distance_change) ... ok
+test_distance_savings_rank (test_geo.EngineTests.test_distance_savings_rank) ... ok
+test_invalid_weights_rejected (test_geo.EngineTests.test_invalid_weights_rejected) ... ok
+test_missing_facility_rejected (test_geo.EngineTests.test_missing_facility_rejected) ... ok
+test_nearest_of_multiple_facilities (test_geo.EngineTests.test_nearest_of_multiple_facilities) ... ok
+test_origin_at_hospital (test_geo.EngineTests.test_origin_at_hospital) ... ok
+test_reconnection_and_independent_restoration (test_geo.EngineTests.test_reconnection_and_independent_restoration) ... ok
+test_reconnection_has_priority_over_distance_savings (test_geo.EngineTests.test_reconnection_has_priority_over_distance_savings) ... ok
+test_shortest_parallel_edge_and_unreachable (test_geo.EngineTests.test_shortest_parallel_edge_and_unreachable) ... ok
+test_offline_repeatable_and_monotonic (test_geo.OfflineRealDataTests.test_offline_repeatable_and_monotonic) ... ok
+test_analyze_25_returns_engine_compatible_dict (test_geo_25.Analyze25Tests.test_analyze_25_returns_engine_compatible_dict) ... ok
+test_caller_supplied_closures_bypass_selection (test_geo_25.Analyze25Tests.test_caller_supplied_closures_bypass_selection) ... ok
+test_disruption_increases_or_disconnects (test_geo_25.Analyze25Tests.test_disruption_increases_or_disconnects) ... ok
+test_exclude_pairs_flows_through (test_geo_25.Analyze25Tests.test_exclude_pairs_flows_through) ... ok
+test_restoration_never_worsens_reachable_origins (test_geo_25.Analyze25Tests.test_restoration_never_worsens_reachable_origins) ... ok
+test_closure_dict_has_required_keys (test_geo_25.BetweennessClosureSelectionTests.test_closure_dict_has_required_keys) ... ok
+test_closure_uses_baseline_used_edges_only (test_geo_25.BetweennessClosureSelectionTests.test_closure_uses_baseline_used_edges_only)
+All selected pairs must appear in at least one baseline route. ... ok
+test_deterministic (test_geo_25.BetweennessClosureSelectionTests.test_deterministic) ... ok
+test_exclude_pairs_respected (test_geo_25.BetweennessClosureSelectionTests.test_exclude_pairs_respected) ... ok
+test_insufficient_segments_raises (test_geo_25.BetweennessClosureSelectionTests.test_insufficient_segments_raises) ... ok
+test_non_adjacency_enforced (test_geo_25.BetweennessClosureSelectionTests.test_non_adjacency_enforced) ... ok
+test_returns_correct_count (test_geo_25.BetweennessClosureSelectionTests.test_returns_correct_count) ... ok
+test_phase25_closures_differ_from_phase2 (test_geo_25.OfflineRealData25Tests.test_phase25_closures_differ_from_phase2) ... ok
+test_phase25_closures_used_by_baseline (test_geo_25.OfflineRealData25Tests.test_phase25_closures_used_by_baseline)
+Every selected segment must have appeared in a baseline route. ... ok
+test_phase25_deterministic (test_geo_25.OfflineRealData25Tests.test_phase25_deterministic) ... ok
+test_phase25_offline_no_network (test_geo_25.OfflineRealData25Tests.test_phase25_offline_no_network) ... ok
+test_phase25_restoration_monotone (test_geo_25.OfflineRealData25Tests.test_phase25_restoration_monotone)
+Restoring a segment never worsens already-reachable origins. ... ok
+test_phase25_route_distances_nonnegative_increase (test_geo_25.OfflineRealData25Tests.test_phase25_route_distances_nonnegative_increase) ... ok
+test_cache_save_and_load (test_weather.WeatherDataIngestionTests.test_cache_save_and_load)
+Verify that saving and loading observations preserves data completely. ... ok
+test_cache_tag_deterministic (test_weather.WeatherDataIngestionTests.test_cache_tag_deterministic) ... ok
+test_genuine_open_meteo_response (test_weather.WeatherDataIngestionTests.test_genuine_open_meteo_response)
+Test against genuine cached or live Open-Meteo observations for Heidelberg. ... ok
+test_missing_data_and_nan_handling (test_weather.WeatherDataIngestionTests.test_missing_data_and_nan_handling)
+Verify that None and NaN are appropriately handled without crashes. ... ok
+test_offline_fallback_on_network_error (test_weather.WeatherDataIngestionTests.test_offline_fallback_on_network_error)
+When network fails, get_observations falls back to cached data. ... ok
+test_parse_hourly_structure_and_units (test_weather.WeatherDataIngestionTests.test_parse_hourly_structure_and_units)
+Test parsing of raw Open-Meteo JSON into normalized structure. ... ok
+
+----------------------------------------------------------------------
+Ran 51 tests in 174.882s
+
+OK

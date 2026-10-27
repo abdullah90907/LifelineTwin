@@ -1,0 +1,1 @@
+Cached 1060 nodes, 2331 edges, 27 hospitals.

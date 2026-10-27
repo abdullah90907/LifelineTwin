@@ -1,0 +1,6 @@
+Virtualization-based security: Status: Running
+                                     Base Virtualization Support
+                                     Base Virtualization Support
+                                     Hypervisor enforced Code Integrity
+                                     Hypervisor enforced Code Integrity
+Hyper-V Requirements:          A hypervisor has been detected. Features required for Hyper-V will not be displayed.

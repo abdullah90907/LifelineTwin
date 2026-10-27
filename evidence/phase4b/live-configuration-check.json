@@ -1,0 +1,1 @@
+{"status": "not_configured", "live_llm_executed": false, "error": "LLM is not configured; set LIFELINETWIN_LLM_MODEL, LIFELINETWIN_LLM_BASE_URL, LIFELINETWIN_LLM_API_KEY"}

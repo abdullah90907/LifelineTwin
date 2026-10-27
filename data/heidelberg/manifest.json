@@ -1,0 +1,24 @@
+{
+  "area": "Central Heidelberg, Baden-Wurttemberg, Germany",
+  "bbox_wsen": [
+    8.65,
+    49.395,
+    8.705,
+    49.435
+  ],
+  "download_completed_utc": "2026-10-24T16:15:39.266217+00:00",
+  "source": "OpenStreetMap via OSMnx/Overpass",
+  "overpass_url": "https://overpass-api.de/api",
+  "attribution": "(c) OpenStreetMap contributors; ODbL https://www.openstreetmap.org/copyright",
+  "osmnx": "2.1.1",
+  "network_type": "drive",
+  "weight": "length (metres)",
+  "nodes": 1060,
+  "directed_edges": 2331,
+  "sha256": {
+    "roads.graphml": "e076e080fd2fa9e0d9accc092770ec63ceb6adc30dfa2480c7ec50e4e98fefe9",
+    "hospitals.geojson": "ac4a6861bae392a376c218a5eaae3aa4351b29f17c9be706d718b7fc2d84db8b",
+    "facilities.json": "12b48ecfb50ee592644be3b4b196b3063814ed5c04cdfabd8fd841f8c5e7cbb2",
+    "origins.json": "53b99d720446d9fd090b99895c5a2dc2dad8980501e6eae42f234023bf2f30aa"
+  }
+}

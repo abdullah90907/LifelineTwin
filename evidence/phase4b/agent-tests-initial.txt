@@ -1,0 +1,19 @@
+test_fake_selects_different_tools_and_followup (test_agent.AgentApiFakeLLMTests.test_fake_selects_different_tools_and_followup) ... ok
+test_fake_selects_real_baseline_and_persists_after_restart (test_agent.AgentApiFakeLLMTests.test_fake_selects_real_baseline_and_persists_after_restart) ... ok
+test_no_provider_returns_explicit_configuration_error (test_agent.AgentApiFakeLLMTests.test_no_provider_returns_explicit_configuration_error) ... ok
+test_provider_failure_and_secret_redaction (test_agent.AgentApiFakeLLMTests.test_provider_failure_and_secret_redaction) ... ok
+test_request_limits_unknown_ids_and_invalid_fields (test_agent.AgentApiFakeLLMTests.test_request_limits_unknown_ids_and_invalid_fields) ... ok
+test_restart_recovers_interrupted_state_without_replaying (test_agent.AgentApiFakeLLMTests.test_restart_recovers_interrupted_state_without_replaying) ... ok
+test_tool_call_and_iteration_limits (test_agent.AgentApiFakeLLMTests.test_tool_call_and_iteration_limits) ... ok
+test_unapproved_closures_and_invented_citations_rejected (test_agent.AgentApiFakeLLMTests.test_unapproved_closures_and_invented_citations_rejected) ... ok
+test_unknown_tool_injection_rejected (test_agent.AgentApiFakeLLMTests.test_unknown_tool_injection_rejected) ... ok
+test_final_rejects_invented_numbers_actions_and_restoration_labels (test_agent.AgentContractTests.test_final_rejects_invented_numbers_actions_and_restoration_labels) ... ok
+test_provider_environment_and_endpoint_validation (test_agent.AgentContractTests.test_provider_environment_and_endpoint_validation) ... ok
+test_standard_sdk_receives_function_definitions_and_configured_model (test_agent.AgentContractTests.test_standard_sdk_receives_function_definitions_and_configured_model) ... ok
+test_subprocess_timeout_is_enforced (test_agent.AgentContractTests.test_subprocess_timeout_is_enforced) ... ok
+test_tool_registration_has_validated_schemas_and_no_unsafe_tools (test_agent.AgentContractTests.test_tool_registration_has_validated_schemas_and_no_unsafe_tools) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 35.174s
+
+OK

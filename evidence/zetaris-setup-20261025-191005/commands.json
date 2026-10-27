@@ -1,0 +1,32 @@
+[
+  {
+    "command": "wsl --status",
+    "exit_code": 50,
+    "stdout": "",
+    "stderr": "The Windows Subsystem for Linux is not installed. You can install by running 'wsl.exe --install'.\r\r\nFor more information please visit https://aka.ms/wslinstall\r\r\n"
+  },
+  {
+    "command": "wsl --list --verbose",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "The Windows Subsystem for Linux is not installed. You can install by running 'wsl.exe --install'.\r\r\nFor more information please visit https://aka.ms/wslinstall\r\r\n"
+  },
+  {
+    "command": "docker --version",
+    "exit_code": null,
+    "error": "[WinError 2] The system cannot find the file specified",
+    "status": "executable not found; not run"
+  },
+  {
+    "command": "docker compose version",
+    "exit_code": null,
+    "error": "[WinError 2] The system cannot find the file specified",
+    "status": "executable not found; not run"
+  },
+  {
+    "command": "docker info",
+    "exit_code": null,
+    "error": "[WinError 2] The system cannot find the file specified",
+    "status": "executable not found; not run"
+  }
+]

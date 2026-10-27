@@ -1,0 +1,121 @@
+{
+  "provider": "Groq",
+  "base_url": "https://api.groq.com/openai/v1",
+  "configured_model": "openai/gpt-oss-20b",
+  "token_parameter": "max_tokens",
+  "fake_provider_used": false,
+  "minimal_probe_attempted": true,
+  "agent_endpoint_attempted": true,
+  "live_agent_completed": false,
+  "evidence_directory": "D:\\Projects 2026\\LIfelineTwin\\evidence\\phase4c\\live-q4pmoaf9",
+  "minimal_probe": {
+    "actual_model": "openai/gpt-oss-20b",
+    "request_id": "req_01m5sy0qweeke93w8hk02w8bwv",
+    "finish_reason": "stop",
+    "tool_calls": [],
+    "usage": {
+      "completion_tokens": 43,
+      "prompt_tokens": 75,
+      "total_tokens": 118,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": null,
+        "reasoning_tokens": 33,
+        "rejected_prediction_tokens": null
+      },
+      "prompt_tokens_details": null,
+      "queue_time": 0.24680185,
+      "prompt_time": 0.004191085,
+      "completion_time": 0.045394731,
+      "total_time": 0.049585816
+    },
+    "completion_received": true,
+    "tool_calling_tested_in_probe": false
+  },
+  "backend_restarted": true,
+  "saved_run_identical_after_restart": true,
+  "saved_trace_identical_after_restart": true,
+  "sqlite_integrity": "ok",
+  "incident_id": "0362174c-02f5-4160-b22a-bfeb4db429d3",
+  "agent_run_id": "29abf9b4-6244-4b24-a8cf-55d75c900c92",
+  "status": "failed",
+  "iterations": 3,
+  "tool_calls": 3,
+  "actual_models": [
+    "openai/gpt-oss-20b",
+    "openai/gpt-oss-20b",
+    "openai/gpt-oss-20b"
+  ],
+  "ordered_tool_calls": [
+    {
+      "tool": "retrieve_incident",
+      "error": null,
+      "evidence_id": "E1"
+    },
+    {
+      "tool": "baseline_accessibility",
+      "error": null,
+      "evidence_id": "E2"
+    },
+    {
+      "tool": "retrieve_observations",
+      "error": null,
+      "evidence_id": "E3"
+    }
+  ],
+  "citation_checks": [],
+  "geographic_comparisons": [],
+  "endpoint_verification": [
+    {
+      "osm_segments": [
+        {
+          "u": 33811019,
+          "v": 928125779
+        },
+        {
+          "u": 60697812,
+          "v": 146000024
+        }
+      ],
+      "saved_origin_metres": 432.8682130453435,
+      "matches_deterministic": true
+    },
+    {
+      "osm_segments": [
+        {
+          "u": 33811019,
+          "v": 928125779
+        },
+        {
+          "u": 60697818,
+          "v": 298538536
+        }
+      ],
+      "saved_origin_metres": 0,
+      "matches_deterministic": true
+    },
+    {
+      "osm_segments": [
+        {
+          "u": 60697812,
+          "v": 146000024
+        },
+        {
+          "u": 60697818,
+          "v": 298538536
+        }
+      ],
+      "saved_origin_metres": 0,
+      "matches_deterministic": true
+    }
+  ],
+  "forecast_values_equal_phase4a": false,
+  "successful_tools": [
+    "baseline_accessibility",
+    "retrieve_incident",
+    "retrieve_observations"
+  ],
+  "result_error": "Provider failed or returned an invalid tool-call response; no LLM findings were accepted",
+  "all_requested_evidence_obtained": false,
+  "credential_present_in_saved_files": false
+}

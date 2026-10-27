@@ -1,0 +1,82 @@
+
+> test:road
+> node vendor/Meterless/engines/world-model/reference/node_modules/tsx/dist/cli.mjs scripts/meterless-road-check.ts
+
+{
+  "result": "PASS",
+  "entityId": "road:synthetic:R001",
+  "initialStatus": "closed",
+  "latestStatus": "restricted",
+  "latestStatusProvenance": {
+    "kind": "synthetic-test",
+    "by": "lifelinetwin-phase1",
+    "at": "2026-10-24T09:00:00.000Z",
+    "runId": "road-update-002",
+    "url": "urn:lifelinetwin:synthetic:road-update-002"
+  },
+  "facts": [
+    {
+      "id": "fact_a8edd40e3a67b12f",
+      "about": "road:synthetic:R001",
+      "predicate": "status",
+      "value": "closed",
+      "confidence": 1,
+      "source": {
+        "kind": "synthetic-test",
+        "by": "lifelinetwin-phase1",
+        "at": "2026-10-24T08:00:00.000Z",
+        "runId": "road-closure-001",
+        "url": "urn:lifelinetwin:synthetic:road-closure-001"
+      },
+      "assertedAt": "2026-10-24T08:00:00.000Z",
+      "supersededBy": "fact_73d0cc8bf25c0b38"
+    },
+    {
+      "id": "fact_73d0cc8bf25c0b38",
+      "about": "road:synthetic:R001",
+      "predicate": "status",
+      "value": "restricted",
+      "confidence": 1,
+      "source": {
+        "kind": "synthetic-test",
+        "by": "lifelinetwin-phase1",
+        "at": "2026-10-24T09:00:00.000Z",
+        "runId": "road-update-002",
+        "url": "urn:lifelinetwin:synthetic:road-update-002"
+      },
+      "assertedAt": "2026-10-24T09:00:00.000Z"
+    }
+  ],
+  "replayAppendedEvents": 0,
+  "scope": "in-process writes, reads, provenance, and duplicate replay",
+  "audit": [
+    {
+      "seq": 1,
+      "at": "2026-10-24T08:00:00.000Z",
+      "kind": "upsertEntity",
+      "actor": "lifelinetwin-phase1",
+      "summary": "road:synthetic:R001 (road)",
+      "eventId": "evt_1",
+      "runId": "road-closure-001"
+    },
+    {
+      "seq": 2,
+      "at": "2026-10-24T08:00:00.000Z",
+      "kind": "assertFact",
+      "actor": "lifelinetwin-phase1",
+      "summary": "road:synthetic:R001.status = \"closed\" (most-recent-wins)",
+      "eventId": "evt_2",
+      "runId": "road-closure-001"
+    },
+    {
+      "seq": 3,
+      "at": "2026-10-24T09:00:00.000Z",
+      "kind": "assertFact",
+      "actor": "lifelinetwin-phase1",
+      "summary": "road:synthetic:R001.status = \"restricted\" (most-recent-wins)",
+      "eventId": "evt_3",
+      "runId": "road-update-002"
+    }
+  ],
+  "persistedFile": "D:\\Projects\\LIfelineTwin\\evidence\\road-run-nFtU0c\\.world\\lifelinetwin-phase1.json"
+}

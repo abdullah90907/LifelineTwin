@@ -1,0 +1,209 @@
+test_fake_selects_different_tools_and_followup (test_agent.AgentApiFakeLLMTests.test_fake_selects_different_tools_and_followup) ... ok
+test_fake_selects_real_baseline_and_persists_after_restart (test_agent.AgentApiFakeLLMTests.test_fake_selects_real_baseline_and_persists_after_restart) ... ok
+test_no_provider_returns_explicit_configuration_error (test_agent.AgentApiFakeLLMTests.test_no_provider_returns_explicit_configuration_error) ... ok
+test_provider_failure_and_secret_redaction (test_agent.AgentApiFakeLLMTests.test_provider_failure_and_secret_redaction) ... ok
+test_real_missing_forecast_tool_records_unavailable_evidence (test_agent.AgentApiFakeLLMTests.test_real_missing_forecast_tool_records_unavailable_evidence) ... ok
+test_request_limits_unknown_ids_and_invalid_fields (test_agent.AgentApiFakeLLMTests.test_request_limits_unknown_ids_and_invalid_fields) ... ok
+test_restart_recovers_interrupted_state_without_replaying (test_agent.AgentApiFakeLLMTests.test_restart_recovers_interrupted_state_without_replaying) ... ok
+test_tool_call_and_iteration_limits (test_agent.AgentApiFakeLLMTests.test_tool_call_and_iteration_limits) ... ok
+test_total_provider_deadline_records_limited_run (test_agent.AgentApiFakeLLMTests.test_total_provider_deadline_records_limited_run) ... ok
+test_unapproved_closures_and_invented_citations_rejected (test_agent.AgentApiFakeLLMTests.test_unapproved_closures_and_invented_citations_rejected) ... ok
+test_unknown_tool_injection_rejected (test_agent.AgentApiFakeLLMTests.test_unknown_tool_injection_rejected) ... ok
+test_final_rejects_invented_numbers_actions_and_restoration_labels (test_agent.AgentContractTests.test_final_rejects_invented_numbers_actions_and_restoration_labels) ... ok
+test_json_pointer_and_exact_endpoint_citations (test_agent.AgentContractTests.test_json_pointer_and_exact_endpoint_citations) ... ok
+test_provider_environment_and_endpoint_validation (test_agent.AgentContractTests.test_provider_environment_and_endpoint_validation) ... ok
+test_standard_sdk_receives_function_definitions_and_configured_model (test_agent.AgentContractTests.test_standard_sdk_receives_function_definitions_and_configured_model) ... ok
+test_subprocess_timeout_is_enforced (test_agent.AgentContractTests.test_subprocess_timeout_is_enforced) ... ok
+test_tool_input_cannot_override_fixed_incident_or_network_endpoint (test_agent.AgentContractTests.test_tool_input_cannot_override_fixed_incident_or_network_endpoint) ... ok
+test_tool_registration_has_validated_schemas_and_no_unsafe_tools (test_agent.AgentContractTests.test_tool_registration_has_validated_schemas_and_no_unsafe_tools) ... ok
+test_assessment_structure_and_safety_guardrails (test_assessment.AssessmentTests.test_assessment_structure_and_safety_guardrails)
+Tests that assessment contains all sections and explicitly guarantees routing engine isolation. ... W1025 21:26:50.497000 34804 .venv-migration\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 134/134 [00:00<00:00, 5647.08it/s]
+ok
+test_risk_threshold_triggers_freezing (test_assessment.AssessmentTests.test_risk_threshold_triggers_freezing)
+Tests freezing risk indicator detection. ... ok
+test_risk_threshold_triggers_heavy_rain (test_assessment.AssessmentTests.test_risk_threshold_triggers_heavy_rain)
+Tests heavy rain threshold detection. ... ok
+test_actual_investigation_persistence_and_provenance (test_backend.BackendApiTests.test_actual_investigation_persistence_and_provenance) ... INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 201 Created"
+
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 134/134 [00:00<00:00, 4902.71it/s]
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents/e843da30-4bb9-492c-84a0-190a7ee9c2f6/investigations "HTTP/1.1 201 Created"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: GET http://testserver/investigations/a5828956-2fcb-4fee-b4ac-4290e81e59c7 "HTTP/1.1 200 OK"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: GET http://testserver/incidents/e843da30-4bb9-492c-84a0-190a7ee9c2f6/observations "HTTP/1.1 200 OK"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: GET http://testserver/investigations/a5828956-2fcb-4fee-b4ac-4290e81e59c7/recommendations "HTTP/1.1 200 OK"
+ok
+test_analysis_endpoint_contracts_and_openapi (test_backend.BackendApiTests.test_analysis_endpoint_contracts_and_openapi) ... INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: GET http://testserver/analysis/baseline "HTTP/1.1 200 OK"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: GET http://testserver/openapi.json "HTTP/1.1 200 OK"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/analysis/environment "HTTP/1.1 422 Unprocessable Content"
+ERROR:p-34804:t-43048:main.py:run_tool:Analysis tool failure
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\lifelinetwin_backend\main.py", line 167, in run_tool
+    return method(body)
+  File "C:\Python313\Lib\unittest\mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\unittest\mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\unittest\mock.py", line 1228, in _execute_mock_call
+    raise effect
+lifelinetwin_backend.services.ToolUnavailable: Live API unavailable
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/analysis/environment "HTTP/1.1 503 Service Unavailable"
+ok
+test_failed_tools_are_persisted_without_partial_outputs (test_backend.BackendApiTests.test_failed_tools_are_persisted_without_partial_outputs) ... INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 201 Created"
+ERROR:p-34804:t-46192:main.py:run_investigation:Investigation tool failure
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\lifelinetwin_backend\main.py", line 124, in run_investigation
+    result = investigate(incident, body, tools)
+  File "D:\Projects 2026\LIfelineTwin\lifelinetwin_backend\investigation.py", line 10, in investigate
+    environment = tools.environment(request)
+  File "C:\Python313\Lib\unittest\mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\unittest\mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\unittest\mock.py", line 1228, in _execute_mock_call
+    raise effect
+lifelinetwin_backend.services.ToolUnavailable: Model cache unavailable
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents/de793795-ba5a-4c93-b343-8f76d02e6be1/investigations "HTTP/1.1 503 Service Unavailable"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: GET http://testserver/incidents/de793795-ba5a-4c93-b343-8f76d02e6be1/investigations "HTTP/1.1 200 OK"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: GET http://testserver/incidents/de793795-ba5a-4c93-b343-8f76d02e6be1/observations "HTTP/1.1 200 OK"
+ok
+test_incident_creation_status_and_history (test_backend.BackendApiTests.test_incident_creation_status_and_history) ... INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 201 Created"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: GET http://testserver/incidents "HTTP/1.1 200 OK"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: PATCH http://testserver/incidents/25bfdfa0-cc14-4af6-bd2f-521300d74cde/status "HTTP/1.1 200 OK"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: GET http://testserver/incidents/25bfdfa0-cc14-4af6-bd2f-521300d74cde/investigations "HTTP/1.1 200 OK"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: GET http://testserver/incidents/25bfdfa0-cc14-4af6-bd2f-521300d74cde/observations "HTTP/1.1 200 OK"
+ok
+test_invalid_closure_requests (test_backend.BackendApiTests.test_invalid_closure_requests) ... INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 201 Created"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents/c9431e28-beb8-4528-abe7-8c4703534c26/investigations "HTTP/1.1 422 Unprocessable Content"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents/c9431e28-beb8-4528-abe7-8c4703534c26/investigations "HTTP/1.1 422 Unprocessable Content"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents/c9431e28-beb8-4528-abe7-8c4703534c26/investigations "HTTP/1.1 422 Unprocessable Content"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents/c9431e28-beb8-4528-abe7-8c4703534c26/investigations "HTTP/1.1 422 Unprocessable Content"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents/c9431e28-beb8-4528-abe7-8c4703534c26/investigations "HTTP/1.1 422 Unprocessable Content"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 201 Created"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents/998fb23e-92de-4644-9e7d-655721961ee4/investigations "HTTP/1.1 422 Unprocessable Content"
+ok
+test_invalid_incident_status_location_and_claims (test_backend.BackendApiTests.test_invalid_incident_status_location_and_claims) ... INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 422 Unprocessable Content"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 422 Unprocessable Content"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 422 Unprocessable Content"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 422 Unprocessable Content"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 422 Unprocessable Content"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 422 Unprocessable Content"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 422 Unprocessable Content"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 201 Created"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: PATCH http://testserver/incidents/1ce7704f-16d9-412a-b5a0-042f7c7160c1/status "HTTP/1.1 422 Unprocessable Content"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: GET http://testserver/incidents?limit=10000 "HTTP/1.1 422 Unprocessable Content"
+ok
+test_missing_ids_and_malformed_uuid (test_backend.BackendApiTests.test_missing_ids_and_malformed_uuid) ... INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: GET http://testserver/incidents/b03800a4-4e61-4313-a9b3-21b6842d346b "HTTP/1.1 404 Not Found"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: GET http://testserver/investigations/05a54518-ec76-4ba6-badc-3e7efb13b61e "HTTP/1.1 404 Not Found"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: GET http://testserver/incidents/0ff72bfe-11b0-47e4-bce1-3504e0981c2f/investigations "HTTP/1.1 404 Not Found"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: GET http://testserver/investigations/cb8180f9-0433-427b-a391-bdb3f445e47f/recommendations "HTTP/1.1 404 Not Found"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: GET http://testserver/incidents/not-a-uuid "HTTP/1.1 422 Unprocessable Content"
+ok
+test_output_transaction_rolls_back_if_recommendation_storage_fails (test_backend.BackendApiTests.test_output_transaction_rolls_back_if_recommendation_storage_fails) ... INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 201 Created"
+
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 134/134 [00:00<00:00, 5271.10it/s]
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents/d921f399-c1cd-446e-aae3-528c00900415/investigations "HTTP/1.1 500 Internal Server Error"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: GET http://testserver/incidents/d921f399-c1cd-446e-aae3-528c00900415 "HTTP/1.1 200 OK"
+ok
+test_unknown_geography_and_segment_rejected (test_backend.BackendApiTests.test_unknown_geography_and_segment_rejected) ... INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/analysis/geographic "HTTP/1.1 422 Unprocessable Content"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/analysis/geographic "HTTP/1.1 422 Unprocessable Content"
+ok
+test_verified_and_user_reported_are_distinct (test_backend.BackendApiTests.test_verified_and_user_reported_are_distinct) ... INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 201 Created"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 422 Unprocessable Content"
+INFO:p-34804:t-20840:_client.py:_send_single_request:HTTP Request: POST http://testserver/incidents "HTTP/1.1 201 Created"
+ok
+test_heidelberg_pair_improvement_matches_direct_graph_calculation (test_backend.ToolIntegrationTests.test_heidelberg_pair_improvement_matches_direct_graph_calculation) ... ok
+test_insufficient_past_context_fails_honestly (test_backend.ToolIntegrationTests.test_insufficient_past_context_fails_honestly) ... ok
+test_live_adapter_reuses_ingestion_and_normalizes_timezone (test_backend.ToolIntegrationTests.test_live_adapter_reuses_ingestion_and_normalizes_timezone) ... 
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 134/134 [00:00<00:00, 5003.22it/s]
+ok
+test_missing_model_never_downloads (test_backend.ToolIntegrationTests.test_missing_model_never_downloads) ... ok
+test_pair_restoration_computed_for_generic_series_bottleneck (test_backend.ToolIntegrationTests.test_pair_restoration_computed_for_generic_series_bottleneck) ... ok
+test_pairs_not_evaluated_when_single_reopening_has_benefit (test_backend.ToolIntegrationTests.test_pairs_not_evaluated_when_single_reopening_has_benefit) ... ok
+test_calculate_metrics_exact_values (test_evaluation.EvaluationTests.test_calculate_metrics_exact_values)
+Verifies calculation of MAE, RMSE, and bias against exact hand-calculated values. ... ok
+test_calculate_metrics_length_mismatch (test_evaluation.EvaluationTests.test_calculate_metrics_length_mismatch) ... ok
+test_calculate_metrics_nan_and_none_filtering (test_evaluation.EvaluationTests.test_calculate_metrics_nan_and_none_filtering)
+Pairs with NaN or None are excluded without errors. ... ok
+test_evaluate_forecast_historical_backtest (test_evaluation.EvaluationTests.test_evaluate_forecast_historical_backtest)
+Runs full evaluation pipeline on authentic cached observations and validates outputs. ... 
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 134/134 [00:00<00:00, 5117.57it/s]
+ok
+test_actual_ttm_model_inference_cpu (test_forecasting.ForecastingTests.test_actual_ttm_model_inference_cpu)
+Runs genuine CPU inference with pretrained IBM Granite TinyTimeMixer. ... 
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 134/134 [00:00<00:00, 4930.15it/s]
+ok
+test_input_preparation_context_length_check (test_forecasting.ForecastingTests.test_input_preparation_context_length_check)
+Must raise ValueError when fewer than 512 context hours are provided. ... ok
+test_input_preparation_imputation (test_forecasting.ForecastingTests.test_input_preparation_imputation)
+Verifies None and NaN values are interpolated and counted. ... ok
+test_input_preparation_tensor_shape (test_forecasting.ForecastingTests.test_input_preparation_tensor_shape)
+Passes 512 points and verifies tensor shape is (1, 512, 1). ... ok
+test_persistence_forecast_diurnal (test_forecasting.ForecastingTests.test_persistence_forecast_diurnal)
+Verifies diurnal persistence repeats the 24-hour cycle. ... ok
+test_persistence_forecast_last_value (test_forecasting.ForecastingTests.test_persistence_forecast_last_value)
+Verifies last-value persistence replicates the last valid observation. ... ok
+test_precipitation_nonnegativity_clipping (test_forecasting.ForecastingTests.test_precipitation_nonnegativity_clipping)
+Verifies non-negativity clipping prevents negative rainfall predictions. ... ok
+test_variable_compatibility_classification (test_forecasting.ForecastingTests.test_variable_compatibility_classification)
+Verifies continuous, special, and unsupported classifications. ... ok
+test_closes_both_directions_all_parallel_without_mutation (test_geo.EngineTests.test_closes_both_directions_all_parallel_without_mutation) ... ok
+test_direction_is_preserved (test_geo.EngineTests.test_direction_is_preserved) ... ok
+test_distance_change (test_geo.EngineTests.test_distance_change) ... ok
+test_distance_savings_rank (test_geo.EngineTests.test_distance_savings_rank) ... ok
+test_invalid_weights_rejected (test_geo.EngineTests.test_invalid_weights_rejected) ... ok
+test_missing_facility_rejected (test_geo.EngineTests.test_missing_facility_rejected) ... ok
+test_nearest_of_multiple_facilities (test_geo.EngineTests.test_nearest_of_multiple_facilities) ... ok
+test_origin_at_hospital (test_geo.EngineTests.test_origin_at_hospital) ... ok
+test_reconnection_and_independent_restoration (test_geo.EngineTests.test_reconnection_and_independent_restoration) ... ok
+test_reconnection_has_priority_over_distance_savings (test_geo.EngineTests.test_reconnection_has_priority_over_distance_savings) ... ok
+test_shortest_parallel_edge_and_unreachable (test_geo.EngineTests.test_shortest_parallel_edge_and_unreachable) ... ok
+test_offline_repeatable_and_monotonic (test_geo.OfflineRealDataTests.test_offline_repeatable_and_monotonic) ... ok
+test_analyze_25_returns_engine_compatible_dict (test_geo_25.Analyze25Tests.test_analyze_25_returns_engine_compatible_dict) ... ok
+test_caller_supplied_closures_bypass_selection (test_geo_25.Analyze25Tests.test_caller_supplied_closures_bypass_selection) ... ok
+test_disruption_increases_or_disconnects (test_geo_25.Analyze25Tests.test_disruption_increases_or_disconnects) ... ok
+test_exclude_pairs_flows_through (test_geo_25.Analyze25Tests.test_exclude_pairs_flows_through) ... ok
+test_restoration_never_worsens_reachable_origins (test_geo_25.Analyze25Tests.test_restoration_never_worsens_reachable_origins) ... ok
+test_closure_dict_has_required_keys (test_geo_25.BetweennessClosureSelectionTests.test_closure_dict_has_required_keys) ... ok
+test_closure_uses_baseline_used_edges_only (test_geo_25.BetweennessClosureSelectionTests.test_closure_uses_baseline_used_edges_only)
+All selected pairs must appear in at least one baseline route. ... ok
+test_deterministic (test_geo_25.BetweennessClosureSelectionTests.test_deterministic) ... ok
+test_exclude_pairs_respected (test_geo_25.BetweennessClosureSelectionTests.test_exclude_pairs_respected) ... ok
+test_insufficient_segments_raises (test_geo_25.BetweennessClosureSelectionTests.test_insufficient_segments_raises) ... ok
+test_non_adjacency_enforced (test_geo_25.BetweennessClosureSelectionTests.test_non_adjacency_enforced) ... ok
+test_returns_correct_count (test_geo_25.BetweennessClosureSelectionTests.test_returns_correct_count) ... ok
+test_phase25_closures_differ_from_phase2 (test_geo_25.OfflineRealData25Tests.test_phase25_closures_differ_from_phase2) ... ok
+test_phase25_closures_used_by_baseline (test_geo_25.OfflineRealData25Tests.test_phase25_closures_used_by_baseline)
+Every selected segment must have appeared in a baseline route. ... ok
+test_phase25_deterministic (test_geo_25.OfflineRealData25Tests.test_phase25_deterministic) ... ok
+test_phase25_offline_no_network (test_geo_25.OfflineRealData25Tests.test_phase25_offline_no_network) ... ok
+test_phase25_restoration_monotone (test_geo_25.OfflineRealData25Tests.test_phase25_restoration_monotone)
+Restoring a segment never worsens already-reachable origins. ... ok
+test_phase25_route_distances_nonnegative_increase (test_geo_25.OfflineRealData25Tests.test_phase25_route_distances_nonnegative_increase) ... ok
+test_cache_save_and_load (test_weather.WeatherDataIngestionTests.test_cache_save_and_load)
+Verify that saving and loading observations preserves data completely. ... ok
+test_cache_tag_deterministic (test_weather.WeatherDataIngestionTests.test_cache_tag_deterministic) ... ok
+test_genuine_open_meteo_response (test_weather.WeatherDataIngestionTests.test_genuine_open_meteo_response)
+Test against genuine cached or live Open-Meteo observations for Heidelberg. ... ok
+test_missing_data_and_nan_handling (test_weather.WeatherDataIngestionTests.test_missing_data_and_nan_handling)
+Verify that None and NaN are appropriately handled without crashes. ... ok
+test_offline_fallback_on_network_error (test_weather.WeatherDataIngestionTests.test_offline_fallback_on_network_error)
+When network fails, get_observations falls back to cached data. ... ok
+test_parse_hourly_structure_and_units (test_weather.WeatherDataIngestionTests.test_parse_hourly_structure_and_units)
+Test parsing of raw Open-Meteo JSON into normalized structure. ... ok
+
+----------------------------------------------------------------------
+Ran 85 tests in 114.305s
+
+OK

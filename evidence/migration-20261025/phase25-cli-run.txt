@@ -1,0 +1,1 @@
+analyze25 FAILED: KeyError: '"\'area\'"'

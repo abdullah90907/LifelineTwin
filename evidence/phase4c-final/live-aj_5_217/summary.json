@@ -1,0 +1,298 @@
+{
+  "provider": "Groq",
+  "base_url": "https://api.groq.com/openai/v1",
+  "configured_model": "openai/gpt-oss-20b",
+  "token_parameter": "max_tokens",
+  "fake_provider_used": false,
+  "minimal_probe_attempted": false,
+  "agent_endpoint_attempted": true,
+  "live_agent_completed": false,
+  "evidence_directory": "D:\\Projects 2026\\LIfelineTwin\\evidence\\phase4c-final\\live-aj_5_217",
+  "backend_restarted": true,
+  "saved_run_identical_after_restart": true,
+  "saved_trace_identical_after_restart": true,
+  "sqlite_integrity": "ok",
+  "incident_id": "03441472-be07-4aa5-b61a-e58e73a06eab",
+  "agent_run_id": "5a311442-c4ec-43fc-a87a-35c1a34c9747",
+  "status": "limited",
+  "iterations": 6,
+  "tool_calls": 6,
+  "actual_models": [
+    "openai/gpt-oss-20b",
+    "openai/gpt-oss-20b",
+    "openai/gpt-oss-20b",
+    "openai/gpt-oss-20b",
+    "openai/gpt-oss-20b",
+    "openai/gpt-oss-20b"
+  ],
+  "ordered_tool_calls": [
+    {
+      "tool": "retrieve_incident",
+      "error": null,
+      "evidence_id": "E1"
+    },
+    {
+      "tool": "analyze_closures",
+      "error": null,
+      "evidence_id": "E2"
+    },
+    {
+      "tool": "retrieve_observations",
+      "error": null,
+      "evidence_id": "E3"
+    },
+    {
+      "tool": "baseline_accessibility",
+      "error": null,
+      "evidence_id": "E4"
+    },
+    {
+      "tool": "retrieve_incident",
+      "error": null,
+      "evidence_id": "E1"
+    },
+    {
+      "tool": "generate_forecast",
+      "error": null,
+      "evidence_id": "E5"
+    }
+  ],
+  "citation_checks": [],
+  "recommendation_citation_checks": [],
+  "sanitized_provider_failures": [
+    {
+      "category": "context_budget",
+      "http_status": null,
+      "provider_code": null,
+      "request_id": null,
+      "transient": false,
+      "retry_after_seconds": null,
+      "retry_after_supplied": false,
+      "stage": "context_management",
+      "agent_step": 7,
+      "provider_attempt": 6,
+      "retry_scheduled": false,
+      "retry_decision": "not_transient"
+    }
+  ],
+  "provider_attempts": 6,
+  "retry_used": false,
+  "context_metrics": [
+    {
+      "request_bytes": 6918,
+      "estimated_input_tokens": 2482,
+      "reserved_output_tokens": 1800,
+      "estimated_reserved_tokens": 4282,
+      "max_request_bytes": 12000,
+      "max_input_tokens": 3500,
+      "token_count_method": "utf8_bytes_divided_by_3_plus_framing_estimate",
+      "unmanaged_request_bytes": 6543,
+      "archived_exchanges": 0,
+      "retained_exchanges": 0,
+      "strategy": "catalog_only"
+    },
+    {
+      "request_bytes": 8131,
+      "estimated_input_tokens": 2919,
+      "reserved_output_tokens": 1800,
+      "estimated_reserved_tokens": 4719,
+      "max_request_bytes": 12000,
+      "max_input_tokens": 3500,
+      "token_count_method": "utf8_bytes_divided_by_3_plus_framing_estimate",
+      "unmanaged_request_bytes": 7573,
+      "archived_exchanges": 0,
+      "retained_exchanges": 1,
+      "strategy": "recent_exchange"
+    },
+    {
+      "request_bytes": 8977,
+      "estimated_input_tokens": 3217,
+      "reserved_output_tokens": 1800,
+      "estimated_reserved_tokens": 5017,
+      "max_request_bytes": 12000,
+      "max_input_tokens": 3500,
+      "token_count_method": "utf8_bytes_divided_by_3_plus_framing_estimate",
+      "unmanaged_request_bytes": 11177,
+      "archived_exchanges": 1,
+      "retained_exchanges": 1,
+      "strategy": "compact_recent_exchange"
+    },
+    {
+      "request_bytes": 9251,
+      "estimated_input_tokens": 3324,
+      "reserved_output_tokens": 1800,
+      "estimated_reserved_tokens": 5124,
+      "max_request_bytes": 12000,
+      "max_input_tokens": 3500,
+      "token_count_method": "utf8_bytes_divided_by_3_plus_framing_estimate",
+      "unmanaged_request_bytes": 13908,
+      "archived_exchanges": 2,
+      "retained_exchanges": 1,
+      "strategy": "compact_recent_exchange"
+    },
+    {
+      "request_bytes": 9473,
+      "estimated_input_tokens": 3414,
+      "reserved_output_tokens": 1800,
+      "estimated_reserved_tokens": 5214,
+      "max_request_bytes": 12000,
+      "max_input_tokens": 3500,
+      "token_count_method": "utf8_bytes_divided_by_3_plus_framing_estimate",
+      "unmanaged_request_bytes": 15716,
+      "archived_exchanges": 3,
+      "retained_exchanges": 1,
+      "strategy": "compact_recent_exchange"
+    },
+    {
+      "request_bytes": 9470,
+      "estimated_input_tokens": 3429,
+      "reserved_output_tokens": 1800,
+      "estimated_reserved_tokens": 5229,
+      "max_request_bytes": 12000,
+      "max_input_tokens": 3500,
+      "token_count_method": "utf8_bytes_divided_by_3_plus_framing_estimate",
+      "unmanaged_request_bytes": 16746,
+      "archived_exchanges": 4,
+      "retained_exchanges": 1,
+      "strategy": "compact_recent_exchange"
+    }
+  ],
+  "usage_records": [
+    {
+      "provider_attempt": 1,
+      "reserved_tokens": 4282,
+      "estimated_input_tokens": 2482,
+      "charged_tokens": 1517,
+      "reported_usage": {
+        "input_tokens": 1351,
+        "output_tokens": 166,
+        "total_tokens": 1517
+      },
+      "input_estimation_delta": -1131
+    },
+    {
+      "provider_attempt": 2,
+      "reserved_tokens": 4719,
+      "estimated_input_tokens": 2919,
+      "charged_tokens": 2008,
+      "reported_usage": {
+        "input_tokens": 1623,
+        "output_tokens": 385,
+        "total_tokens": 2008
+      },
+      "input_estimation_delta": -1296
+    },
+    {
+      "provider_attempt": 3,
+      "reserved_tokens": 5017,
+      "estimated_input_tokens": 3217,
+      "charged_tokens": 1948,
+      "reported_usage": {
+        "input_tokens": 1855,
+        "output_tokens": 93,
+        "total_tokens": 1948
+      },
+      "input_estimation_delta": -1362
+    },
+    {
+      "provider_attempt": 4,
+      "reserved_tokens": 5124,
+      "estimated_input_tokens": 3324,
+      "charged_tokens": 2039,
+      "reported_usage": {
+        "input_tokens": 1925,
+        "output_tokens": 114,
+        "total_tokens": 2039
+      },
+      "input_estimation_delta": -1399
+    },
+    {
+      "provider_attempt": 5,
+      "reserved_tokens": 5214,
+      "estimated_input_tokens": 3414,
+      "charged_tokens": 2029,
+      "reported_usage": {
+        "input_tokens": 1941,
+        "output_tokens": 88,
+        "total_tokens": 2029
+      },
+      "input_estimation_delta": -1473
+    },
+    {
+      "provider_attempt": 6,
+      "reserved_tokens": 5229,
+      "estimated_input_tokens": 3429,
+      "charged_tokens": 2782,
+      "reported_usage": {
+        "input_tokens": 1941,
+        "output_tokens": 841,
+        "total_tokens": 2782
+      },
+      "input_estimation_delta": -1488
+    }
+  ],
+  "geographic_comparisons": [
+    {
+      "tool": "analyze_closures",
+      "closure_endpoints_equal": true,
+      "baseline_equal": true,
+      "changes_equal": true,
+      "pairs_equal": true
+    }
+  ],
+  "endpoint_verification": [
+    {
+      "osm_segments": [
+        {
+          "u": 33811019,
+          "v": 928125779
+        },
+        {
+          "u": 60697812,
+          "v": 146000024
+        }
+      ],
+      "saved_origin_metres": 432.8682130453435,
+      "matches_deterministic": true
+    },
+    {
+      "osm_segments": [
+        {
+          "u": 33811019,
+          "v": 928125779
+        },
+        {
+          "u": 60697818,
+          "v": 298538536
+        }
+      ],
+      "saved_origin_metres": 0,
+      "matches_deterministic": true
+    },
+    {
+      "osm_segments": [
+        {
+          "u": 60697812,
+          "v": 146000024
+        },
+        {
+          "u": 60697818,
+          "v": 298538536
+        }
+      ],
+      "saved_origin_metres": 0,
+      "matches_deterministic": true
+    }
+  ],
+  "forecast_values_equal_phase4a": true,
+  "successful_tools": [
+    "analyze_closures",
+    "baseline_accessibility",
+    "generate_forecast",
+    "retrieve_incident",
+    "retrieve_observations"
+  ],
+  "result_error": "Provider failure: context_budget; sanitized metadata retained in trace",
+  "all_requested_evidence_obtained": false,
+  "credential_present_in_saved_files": false
+}

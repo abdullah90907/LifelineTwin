@@ -1,0 +1,79 @@
+W1025 14:50:29.202000 25596 Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+INFO:p-25596:t-15172:_client.py:_send_single_request:HTTP Request: GET https://huggingface.co/api/agent-harnesses "HTTP/1.1 200 OK"
+INFO:p-25596:t-15172:_client.py:_send_single_request:HTTP Request: GET https://huggingface.co/api/models/ibm-granite/granite-timeseries-ttm-r1/revision/main "HTTP/1.1 200 OK"
+INFO:p-25596:t-15172:_client.py:_send_single_request:HTTP Request: HEAD https://huggingface.co/ibm-granite/granite-timeseries-ttm-r1/resolve/f04bebdd4c13475b006ce72672e74c9dc28871dc/config.json "HTTP/1.1 307 Temporary Redirect"
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:p-25596:t-15172:_http.py:_warn_on_warning_headers:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+INFO:p-25596:t-15172:_client.py:_send_single_request:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/ibm-granite/granite-timeseries-ttm-r1/f04bebdd4c13475b006ce72672e74c9dc28871dc/config.json?%2Fibm-granite%2Fgranite-timeseries-ttm-r1%2Fresolve%2Ff04bebdd4c13475b006ce72672e74c9dc28871dc%2Fconfig.json=&etag=%22eee0e527833507fcd808099570256478c0178ba2%22 "HTTP/1.1 200 OK"
+INFO:p-25596:t-15172:_client.py:_send_single_request:HTTP Request: GET https://huggingface.co/api/resolve-cache/models/ibm-granite/granite-timeseries-ttm-r1/f04bebdd4c13475b006ce72672e74c9dc28871dc/config.json?%2Fibm-granite%2Fgranite-timeseries-ttm-r1%2Fresolve%2Ff04bebdd4c13475b006ce72672e74c9dc28871dc%2Fconfig.json=&etag=%22eee0e527833507fcd808099570256478c0178ba2%22 "HTTP/1.1 200 OK"
+D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\huggingface_hub\file_download.py:149: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in D:\Projects 2026\LIfelineTwin\.runtime\huggingface\hub\models--ibm-granite--granite-timeseries-ttm-r1. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)
+INFO:p-25596:t-15172:_client.py:_send_single_request:HTTP Request: HEAD https://huggingface.co/ibm-granite/granite-timeseries-ttm-r1/resolve/f04bebdd4c13475b006ce72672e74c9dc28871dc/model.safetensors "HTTP/1.1 302 Found"
+D:\Projects 2026\LIfelineTwin\.venv-migration\Lib\site-packages\huggingface_hub\file_download.py:149: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in D:\Projects 2026\LIfelineTwin\.runtime\huggingface\hub. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)
+INFO:p-25596:t-15172:_client.py:_send_single_request:HTTP Request: GET https://huggingface.co/api/models/ibm-granite/granite-timeseries-ttm-r1/xet-read-token/f04bebdd4c13475b006ce72672e74c9dc28871dc "HTTP/1.1 200 OK"
+
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 134/134 [00:00<00:00, 3730.94it/s]
+{
+  "graph_nodes": 1060,
+  "graph_edges": 2331,
+  "origins": 9,
+  "facilities": 27,
+  "cache_sha256_verified": true,
+  "saved_results_comparison": {
+    "phase2": {
+      "changes": true,
+      "closures": true,
+      "restorations": true
+    },
+    "phase25": {
+      "changes": true,
+      "closures": true,
+      "restorations": true
+    }
+  },
+  "ttm": {
+    "model_id": "ibm-granite/granite-timeseries-ttm-r1",
+    "forecast_horizon_hours": 96,
+    "metadata": {
+      "context_length": 512,
+      "context_start": "2026-10-09T16:00",
+      "context_end": "2026-10-30T23:00",
+      "imputed_count": 0,
+      "raw_min": 5.199999809265137,
+      "raw_max": 21.200000762939453,
+      "raw_mean": 11.723827362060547,
+      "inference_device": "cpu",
+      "inference_time_ms": 16.71,
+      "parameter_count": 805280,
+      "clip_nonnegative": false
+    },
+    "finite_predictions": true,
+    "first_five": [
+      8.765932083129883,
+      8.819766998291016,
+      8.707077980041504,
+      8.580591201782227,
+      8.423613548278809
+    ],
+    "actual_parameter_device": "cpu"
+  },
+  "live_open_meteo": {
+    "ok": true,
+    "source": "https://api.open-meteo.com/v1/forecast",
+    "n_hours": 72,
+    "variables": [
+      "temperature_2m",
+      "precipitation",
+      "wind_speed_10m",
+      "wind_direction_10m",
+      "relative_humidity_2m",
+      "surface_pressure"
+    ]
+  },
+  "preserved_file_count": 64,
+  "changed_original_files": []
+}

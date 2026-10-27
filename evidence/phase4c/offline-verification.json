@@ -1,0 +1,20 @@
+{
+  "live_run_status": "failed",
+  "accepted_final_findings": false,
+  "trace_sequence_contiguous": true,
+  "live_agent_baseline_equals_phase4a": true,
+  "live_agent_observation_values_equal_phase4a": true,
+  "environment_source": "https://api.open-meteo.com/v1/forecast",
+  "environment_model_identity": "ibm-granite/granite-timeseries-ttm-r1",
+  "eligible_past_hours": 740,
+  "future_source_hours_excluded": 148,
+  "environment_source_hash": "39c9e7f148c07179e4130a9c2cfd30c835b0352a5deadbaba01ba0eec4334250",
+  "actual_llm_forecast_tool_invoked": false,
+  "actual_llm_closure_or_restoration_tools_invoked": false,
+  "agent_final_recommendations_exist": false,
+  "sqlite_integrity": "ok",
+  "original_files_checked": 45,
+  "changed_original_files": [],
+  "secret_pattern_present_in_saved_artifacts": false,
+  "further_live_requests_stopped_at_user_request": true
+}

@@ -1,0 +1,29 @@
+
+> lifelinetwin-frontend@0.5.0 test
+> vitest run
+
+
+ RUN  v4.1.12 D:/Projects 2026/LIfelineTwin/frontend
+
+ ❯ src/foundation.test.tsx (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/foundation.test.tsx [ src/foundation.test.tsx ]
+TypeError: The URL must be of scheme file
+ ❯ src/foundation.test.tsx:10:44
+      8| import App from './App'
+      9|
+     10| const atlas = atlasSchema.parse(JSON.parse(readFileSync(new URL('../pu…
+       |                                            ^
+     11| const baseline = baselineSchema.parse(JSON.parse(readFileSync(new URL(…
+     12| const health = { status: 'ok', database: 'ok', geographic_cache_presen…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  02:41:45
+   Duration  3.62s (transform 391ms, setup 508ms, import 0ms, tests 0ms, environment 1.57s)
+

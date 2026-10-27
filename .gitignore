@@ -1,0 +1,27 @@
+vendor/
+node_modules/
+.env
+.env.*
+!.env.example
+.runtime/
+.venv/
+__pycache__/
+*.pyc
+zetaris-platform/
+zetaris-platform.zip
+
+# Isolated environment for this laptop migration
+.venv-migration/
+
+# Local incident database; demonstration databases are retained as evidence.
+data/backend/
+
+# Frontend generated files
+frontend/dist/
+frontend/*.tsbuildinfo
+
+# Local execution artifacts: retain on disk, exclude from source publication.
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+evidence/**/*.log

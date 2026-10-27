@@ -1,0 +1,285 @@
+{
+  "controlled_offline_test": true,
+  "live_provider_used": false,
+  "provider_attempts": 3,
+  "analytical_executions": 1,
+  "retry_wait_seconds": [
+    2.0
+  ],
+  "result": {
+    "id": "74fd1272-2bf3-45bf-ac0b-12c0e52bab78",
+    "incident_id": "56a4f9c5-618a-475f-aaec-2f9a34f6ca85",
+    "created_at": "2026-10-25T17:12:54.114089+00:00",
+    "updated_at": "2026-10-25T17:12:54.184666+00:00",
+    "status": "completed",
+    "request": {
+      "mode": "cache",
+      "variable": "temperature_2m",
+      "as_of": "2026-10-24T19:55:49Z",
+      "question": "Offline reliability test",
+      "allowed_closures": [],
+      "max_iterations": 6,
+      "max_tool_calls": 12,
+      "timeout_seconds": 120,
+      "tool_timeout_seconds": 45
+    },
+    "model_identity": {
+      "live_llm": false,
+      "adapter": "controlled_test"
+    },
+    "result": {
+      "pipeline": "langgraph_llm_tools_phase4b",
+      "findings": [
+        {
+          "citation": {
+            "evidence_id": "E1",
+            "pointer": "/kind"
+          },
+          "evidence_category": "attributed_incident_claims",
+          "value": "hypothetical",
+          "statement": "Exact cited tool value (attributed_incident_claims); source attribution and hypothetical status are retained."
+        }
+      ],
+      "uncertainties": [
+        "Road status requires independent human/authority verification; all modeled closures are hypothetical.",
+        "Environmental estimates and predictions do not establish closure, damage, or causation."
+      ],
+      "recommendations": [
+        {
+          "action": "Ask the responsible authority to verify road status before operational action.",
+          "citations": [
+            {
+              "evidence_id": "E1",
+              "pointer": "/kind"
+            }
+          ],
+          "human_review_required": true
+        }
+      ],
+      "evidence_ids": [
+        "E0",
+        "E1"
+      ],
+      "unavailable_evidence": [],
+      "limitations": [
+        "LLM selects tools and citations; numerical values and action wording are server-validated, not authored by the model.",
+        "External text is untrusted. Prompt-injection defenses restrict capabilities and outputs; no universal semantic immunity is claimed.",
+        "Only caller-approved hypothetical closures are executable; cached-grid distance and snapshot limitations remain.",
+        "This run may be incomplete for its question; tool availability and selection are not proof of comprehensive investigation."
+      ]
+    },
+    "error": null,
+    "iterations": 2,
+    "tool_calls": 2
+  },
+  "trace": [
+    {
+      "kind": "start",
+      "payload": {
+        "model_identity": {
+          "live_llm": false,
+          "adapter": "controlled_test"
+        },
+        "evidence_id": "E0"
+      },
+      "sequence": 1
+    },
+    {
+      "kind": "decision",
+      "payload": {
+        "model": "offline-test-only",
+        "selected_tools": [
+          "retrieve_incident"
+        ],
+        "assistant_note_untrusted": "",
+        "provider_attempt": 1,
+        "request_id": "req_offline_response"
+      },
+      "sequence": 2
+    },
+    {
+      "kind": "tool",
+      "payload": {
+        "tool": "retrieve_incident",
+        "call_id": "call1",
+        "input": {},
+        "output": {
+          "kind": "hypothetical"
+        },
+        "error": null,
+        "evidence_id": "E1",
+        "category": "attributed_incident_claims",
+        "reused": false,
+        "failure": null
+      },
+      "sequence": 3
+    },
+    {
+      "kind": "provider_failure",
+      "payload": {
+        "category": "rate_limit",
+        "http_status": 429,
+        "provider_code": "rate_limit_exceeded",
+        "request_id": "req_offline_123",
+        "transient": true,
+        "retry_after_seconds": 2.0,
+        "retry_after_supplied": true,
+        "stage": "provider_sdk",
+        "agent_step": 2,
+        "provider_attempt": 2,
+        "retry_scheduled": true,
+        "retry_decision": "scheduled"
+      },
+      "sequence": 4
+    },
+    {
+      "kind": "provider_retry",
+      "payload": {
+        "agent_step": 2,
+        "next_provider_attempt": 3,
+        "delay_seconds": 2.0
+      },
+      "sequence": 5
+    },
+    {
+      "kind": "decision",
+      "payload": {
+        "model": "offline-test-only",
+        "selected_tools": [
+          "complete_investigation"
+        ],
+        "assistant_note_untrusted": "",
+        "provider_attempt": 3,
+        "request_id": "req_offline_response"
+      },
+      "sequence": 6
+    },
+    {
+      "kind": "final",
+      "payload": {
+        "tool": "complete_investigation",
+        "call_id": "call1",
+        "input": {
+          "findings": [
+            {
+              "evidence_id": "E1",
+              "pointer": "/kind"
+            }
+          ],
+          "uncertainties": [
+            "road_status_unverified"
+          ],
+          "actions": [
+            {
+              "kind": "verify_road_status",
+              "citations": [
+                {
+                  "evidence_id": "E1",
+                  "pointer": "/kind"
+                }
+              ]
+            }
+          ]
+        },
+        "output": {
+          "pipeline": "langgraph_llm_tools_phase4b",
+          "findings": [
+            {
+              "citation": {
+                "evidence_id": "E1",
+                "pointer": "/kind"
+              },
+              "evidence_category": "attributed_incident_claims",
+              "value": "hypothetical",
+              "statement": "Exact cited tool value (attributed_incident_claims); source attribution and hypothetical status are retained."
+            }
+          ],
+          "uncertainties": [
+            "Road status requires independent human/authority verification; all modeled closures are hypothetical.",
+            "Environmental estimates and predictions do not establish closure, damage, or causation."
+          ],
+          "recommendations": [
+            {
+              "action": "Ask the responsible authority to verify road status before operational action.",
+              "citations": [
+                {
+                  "evidence_id": "E1",
+                  "pointer": "/kind"
+                }
+              ],
+              "human_review_required": true
+            }
+          ],
+          "evidence_ids": [
+            "E0",
+            "E1"
+          ],
+          "unavailable_evidence": [],
+          "limitations": [
+            "LLM selects tools and citations; numerical values and action wording are server-validated, not authored by the model.",
+            "External text is untrusted. Prompt-injection defenses restrict capabilities and outputs; no universal semantic immunity is claimed.",
+            "Only caller-approved hypothetical closures are executable; cached-grid distance and snapshot limitations remain.",
+            "This run may be incomplete for its question; tool availability and selection are not proof of comprehensive investigation."
+          ]
+        },
+        "error": null,
+        "evidence_id": null,
+        "category": null,
+        "reused": false,
+        "failure": null
+      },
+      "sequence": 7
+    },
+    {
+      "kind": "end",
+      "payload": {
+        "status": "completed",
+        "error": null
+      },
+      "sequence": 8
+    }
+  ],
+  "checkpoint": {
+    "evidence": {
+      "E0": {
+        "category": "attributed_incident_claims",
+        "tool": "initial_incident_snapshot",
+        "data": {
+          "title": "Offline test",
+          "description": "Hypothetical only",
+          "kind": "hypothetical",
+          "occurred_at": "2026-10-24T19:55:49Z",
+          "context": {
+            "latitude": 49.415,
+            "longitude": 8.6775,
+            "origin_ids": []
+          },
+          "claims": [],
+          "id": "56a4f9c5-618a-475f-aaec-2f9a34f6ca85",
+          "status": "open",
+          "created_at": "2026-10-25T17:12:54.108404Z",
+          "updated_at": "2026-10-25T17:12:54.108412Z"
+        }
+      },
+      "E1": {
+        "category": "attributed_incident_claims",
+        "tool": "retrieve_incident",
+        "data": {
+          "kind": "hypothetical"
+        }
+      }
+    },
+    "iterations": 2,
+    "tool_calls": 2,
+    "status": "completed",
+    "unavailable": [],
+    "provider_attempts": 3,
+    "retry_used": true,
+    "tool_cache": {
+      "01698910e1607bcffaf9fd1bf1dd3cca1630d0d59bd56bfe87638b98db3a216f": {
+        "evidence_id": "E1"
+      }
+    },
+    "message_count": 6
+  }
+}

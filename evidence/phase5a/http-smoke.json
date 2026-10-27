@@ -1,0 +1,66 @@
+{
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 706
+    },
+    {
+      "path": "/atlas",
+      "status": 200,
+      "bytes": 706
+    },
+    {
+      "path": "/incidents",
+      "status": 200,
+      "bytes": 706
+    },
+    {
+      "path": "/intelligence",
+      "status": 200,
+      "bytes": 706
+    },
+    {
+      "path": "/api/health",
+      "status": 200,
+      "bytes": 131
+    },
+    {
+      "path": "/api/analysis/baseline",
+      "status": 200,
+      "bytes": 11526
+    },
+    {
+      "path": "/api/incidents?limit=12&offset=0",
+      "status": 200,
+      "bytes": 2
+    },
+    {
+      "path": "/api/openapi.json",
+      "status": 200,
+      "bytes": 29764
+    },
+    {
+      "path": "/data/heidelberg-atlas.json",
+      "status": 200,
+      "bytes": 257582
+    }
+  ],
+  "health": {
+    "status": "ok",
+    "database": "ok",
+    "pipeline": "deterministic_tools_phase4a",
+    "geographic_cache_present": true,
+    "model_cache_present": true
+  },
+  "incident_count_in_first_page": 0,
+  "reachable_origins": 9,
+  "total_origins": 9,
+  "mean_distance_m": 921.1519721593538,
+  "display_road_lines": 1554,
+  "display_bytes": 279820,
+  "static_and_api_manifest_match": true,
+  "agent_requests": 0,
+  "forecast_requests": 0,
+  "write_requests": 0
+}

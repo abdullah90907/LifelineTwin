@@ -1,0 +1,11 @@
+{
+  "files_checked": 56,
+  "changed_files": [
+    "lifelinetwin_backend\\agent.py",
+    "lifelinetwin_backend\\agent_failures.py",
+    "lifelinetwin_backend\\agent_provider.py",
+    "lifelinetwin_backend\\agent_schemas.py",
+    "lifelinetwin_backend\\agent_tools.py"
+  ],
+  "changed_geographic_engine_or_cache_or_historical_evidence": []
+}

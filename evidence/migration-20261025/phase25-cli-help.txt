@@ -1,0 +1,14 @@
+usage: __main_25__.py [-h] [--cache CACHE] [--output OUTPUT]
+                      [--exclude-phase2]
+                      {analyze25}
+
+Phase 2.5: betweenness-driven scenario; hypothetical closures only
+
+positional arguments:
+  {analyze25}
+
+options:
+  -h, --help        show this help message and exit
+  --cache CACHE
+  --output OUTPUT
+  --exclude-phase2  Exclude Phase 2 closure pairs from selection (default: on)

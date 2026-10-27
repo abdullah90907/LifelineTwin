@@ -1,0 +1,44 @@
+{
+  "id": "5a311442-c4ec-43fc-a87a-35c1a34c9747",
+  "incident_id": "03441472-be07-4aa5-b61a-e58e73a06eab",
+  "created_at": "2026-10-25T19:39:59.521898+00:00",
+  "updated_at": "2026-10-25T19:40:43.021052+00:00",
+  "status": "limited",
+  "request": {
+    "mode": "cache",
+    "variable": "temperature_2m",
+    "as_of": "2026-10-24T19:55:49.074511Z",
+    "question": "Investigate all the approved hypothetical closure segments. Obtain baseline accessibility, before/after closure impacts and restoration comparisons including pairs, environmental observations, and the actual cached IBM TTM forecast. In the final structured findings cite exact distance impacts, the best reopening alternative with OSM endpoints, and at least one actual forecast value with its timestamp/unit. Recommendations must be advisory and tied to real tool evidence. Disclose snapshot and observation-versus-prediction limitations.",
+    "allowed_closures": [
+      {
+        "id": "D1",
+        "u": 33811019,
+        "v": 928125779
+      },
+      {
+        "id": "D2",
+        "u": 60697812,
+        "v": 146000024
+      },
+      {
+        "id": "D3",
+        "u": 60697818,
+        "v": 298538536
+      }
+    ],
+    "max_iterations": 10,
+    "max_tool_calls": 18,
+    "timeout_seconds": 240,
+    "tool_timeout_seconds": 60
+  },
+  "model_identity": {
+    "adapter": "openai_python_chat_completions",
+    "configured_model": "openai/gpt-oss-20b",
+    "base_url": "https://api.groq.com/openai/v1",
+    "live_llm": true
+  },
+  "result": null,
+  "error": "Provider failure: context_budget; sanitized metadata retained in trace",
+  "iterations": 6,
+  "tool_calls": 6
+}

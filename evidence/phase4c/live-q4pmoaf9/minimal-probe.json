@@ -1,0 +1,24 @@
+{
+  "actual_model": "openai/gpt-oss-20b",
+  "request_id": "req_01m5sy0qweeke93w8hk02w8bwv",
+  "finish_reason": "stop",
+  "tool_calls": [],
+  "usage": {
+    "completion_tokens": 43,
+    "prompt_tokens": 75,
+    "total_tokens": 118,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 33,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null,
+    "queue_time": 0.24680185,
+    "prompt_time": 0.004191085,
+    "completion_time": 0.045394731,
+    "total_time": 0.049585816
+  },
+  "completion_received": true,
+  "tool_calling_tested_in_probe": false
+}

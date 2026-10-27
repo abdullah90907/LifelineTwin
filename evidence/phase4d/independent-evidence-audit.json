@@ -1,0 +1,170 @@
+{
+  "live_provider_calls": 0,
+  "cases": [
+    {
+      "case": "geographic_first",
+      "baseline_and_changes_match_direct_engine": true,
+      "all_final_citations_match": true,
+      "full_evidence_bytes": 84222,
+      "pair_checks": [
+        {
+          "osm_segments": [
+            {
+              "u": 33811019,
+              "v": 928125779
+            },
+            {
+              "u": 60697812,
+              "v": 146000024
+            }
+          ],
+          "saved_origin_metres": 432.8682130453435,
+          "matches": true
+        },
+        {
+          "osm_segments": [
+            {
+              "u": 33811019,
+              "v": 928125779
+            },
+            {
+              "u": 60697818,
+              "v": 298538536
+            }
+          ],
+          "saved_origin_metres": 0,
+          "matches": true
+        },
+        {
+          "osm_segments": [
+            {
+              "u": 60697812,
+              "v": 146000024
+            },
+            {
+              "u": 60697818,
+              "v": 298538536
+            }
+          ],
+          "saved_origin_metres": 0,
+          "matches": true
+        }
+      ],
+      "source_categories": [
+        "computed_hypothetical_geography",
+        "environmental_model_estimates",
+        "pretrained_prediction"
+      ]
+    },
+    {
+      "case": "weather_first",
+      "baseline_and_changes_match_direct_engine": true,
+      "all_final_citations_match": true,
+      "full_evidence_bytes": 84221,
+      "pair_checks": [
+        {
+          "osm_segments": [
+            {
+              "u": 33811019,
+              "v": 928125779
+            },
+            {
+              "u": 60697812,
+              "v": 146000024
+            }
+          ],
+          "saved_origin_metres": 432.8682130453435,
+          "matches": true
+        },
+        {
+          "osm_segments": [
+            {
+              "u": 33811019,
+              "v": 928125779
+            },
+            {
+              "u": 60697818,
+              "v": 298538536
+            }
+          ],
+          "saved_origin_metres": 0,
+          "matches": true
+        },
+        {
+          "osm_segments": [
+            {
+              "u": 60697812,
+              "v": 146000024
+            },
+            {
+              "u": 60697818,
+              "v": 298538536
+            }
+          ],
+          "saved_origin_metres": 0,
+          "matches": true
+        }
+      ],
+      "source_categories": [
+        "computed_hypothetical_geography",
+        "environmental_model_estimates",
+        "pretrained_prediction"
+      ]
+    },
+    {
+      "case": "shared_scenario",
+      "baseline_and_changes_match_direct_engine": true,
+      "all_final_citations_match": true,
+      "full_evidence_bytes": 84222,
+      "pair_checks": [
+        {
+          "osm_segments": [
+            {
+              "u": 33811019,
+              "v": 928125779
+            },
+            {
+              "u": 60697812,
+              "v": 146000024
+            }
+          ],
+          "saved_origin_metres": 432.8682130453435,
+          "matches": true
+        },
+        {
+          "osm_segments": [
+            {
+              "u": 33811019,
+              "v": 928125779
+            },
+            {
+              "u": 60697818,
+              "v": 298538536
+            }
+          ],
+          "saved_origin_metres": 0,
+          "matches": true
+        },
+        {
+          "osm_segments": [
+            {
+              "u": 60697812,
+              "v": 146000024
+            },
+            {
+              "u": 60697818,
+              "v": 298538536
+            }
+          ],
+          "saved_origin_metres": 0,
+          "matches": true
+        }
+      ],
+      "source_categories": [
+        "computed_hypothetical_geography",
+        "environmental_model_estimates",
+        "pretrained_prediction"
+      ]
+    }
+  ]
+}

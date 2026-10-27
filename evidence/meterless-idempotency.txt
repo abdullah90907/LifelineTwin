@@ -1,0 +1,7 @@
+
+> @meterless/world-model-reference@0.1.0 idempotency-check
+> tsx scripts/idempotency-check.ts
+
+run 1: processed=3 clusters=1 changed=true
+run 2: processed=0 skipped=3 changed=false
+diff: empty

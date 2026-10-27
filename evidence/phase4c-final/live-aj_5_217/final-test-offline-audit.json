@@ -1,0 +1,30 @@
+{
+  "live_llm_executed": true,
+  "completed": false,
+  "single_agent_run": true,
+  "trace_contiguous": true,
+  "observations_equal_deterministic": true,
+  "forecasts_equal_deterministic": true,
+  "forecast_model": "ibm-granite/granite-timeseries-ttm-r1",
+  "forecast_horizon_hours": 96,
+  "eligible_past_hours": 740,
+  "excluded_future_hours": 148,
+  "context_rejected": {
+    "request_bytes": 10142,
+    "estimated_input_tokens": 3653,
+    "reserved_output_tokens": 1800,
+    "estimated_reserved_tokens": 5453,
+    "max_request_bytes": 12000,
+    "max_input_tokens": 3500,
+    "token_count_method": "utf8_bytes_divided_by_3_plus_framing_estimate",
+    "unmanaged_request_bytes": 18219,
+    "strategy": "minimum_context_rejected"
+  },
+  "no_raw_messages_in_checkpoint": true,
+  "credential_prefix_in_artifacts": false,
+  "usage_totals": {
+    "input_tokens": 10636,
+    "output_tokens": 1687,
+    "total_tokens": 12323
+  }
+}

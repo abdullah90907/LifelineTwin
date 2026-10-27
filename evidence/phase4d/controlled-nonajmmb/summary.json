@@ -1,0 +1,49 @@
+{
+  "controlled_offline_only": true,
+  "live_llm_executed": false,
+  "cases": [
+    {
+      "case": "geographic_first",
+      "status": "completed",
+      "model_rounds": 3,
+      "tool_calls": 6,
+      "peak_request_bytes": 9203,
+      "peak_estimated_input_tokens": 3308,
+      "catalog_strategies": [
+        "catalog_only",
+        "lean_catalog_recent_exchange"
+      ],
+      "reused_tool_calls": 0,
+      "api_result_and_trace_equal_after_application_restart": true
+    },
+    {
+      "case": "weather_first",
+      "status": "completed",
+      "model_rounds": 4,
+      "tool_calls": 6,
+      "peak_request_bytes": 9641,
+      "peak_estimated_input_tokens": 3438,
+      "catalog_strategies": [
+        "catalog_only",
+        "compact_recent_exchange",
+        "lean_catalog_recent_exchange"
+      ],
+      "reused_tool_calls": 0,
+      "api_result_and_trace_equal_after_application_restart": true
+    },
+    {
+      "case": "shared_scenario",
+      "status": "completed",
+      "model_rounds": 3,
+      "tool_calls": 7,
+      "peak_request_bytes": 9235,
+      "peak_estimated_input_tokens": 3319,
+      "catalog_strategies": [
+        "catalog_only",
+        "lean_catalog_recent_exchange"
+      ],
+      "reused_tool_calls": 1,
+      "api_result_and_trace_equal_after_application_restart": true
+    }
+  ]
+}

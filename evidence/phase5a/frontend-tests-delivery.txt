@@ -1,0 +1,13 @@
+
+> lifelinetwin-frontend@0.5.0 test
+> vitest run
+
+
+ RUN  v4.1.12 D:/Projects 2026/LIfelineTwin/frontend
+
+
+ Test Files  1 passed (1)
+      Tests  12 passed (12)
+   Start at  02:57:33
+   Duration  5.94s (transform 401ms, setup 459ms, import 930ms, tests 3.34s, environment 964ms)
+

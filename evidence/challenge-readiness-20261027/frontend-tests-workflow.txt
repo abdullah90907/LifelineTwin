@@ -1,0 +1,9 @@
+
+ RUN  v4.1.12 D:/Projects 2026/LIfelineTwin/frontend
+
+
+ Test Files  4 passed (4)
+      Tests  28 passed (28)
+   Start at  23:17:57
+   Duration  9.67s (transform 3.42s, setup 3.32s, import 8.04s, tests 9.94s, environment 6.72s)
+

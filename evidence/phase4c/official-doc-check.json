@@ -1,0 +1,20 @@
+[
+  {
+    "url": "https://console.groq.com/docs/openai",
+    "status": 200,
+    "tool_support_mentioned": true,
+    "max_tokens_mentioned": true,
+    "title": [
+      "OpenAI Compatibility - GroqDocs"
+    ]
+  },
+  {
+    "url": "https://console.groq.com/docs/tool-use/overview",
+    "status": 200,
+    "tool_support_mentioned": true,
+    "max_tokens_mentioned": true,
+    "title": [
+      "Tool Use Overview - GroqDocs"
+    ]
+  }
+]

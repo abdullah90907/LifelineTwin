@@ -1,0 +1,72 @@
+W1025 20:27:30.383000 28492 .venv-migration\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 134/134 [00:00<00:00, 5319.95it/s]
+W1025 20:27:50.937000 17840 .venv-migration\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 134/134 [00:00<00:00, 4422.46it/s]
+{
+  "evidence_directory": "D:\\Projects 2026\\LIfelineTwin\\evidence\\phase4b\\controlled-test-of_huagf",
+  "controlled_fake_test": true,
+  "live_llm_executed": false,
+  "run_status": "completed",
+  "incident_id": "ad2a6311-91a2-4f35-bd75-deafa792c6bc",
+  "agent_run_id": "8dda33de-32f7-4900-b4eb-6d0e6a86b03a",
+  "server_process_restarted": true,
+  "saved_run_and_trace_identical": true,
+  "selected_tools": [
+    "baseline_accessibility",
+    "retrieve_observations",
+    "generate_forecast",
+    "compare_restorations",
+    "inspect_evidence",
+    "complete_investigation"
+  ],
+  "restoration_endpoint_verification": [
+    {
+      "osm_segments": [
+        {
+          "u": 33811019,
+          "v": 928125779
+        },
+        {
+          "u": 60697812,
+          "v": 146000024
+        }
+      ],
+      "saved_origin_metres": 432.8682130453435,
+      "direct_graph_verification": true
+    },
+    {
+      "osm_segments": [
+        {
+          "u": 33811019,
+          "v": 928125779
+        },
+        {
+          "u": 60697818,
+          "v": 298538536
+        }
+      ],
+      "saved_origin_metres": 0,
+      "direct_graph_verification": true
+    },
+    {
+      "osm_segments": [
+        {
+          "u": 60697812,
+          "v": 146000024
+        },
+        {
+          "u": 60697818,
+          "v": 298538536
+        }
+      ],
+      "saved_origin_metres": 0,
+      "direct_graph_verification": true
+    }
+  ],
+  "agent_and_phase4a_pair_metrics_equal": true,
+  "note": "Controlled fake selection is orchestration evidence only; no claim the agent is better than deterministic Phase 4A."
+}

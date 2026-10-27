@@ -1,0 +1,48 @@
+test_atomic_recent_exchange_and_archives_have_no_orphan_tools (test_agent_optimization.ContextContractTests.test_atomic_recent_exchange_and_archives_have_no_orphan_tools) ... ok
+test_compact_schemas_keep_validation_and_all_tool_choices (test_agent_optimization.ContextContractTests.test_compact_schemas_keep_validation_and_all_tool_choices) ... ok
+test_config_limits_validate_without_reading_or_changing_provider (test_agent_optimization.ContextContractTests.test_config_limits_validate_without_reading_or_changing_provider) ... ok
+test_large_objects_and_items_expose_drilldown_without_replacing_evidence (test_agent_optimization.ContextContractTests.test_large_objects_and_items_expose_drilldown_without_replacing_evidence) ... ok
+test_latest_inspection_is_never_silently_archived_when_it_cannot_fit (test_agent_optimization.ContextContractTests.test_latest_inspection_is_never_silently_archived_when_it_cannot_fit) ... ok
+test_local_context_and_rate_admission_do_not_contact_provider (test_agent_optimization.ContextContractTests.test_local_context_and_rate_admission_do_not_contact_provider) ... ok
+test_long_raw_incident_is_not_repeated_and_question_survives (test_agent_optimization.ContextContractTests.test_long_raw_incident_is_not_repeated_and_question_survives) ... ok
+test_minimum_context_rejected_without_dropping_goal (test_agent_optimization.ContextContractTests.test_minimum_context_rejected_without_dropping_goal) ... ok
+test_paged_arrays_text_and_escaped_pointers_preserve_full_source (test_agent_optimization.ContextContractTests.test_paged_arrays_text_and_escaped_pointers_preserve_full_source) ... ok
+test_provider_guard_rejects_oversize_before_sdk_construction (test_agent_optimization.ContextContractTests.test_provider_guard_rejects_oversize_before_sdk_construction) ... ok
+test_rate_window_charges_success_and_retains_failed_reservation (test_agent_optimization.ContextContractTests.test_rate_window_charges_success_and_retains_failed_reservation) ... ok
+test_request_byte_measurement_and_estimate_are_labeled (test_agent_optimization.ContextContractTests.test_request_byte_measurement_and_estimate_are_labeled) ... ok
+test_usage_metadata_is_numeric_and_output_reservation_configurable (test_agent_optimization.ContextContractTests.test_usage_metadata_is_numeric_and_output_reservation_configurable) ... ok
+test_different_weather_first_investigation_order (test_agent_optimization.RealAnalyticalIntegrationTests.test_different_weather_first_investigation_order) ... W1025 23:09:50.881000 47620 .venv-migration\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 134/134 [00:00<00:00, 5811.81it/s]
+FAIL
+test_overlapping_geo_tools_share_real_scenario_evidence (test_agent_optimization.RealAnalyticalIntegrationTests.test_overlapping_geo_tools_share_real_scenario_evidence) ... W1025 23:10:09.031000 25272 .venv-migration\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 134/134 [00:00<00:00, 6810.75it/s]
+ok
+test_real_geo_weather_forecast_and_evidence_dependent_followup (test_agent_optimization.RealAnalyticalIntegrationTests.test_real_geo_weather_forecast_and_evidence_dependent_followup) ... W1025 23:10:22.517000 32992 .venv-migration\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 134/134 [00:00<00:00, 7376.78it/s]
+ok
+
+======================================================================
+FAIL: test_different_weather_first_investigation_order (test_agent_optimization.RealAnalyticalIntegrationTests.test_different_weather_first_investigation_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\tests\test_agent_optimization.py", line 205, in test_different_weather_first_investigation_order
+    saved,trace,checkpoint=self.run_case('Weather first, then evaluate the approved road scenario and interventions.')
+                           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects 2026\LIfelineTwin\tests\test_agent_optimization.py", line 178, in run_case
+    self.assertEqual(saved['status'],'completed',saved)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'limited' != 'completed'
+- limited
++ completed
+ : {'id': '6c317236-7072-4009-aa2c-912bbf77ddd5', 'incident_id': 'ff2801c8-3e72-424c-9013-43b5d8b25eab', 'created_at': '2026-10-25T18:09:43.907677+00:00', 'updated_at': '2026-10-25T18:09:57.017738+00:00', 'status': 'limited', 'request': {'mode': 'cache', 'variable': 'temperature_2m', 'as_of': '2026-10-24T19:55:49Z', 'question': 'Weather first, then evaluate the approved road scenario and interventions.', 'allowed_closures': [{'id': 'D1', 'u': 33811019, 'v': 928125779}, {'id': 'D2', 'u': 60697812, 'v': 146000024}, {'id': 'D3', 'u': 60697818, 'v': 298538536}], 'max_iterations': 8, 'max_tool_calls': 16, 'timeout_seconds': 240, 'tool_timeout_seconds': 60}, 'model_identity': {'adapter': 'controlled_offline_phase4d', 'configured_model': 'controlled-not-live', 'live_llm': False}, 'result': None, 'error': 'Provider failure: context_budget; sanitized metadata retained in trace', 'iterations': 3, 'tool_calls': 5}
+
+----------------------------------------------------------------------
+Ran 16 tests in 41.841s
+
+FAILED (failures=1)

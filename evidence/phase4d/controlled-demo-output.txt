@@ -1,0 +1,62 @@
+W1025 23:16:31.077000 30388 .venv-migration\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 134/134 [00:00<00:00, 6146.17it/s]
+W1025 23:16:44.577000 39408 .venv-migration\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 134/134 [00:00<00:00, 6415.36it/s]
+W1025 23:17:14.971000 25272 .venv-migration\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 134/134 [00:00<00:00, 3691.85it/s]
+{
+  "evidence_directory": "D:\\Projects 2026\\LIfelineTwin\\evidence\\phase4d\\controlled-nonajmmb",
+  "controlled_offline_only": true,
+  "live_llm_executed": false,
+  "cases": [
+    {
+      "case": "geographic_first",
+      "status": "completed",
+      "model_rounds": 3,
+      "tool_calls": 6,
+      "peak_request_bytes": 9203,
+      "peak_estimated_input_tokens": 3308,
+      "catalog_strategies": [
+        "catalog_only",
+        "lean_catalog_recent_exchange"
+      ],
+      "reused_tool_calls": 0,
+      "api_result_and_trace_equal_after_application_restart": true
+    },
+    {
+      "case": "weather_first",
+      "status": "completed",
+      "model_rounds": 4,
+      "tool_calls": 6,
+      "peak_request_bytes": 9641,
+      "peak_estimated_input_tokens": 3438,
+      "catalog_strategies": [
+        "catalog_only",
+        "compact_recent_exchange",
+        "lean_catalog_recent_exchange"
+      ],
+      "reused_tool_calls": 0,
+      "api_result_and_trace_equal_after_application_restart": true
+    },
+    {
+      "case": "shared_scenario",
+      "status": "completed",
+      "model_rounds": 3,
+      "tool_calls": 7,
+      "peak_request_bytes": 9235,
+      "peak_estimated_input_tokens": 3319,
+      "catalog_strategies": [
+        "catalog_only",
+        "lean_catalog_recent_exchange"
+      ],
+      "reused_tool_calls": 1,
+      "api_result_and_trace_equal_after_application_restart": true
+    }
+  ]
+}

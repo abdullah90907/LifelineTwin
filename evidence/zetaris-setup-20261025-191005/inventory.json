@@ -1,0 +1,33 @@
+{
+  "administrator_token": false,
+  "os": {
+    "Caption": "Microsoft Windows 11 Pro",
+    "Version": "10.0.26300",
+    "TotalVisibleMemorySize": 16436204,
+    "FreePhysicalMemory": 3548428
+  },
+  "cpu": {
+    "Name": "Intel(R) Core(TM) i7-10610U CPU @ 1.80GHz",
+    "NumberOfCores": 4,
+    "NumberOfLogicalProcessors": 8,
+    "VirtualizationFirmwareEnabled": false,
+    "SecondLevelAddressTranslationExtensions": false
+  },
+  "hypervisor": {
+    "HypervisorPresent": true
+  },
+  "disks": [
+    {
+      "Name": "C",
+      "Free": 44195176448
+    },
+    {
+      "Name": "D",
+      "Free": 51594645504
+    }
+  ],
+  "docker_cli": null,
+  "docker_desktop_standard_path": false,
+  "docker_desktop_user_path": false,
+  "wslconfig_exists": false
+}

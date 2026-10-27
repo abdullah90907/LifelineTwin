@@ -1,0 +1,509 @@
+
+ RUN  v4.1.12 D:/Projects 2026/LIfelineTwin/frontend
+
+ ❯ src/redesign.test.tsx (9 tests | 1 failed) 2240ms
+     × makes no automatic analysis POST and previews the computed beneficial pair 1142ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/redesign.test.tsx > actual-data-backed analytical workflow with controlled HTTP > makes no automatic analysis POST and previews the computed beneficial pair
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/Computing scenario/`
+
+Here are the accessible roles:
+
+  link:
+
+  Name "Skip to content":
+  <a
+    class="skip-link"
+    href="#main"
+  />
+
+  Name "LifelineTwin overview":
+  <a
+    aria-label="LifelineTwin overview"
+    class="brand"
+    data-discover="true"
+    href="/"
+  />
+
+  Name "Spatial workspace":
+  <a
+    aria-current="page"
+    aria-label="Spatial workspace"
+    class="active"
+    data-discover="true"
+    href="/"
+    title="Spatial workspace"
+  />
+
+  Name "Environmental evidence":
+  <a
+    aria-label="Environmental evidence"
+    class=""
+    data-discover="true"
+    href="/environment"
+    title="Environmental evidence"
+  />
+
+  Name "Investigation library":
+  <a
+    aria-label="Investigation library"
+    class=""
+    data-discover="true"
+    href="/incidents"
+    title="Investigation library"
+  />
+
+  --------------------------------------------------
+  banner:
+
+  Name "":
+  <header
+    class="app-header"
+  />
+
+  --------------------------------------------------
+  button:
+
+  Name "Refresh backend data":
+  <button
+    aria-label="Refresh backend data"
+    class="icon-button"
+  />
+
+  Name "Explore":
+  <button
+    class=""
+  />
+
+  Name "Disruption lab":
+  <button
+    class="active"
+  />
+
+  Name "Analyze disruption":
+  <button
+    class="run-analysis"
+  />
+
+  Name "Baseline":
+  <button
+    aria-pressed="true"
+  />
+
+  Name "Scenario":
+  <button
+    aria-pressed="false"
+    disabled=""
+  />
+
+  Name "Accessibility comparison Baseline · all sampled origins":
+  <button
+    aria-expanded="true"
+    class="tray-heading"
+  />
+
+  Name "Inspect comparison O1":
+  <button
+    aria-label="Inspect comparison O1"
+    class=""
+  />
+
+  Name "Inspect comparison O2":
+  <button
+    aria-label="Inspect comparison O2"
+    class=""
+  />
+
+  Name "Inspect comparison O3":
+  <button
+    aria-label="Inspect comparison O3"
+    class=""
+  />
+
+  Name "Inspect comparison O4":
+  <button
+    aria-label="Inspect comparison O4"
+    class=""
+  />
+
+  Name "Inspect comparison O5":
+  <button
+    aria-label="Inspect comparison O5"
+    class="active"
+  />
+
+  Name "Inspect comparison O6":
+  <button
+    aria-label="Inspect comparison O6"
+    class=""
+  />
+
+  Name "Inspect comparison O7":
+  <button
+    aria-label="Inspect comparison O7"
+    class=""
+  />
+
+  Name "Inspect comparison O8":
+  <button
+    aria-label="Inspect comparison O8"
+    class=""
+  />
+
+  Name "Inspect comparison O9":
+  <button
+    aria-label="Inspect comparison O9"
+    class=""
+  />
+
+  Name "Open disruption lab":
+  <button
+    class="text-button"
+  />
+
+  --------------------------------------------------
+  navigation:
+
+  Name "Main navigation":
+  <nav
+    aria-label="Main navigation"
+    class="app-rail"
+  />
+
+  --------------------------------------------------
+  main:
+
+  Name "":
+  <main
+    class="app-main"
+    id="main"
+    tabindex="-1"
+  />
+
+  --------------------------------------------------
+  complementary:
+
+  Name "Network and scenario controls":
+  <aside
+    aria-label="Network and scenario controls"
+    class="control-panel"
+  />
+
+  Name "Selected origin and analytical evidence":
+  <aside
+    aria-label="Selected origin and analytical evidence"
+    class="context-panel"
+  />
+
+  --------------------------------------------------
+  heading:
+
+  Name "Heidelberg Infrastructure network":
+  <h1 />
+
+  Name "Put the network under pressure.":
+  <h2
+    class="lab-title"
+  />
+
+  Name "O5 Heidelberg":
+  <h2 />
+
+  Name "From route to resilience.":
+  <h3 />
+
+  --------------------------------------------------
+  paragraph:
+
+  Name "":
+  <p
+    class="panel-help"
+  />
+
+  Name "":
+  <p />
+
+  Name "":
+  <p />
+
+  Name "":
+  <p />
+
+  --------------------------------------------------
+  combobox:
+
+  Name "Segments to remove":
+  <select
+    id="closure-count"
+  />
+
+  --------------------------------------------------
+  option:
+
+  Name "1 hypothetical segment":
+  <option
+    value="1"
+  />
+
+  Name "2 hypothetical segments":
+  <option
+    value="2"
+  />
+
+  Name "3 hypothetical segments":
+  <option
+    value="3"
+  />
+
+  Name "4 hypothetical segments":
+  <option
+    value="4"
+  />
+
+  Name "5 hypothetical segments":
+  <option
+    value="5"
+  />
+
+  Name "6 hypothetical segments":
+  <option
+    value="6"
+  />
+
+  --------------------------------------------------
+  region:
+
+  Name "Geographic analytical workspace":
+  <section
+    aria-label="Geographic analytical workspace"
+    class="map-workspace"
+  />
+
+  --------------------------------------------------
+  strong:
+
+  Name "":
+  <strong />
+
+  Name "":
+  <strong />
+
+  Name "":
+  <strong />
+
+  Name "":
+  <strong />
+
+  --------------------------------------------------
+  img:
+
+  Name "Controlled renderer, not WebGL verification":
+  <div
+    aria-label="Controlled renderer, not WebGL verification"
+    role="img"
+  />
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <div
+      class="product-shell"
+    >
+      <a
+        class="skip-link"
+        href="#main"
+      >
+        Skip to content
+      </a>
+      <header
+        class="app-header"
+      >
+        <a
+          aria-label="LifelineTwin overview"
+          class="brand"
+          data-discover="true"
+          href="/"
+        >
+          <svg
+            aria-hidden="true"
+            height="33"
+            viewBox="0 0 32 34"
+            width="31"
+          >
+            <path
+              d="M4 6v18l12 7 12-7V6L16 0Z"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+            />
+            <path
+              d="m4 16 7 4 5-10 5 14 7-8M16 31V23"
+              fill="none"
+              stroke="currentColor"
+              stroke-linejoin="round"
+              stroke-width="1.8"
+            />
+          </svg>
+          <span>
+            Lifeline
+            <span
+              class="brand-light"
+            >
+              Twin
+            </span>
+            <small>
+              INTELLIGENCE IN CONTEXT
+            </small>
+          </span>
+        </a>
+        <div
+          class="header-separator"
+        />
+        <div
+          class="header-region"
+        >
+          <span>
+            Heidelberg
+          </span>
+          <span>
+            /
+          </span>
+          Spatial workspace
+        </div>
+        <span
+          class="research-mode"
+        >
+          <svg
+            class="lucide lucide-shield-check"
+            fill="none"
+            height="12"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="12"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+            />
+            <path
+              d="m9 12 2 2 4-4"
+            />
+          </svg>
+          LOCAL RESEARCH
+        </span>
+        <div
+          aria-live="polite"
+          class="header-connection"
+        >
+          <span
+            class="status-dot "
+          />
+          API connected
+        </div>
+        <button
+          aria-label="Refresh backend data"
+          class="icon-button"
+        >
+          <svg
+            class="lucide lucide-refresh-cw"
+            fill="none"
+            height="15"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"
+            />
+            <path
+              d="M21 3v5h-5"
+            />
+            <path
+              d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"
+            />
+            <path
+              d="M8 16H3v5"
+            />
+          </svg>
+        </button>
+      </header>
+      <nav
+        aria-label="Main navigation"
+        class="app-rail"
+      >
+        <div
+          class="rail-emblem"
+        >
+          <svg
+            class="lucide lucide-scan-line"
+            fill="none"
+            height="20"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 7V5a2 2 0 0 1 2-2h2"
+            />
+            <path
+              d="M17 3h2a2 2 0 0 1 2 2v2"
+            />
+            <path
+              d="M21 17v2a2 2 0 0 1-2 2h-2"
+            />
+            <path
+              d="M7 21H5a2 2 0 0 1-2-2v-2"
+            />
+            <path
+              d="M7 12h10"
+            />
+          </svg>
+        </div>
+        <a
+          aria-current="page"
+          aria-label="Spatial workspace"
+          class="active"
+          data-discover="true"
+          href="/"
+          title="Spatial workspace"
+        >
+          <svg
+            class="lucide lucide-compass"
+            fill="none"
+            height="20"
+            stroke="cu...
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ src/redesign.test.tsx:60:19
+     58|     expect(fetch.mock.calls.some(([url])=>url.includes('/geographic')|…
+     59|     await runScenario()
+     60|     expect(screen.getByRole('button',{name:/Computing scenario/})).toB…
+       |                   ^
+     61|     const best=await screen.findByRole('button',{name:/D1 \+ D2.*433 m…
+     62|     expect(await screen.findByRole('heading',{name:'O6 Heidelberg'})).…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 22 passed (23)
+   Start at  13:45:18
+   Duration  4.93s (transform 863ms, setup 1.74s, import 2.24s, tests 4.83s, environment 2.67s)
+

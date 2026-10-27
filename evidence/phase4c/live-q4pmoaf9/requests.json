@@ -1,0 +1,35 @@
+{
+  "incident": {
+    "title": "Hypothetical Heidelberg live LLM verification (Phase 4C)",
+    "kind": "hypothetical",
+    "description": "Research scenario only; approved cached road segments are hypothetical closures, not real incident reports.",
+    "occurred_at": "2026-10-24T19:55:49.074511+00:00"
+  },
+  "agent_request": {
+    "question": "Investigate all the approved hypothetical closure segments. Obtain baseline accessibility, before/after closure impacts and restoration comparisons including pairs, environmental observations, and the actual cached IBM TTM forecast. In the final structured findings cite exact distance impacts, the best reopening alternative with OSM endpoints, and at least one actual forecast value with its timestamp/unit. Recommendations must be advisory and tied to real tool evidence. Disclose snapshot and observation-versus-prediction limitations.",
+    "as_of": "2026-10-24T19:55:49.074511+00:00",
+    "mode": "cache",
+    "variable": "temperature_2m",
+    "allowed_closures": [
+      {
+        "id": "D1",
+        "u": 33811019,
+        "v": 928125779
+      },
+      {
+        "id": "D2",
+        "u": 60697812,
+        "v": 146000024
+      },
+      {
+        "id": "D3",
+        "u": 60697818,
+        "v": 298538536
+      }
+    ],
+    "max_iterations": 8,
+    "max_tool_calls": 16,
+    "timeout_seconds": 240,
+    "tool_timeout_seconds": 60
+  }
+}

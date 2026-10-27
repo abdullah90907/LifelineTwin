@@ -1,0 +1,18 @@
+{
+  "provider": "Groq",
+  "base_url": "https://api.groq.com/openai/v1",
+  "configured_model": "openai/gpt-oss-20b",
+  "token_parameter": "max_tokens",
+  "fake_provider_used": false,
+  "minimal_probe_attempted": true,
+  "agent_endpoint_attempted": false,
+  "live_agent_completed": false,
+  "evidence_directory": "D:\\Projects 2026\\LIfelineTwin\\evidence\\phase4c\\live-0y88wvmx",
+  "verification_error": {
+    "type": "invalid_request_error",
+    "http_status": 400,
+    "code": "tool_use_failed",
+    "message": "Failed to parse tool call arguments as JSON"
+  },
+  "credential_present_in_saved_files": false
+}

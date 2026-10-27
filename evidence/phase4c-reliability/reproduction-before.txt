@@ -1,0 +1,25 @@
+test_worker_drops_exception_messages_and_arbitrary_body_fields (test_agent_reliability.FailureBoundaryTests.test_worker_drops_exception_messages_and_arbitrary_body_fields) ... FAIL
+test_worker_preserves_sanitized_http_classification (test_agent_reliability.FailureBoundaryTests.test_worker_preserves_sanitized_http_classification) ... ERROR
+
+======================================================================
+ERROR: test_worker_preserves_sanitized_http_classification (test_agent_reliability.FailureBoundaryTests.test_worker_preserves_sanitized_http_classification)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\tests\test_agent_reliability.py", line 30, in test_worker_preserves_sanitized_http_classification
+    failure = pipe.payload["failure"]
+              ~~~~~~~~~~~~^^^^^^^^^^^
+KeyError: 'failure'
+
+======================================================================
+FAIL: test_worker_drops_exception_messages_and_arbitrary_body_fields (test_agent_reliability.FailureBoundaryTests.test_worker_drops_exception_messages_and_arbitrary_body_fields)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Projects 2026\LIfelineTwin\tests\test_agent_reliability.py", line 41, in test_worker_drops_exception_messages_and_arbitrary_body_fields
+    self.assertIn("failure", pipe.payload)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'failure' not found in {'ok': False, 'error_type': 'RateLimitError'}
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.002s
+
+FAILED (failures=1, errors=1)

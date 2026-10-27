@@ -1,0 +1,44 @@
+{
+  "id": "29abf9b4-6244-4b24-a8cf-55d75c900c92",
+  "incident_id": "0362174c-02f5-4160-b22a-bfeb4db429d3",
+  "created_at": "2026-10-25T16:24:34.995055+00:00",
+  "updated_at": "2026-10-25T16:25:18.481681+00:00",
+  "status": "failed",
+  "request": {
+    "mode": "cache",
+    "variable": "temperature_2m",
+    "as_of": "2026-10-24T19:55:49.074511Z",
+    "question": "Investigate all the approved hypothetical closure segments. Obtain baseline accessibility, before/after closure impacts and restoration comparisons including pairs, environmental observations, and the actual cached IBM TTM forecast. In the final structured findings cite exact distance impacts, the best reopening alternative with OSM endpoints, and at least one actual forecast value with its timestamp/unit. Recommendations must be advisory and tied to real tool evidence. Disclose snapshot and observation-versus-prediction limitations.",
+    "allowed_closures": [
+      {
+        "id": "D1",
+        "u": 33811019,
+        "v": 928125779
+      },
+      {
+        "id": "D2",
+        "u": 60697812,
+        "v": 146000024
+      },
+      {
+        "id": "D3",
+        "u": 60697818,
+        "v": 298538536
+      }
+    ],
+    "max_iterations": 8,
+    "max_tool_calls": 16,
+    "timeout_seconds": 240,
+    "tool_timeout_seconds": 60
+  },
+  "model_identity": {
+    "adapter": "openai_python_chat_completions",
+    "configured_model": "openai/gpt-oss-20b",
+    "base_url": "https://api.groq.com/openai/v1",
+    "live_llm": true
+  },
+  "result": null,
+  "error": "Provider failed or returned an invalid tool-call response; no LLM findings were accepted",
+  "iterations": 3,
+  "tool_calls": 3
+}

@@ -1,0 +1,151 @@
+{
+  "pipeline": "Phase 3 Environmental Intelligence & Pretrained Forecasting",
+  "study_area": "Central Heidelberg, Baden-Wuerttemberg, Germany",
+  "observation_hours": 888,
+  "cache_hit": true,
+  "forecast_sample": {
+    "model": "ibm-granite/granite-timeseries-ttm-r1",
+    "horizon": 96,
+    "variable": "temperature_2m",
+    "unit": "degC",
+    "values_first_5": [
+      8.765932083129883,
+      8.819766998291016,
+      8.707077980041504,
+      8.580591201782227,
+      8.423613548278809
+    ]
+  },
+  "evaluation_metrics": {
+    "ibm_granite_ttm_r1": {
+      "method": "ttm_pretrained_zeroshot",
+      "model_id": "ibm-granite/granite-timeseries-ttm-r1",
+      "metrics": {
+        "count": 96,
+        "mae": 2.3763,
+        "rmse": 2.5647,
+        "bias": 0.9033,
+        "status": "ok"
+      },
+      "predictions_sample": [
+        10.049091339111328,
+        9.858330726623535,
+        9.67125415802002,
+        9.430054664611816,
+        9.126614570617676
+      ]
+    },
+    "persistence_diurnal": {
+      "method": "persistence_diurnal_24h",
+      "metrics": {
+        "count": 96,
+        "mae": 2.0281,
+        "rmse": 2.5833,
+        "bias": -0.8094,
+        "status": "ok"
+      },
+      "predictions_sample": [
+        8.4,
+        8.4,
+        8.2,
+        7.8,
+        7.3
+      ]
+    },
+    "persistence_last_value": {
+      "method": "persistence_last_value",
+      "metrics": {
+        "count": 96,
+        "mae": 2.6531,
+        "rmse": 3.2208,
+        "bias": -0.0344,
+        "status": "ok"
+      },
+      "predictions_sample": [
+        10.8,
+        10.8,
+        10.8,
+        10.8,
+        10.8
+      ]
+    }
+  },
+  "best_model_by_mae": "persistence_diurnal",
+  "environmental_assessment": {
+    "assessment_type": "GeographicEnvironmentalAssessment",
+    "generated_utc": "2026-10-24T20:09:21.279749+00:00",
+    "study_area": {
+      "name": "Central Heidelberg, Baden-Wuerttemberg, Germany",
+      "lat": 49.415,
+      "lon": 8.6775,
+      "bbox_wsen": [
+        8.65,
+        49.395,
+        8.705,
+        49.435
+      ],
+      "timezone": "Europe/Berlin"
+    },
+    "observation_summary": {
+      "current_temperature_degC": 8.9,
+      "recent_24h_temp_min_degC": 5.2,
+      "recent_24h_temp_max_degC": 14.0,
+      "recent_24h_precipitation_sum_mm": 0.0,
+      "current_wind_speed_kmh": 2.8,
+      "recent_24h_max_wind_kmh": 3.8,
+      "total_observed_hours": 888
+    },
+    "forecast_summary": {
+      "model_id": "ibm-granite/granite-timeseries-ttm-r1",
+      "forecast_variable": "temperature_2m",
+      "horizon_hours": 96,
+      "forecast_start": "2026-10-31T00:00:00",
+      "forecast_end": "2026-11-03T23:00:00",
+      "summary_min": 8.329,
+      "summary_max": 14.187,
+      "summary_mean": 10.807
+    },
+    "environmental_risk_indicators": [
+      {
+        "risk": "freezing_road_conditions",
+        "severity": "low",
+        "active_now": false,
+        "forecast_event": false,
+        "threshold": "<= 0.0 degC",
+        "details": "Current temperature 8.9 degC, minimum forecast 8.3292236328125 degC. Temperatures remain above freezing."
+      },
+      {
+        "risk": "surface_water_pooling_runoff",
+        "severity": "low",
+        "active_now": false,
+        "forecast_event": false,
+        "threshold": ">= 10.0 mm/h or >= 25.0 mm/event",
+        "details": "Max 1h precipitation None mm, total horizon precipitation None mm. Precipitation within normal urban drainage capacities."
+      },
+      {
+        "risk": "high_wind_bridge_crosswinds",
+        "severity": "low",
+        "active_now": false,
+        "forecast_event": false,
+        "threshold": ">= 40.0 km/h",
+        "details": "Peak forecast wind speed None km/h. Wind speeds remain within safe driving tolerances."
+      }
+    ],
+    "geospatial_infrastructure_context": {
+      "topography": "Upper Rhine Rift valley along the Neckar River (elevation ~114m)",
+      "key_critical_structures": [
+        "Theodor-Heuss-Br\u00fccke (central arterial river crossing)",
+        "Ernst-Walz-Br\u00fccke (hospital campus transit crossing)",
+        "Universit\u00e4tsklinikum Heidelberg (Im Neuenheimer Feld hospital cluster)"
+      ],
+      "policy_isolation_statement": "STRICT ISOLATION PROTOCOL: Environmental observations and AI forecasts are informational context only. The LifelineTwin routing graph and accessibility engine remain UNMODIFIED. Road segments are NEVER automatically closed based on weather predictions. Closures must remain explicit hypothetical disruption scenarios evaluated under controlled human oversight.",
+      "routing_engine_unaffected": true
+    },
+    "evidence": [
+      "Open-Meteo observation source: https://api.open-meteo.com/v1/forecast",
+      "Observation retrieval UTC: 2026-10-24T19:55:49.074511+00:00",
+      "Observation cache status: hit=True",
+      "Pretrained forecaster: ibm-granite/granite-timeseries-ttm-r1"
+    ]
+  }
+}

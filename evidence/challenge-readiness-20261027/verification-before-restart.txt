@@ -1,0 +1,1 @@
+{"status": "PASS", "investigation_id": "3fa27737-ee0f-4ce4-ac55-b1e7015b3fbe", "sha256_canonical_record": "ad3bbdb2af3dc3de33ee9aa2949e4597228f14ccb246db43856bbb18e05606a1", "direct_geographic_comparison": true, "recommendation_references_resolved": true, "meterless_verified": true, "restart_identical": false}

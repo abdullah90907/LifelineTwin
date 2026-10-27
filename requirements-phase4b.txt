@@ -1,0 +1,3 @@
+# Additions only: existing Phase 4A/analytical dependency versions remain unchanged.
+langgraph==1.2.17
+openai==2.54.0

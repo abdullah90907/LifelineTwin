@@ -1,0 +1,47 @@
+{
+  "platform": "Windows-11-10.0.26300-SP0",
+  "windows_version": [
+    "11",
+    "10.0.26300",
+    "SP0",
+    "Multiprocessor Free"
+  ],
+  "architecture": "AMD64",
+  "cpu": "AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD",
+  "logical_cpus": 12,
+  "ram_gib": 7.41,
+  "available_ram_gib": 1.2,
+  "disk_free_gib": {
+    "C:\\": 31.86,
+    "D:\\": 39.51
+  },
+  "tools": {
+    "python": {
+      "path": "C:\\Python314\\python.EXE",
+      "exit_code": 0,
+      "output": "Python 3.14.4"
+    },
+    "node": {
+      "path": "C:\\Program Files\\nodejs\\node.EXE",
+      "exit_code": 0,
+      "output": "v24.15.0"
+    },
+    "npm.cmd": {
+      "path": "C:\\Program Files\\nodejs\\npm.cmd",
+      "exit_code": 0,
+      "output": "11.12.1"
+    },
+    "git": {
+      "path": "C:\\Program Files\\Git\\cmd\\git.EXE",
+      "exit_code": 0,
+      "output": "git version 2.54.0.windows.1"
+    },
+    "docker": {
+      "path": null
+    },
+    "nvidia-smi": {
+      "path": null
+    }
+  },
+  "zetaris_env_names_present": []
+}

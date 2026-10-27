@@ -1,0 +1,10 @@
+# Migration overlay: original requirements files preserved.
+-r requirements-phase2-lock.txt
+# Same IBM revision as the copied environment; its metadata requires torch<2.12 and sklearn<1.8.
+torch==2.11.0+cpu
+transformers==5.20.2
+datasets==5.1.0
+einops==0.8.2
+scikit-learn==1.7.2
+deprecated==3.0.0
+granite-tsfm @ git+https://github.com/ibm-granite/granite-tsfm.git@9d0b839f997eb4918822a43036012ce8c277687c
