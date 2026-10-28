@@ -1,170 +1,140 @@
 # LifelineTwin
 
-**AI-assisted infrastructure resilience for Open Agent Hackathon 2026.**
+**Understand how road disruptions change access to hospitals, compare recovery options, and inspect the evidence behind each recommendation.**
 
-LifelineTwin explores how hypothetical road disruptions affect access to
-hospitals in Heidelberg, compares restoration options, and saves an
-investigation with inspectable evidence and cited advisory actions.
+Built for **Open Agent Hackathon 2026** by [abdullah90907](https://github.com/abdullah90907).
 
-## Hackathon and creator
+## The challenge
 
-| | Details |
-| --- | --- |
-| Hackathon | Open Agent Hackathon 2026 |
-| Creator | [abdullah90907](https://github.com/abdullah90907) |
-| Repository | [LifelineTwin on GitHub](https://github.com/abdullah90907/LifelineTwin) |
-| Demo | Local application; follow the [demo runbook](docs/hackathon-demo.md) |
+A closed road can make a nearby hospital much harder to reach. Looking at a map alone does not explain which communities lose access, how much farther they must travel, or which combination of roads would be most useful to reopen. Weather adds context, while separate data sources make it difficult to trace the reasoning behind a decision.
+
+LifelineTwin brings these questions into one investigation. A user creates a hypothetical disruption, measures its effect on hospital access, compares restoration options, and reviews weather evidence alongside recommendations. The current demonstration focuses on Heidelberg, Germany, using a cached road network and hospital records.
+
+This is a local research prototype for planning and investigation. Its road closures are hypothetical, its routing measures distance, and its recommendations require human review.
+
+## How it works
+
+1. **Explore the area.** View the Heidelberg road network and hospital locations on an interactive map.
+2. **Define a scenario.** Select road segments to treat as closed and set the investigation's evidence cutoff.
+3. **Measure the impact.** Compare the shortest driving-network distance to a nearest cached hospital before and after the closures. Inspect affected origins and route geometry.
+4. **Compare recovery options.** Evaluate individual reopenings and combinations, using reconnection and distance savings to identify useful alternatives.
+5. **Inspect environmental context.** Review cached weather estimates and local time-series forecasts, including their source, model, and time boundaries.
+6. **Review and save.** Read advisory actions with evidence references, inspect scenario assumptions, and save the investigation for later retrieval.
+
+The saved evidence includes exact OpenStreetMap node identifiers, calculated paths, restoration metrics, model metadata, assumptions, and limitations. Recommendation citations open the corresponding evidence records.
 
 ## Demo screenshots
 
-Actual screenshots from the local application. The road closures shown are
-hypothetical scenarios, not reports of live incidents.
+Screenshots from the working local application; the scenarios shown do not report live road incidents.
 
-### Disruption exploration
+### Map and disruption exploration
 
-![Desktop disruption lab showing the map-based scenario workflow](evidence/frontend-redesign/disruption-desktop.png)
+![Desktop disruption lab with map-based scenario exploration](evidence/frontend-redesign/disruption-desktop.png)
 
-### Saved investigation — desktop
+### Saved investigation on desktop
 
-![Saved Heidelberg investigation with hospital-access consequences, cited advisory actions, and Meterless scenario memory](evidence/challenge-readiness-20261027/saved-investigation-desktop.png)
+![Saved Heidelberg investigation showing hospital-access consequences, cited advisory actions, and scenario memory](evidence/challenge-readiness-20261027/saved-investigation-desktop.png)
 
-### Saved investigation — mobile
+### Saved investigation on mobile
 
 <img src="evidence/challenge-readiness-20261027/saved-investigation-mobile.png" alt="Mobile view of the saved Heidelberg investigation" width="390">
 
-## What the demo does
+## Tools and technology
 
-- Models hypothetical closures on a cached OpenStreetMap road network and
-  computes changes in nearest-hospital driving distance.
-- Compares reopening options using calculated access and distance savings.
-- Combines cached Open-Meteo evidence with local IBM Granite TTM forecasts.
-- Records scenario-assumption provenance using the real Meterless WorldModel
-  reference engine, with explicit availability reporting.
-- Saves investigations in SQLite so evidence and recommendations can be
-  inspected again after a backend restart.
+| Component | Tools | Role in the project |
+| --- | --- | --- |
+| Web interface | React, TypeScript, Vite | Map exploration, scenario controls, investigation library, and evidence views |
+| Map rendering | MapLibre GL | Displays local geographic geometry and analytical overlays |
+| Frontend data and validation | TanStack React Query, Zod | Handles API data and validates frontend data structures |
+| Backend API | Python, FastAPI, Pydantic | Validates requests and connects the analytical tools to the interface |
+| Saved investigations | SQLAlchemy, SQLite | Stores investigations, evidence, results, and agent traces |
+| Geographic analysis | OpenStreetMap data and the project's Python geographic engine | Computes hospital-access distances, disrupted routes, and restoration comparisons |
+| Weather evidence | Open-Meteo | Supplies cached environmental estimates with timestamps and source metadata |
+| Forecasting | IBM Granite TinyTimeMixer, PyTorch CPU, granite-tsfm | Runs pretrained time-series inference locally |
+| Scenario memory | Meterless WorldModel reference engine, Node.js | Resolves scenario assumptions and records field-level provenance |
+| Optional agent workflow | LangGraph and a configured tool-calling LLM endpoint | Lets an LLM select analytical tools and assemble evidence-bound findings |
 
-The demonstrated workflow is deterministic. The optional LangGraph agent
-integration is documented below; a completed hosted-LLM investigation has not
-been established. Zetaris is not connected. See the
-[readiness assessment](HACKATHON_FINAL_READINESS.md) for evidence and remaining
-hackathon requirements.
+## Which AI model is used?
 
-## Current local demonstration
+The demonstrated forecasting model is **IBM Granite TinyTimeMixer**, specifically `ibm-granite/granite-timeseries-ttm-r1`. It runs locally on the CPU using pretrained weights, without training or fine-tuning.
 
-The map-first React/TypeScript application now connects hypothetical disruption
-analysis to a saved FastAPI/SQLite investigation: exact OSM endpoints, restoration
-comparisons, cached Open-Meteo evidence, local Granite TTM predictions, cited
-advisory actions and real Meterless scenario-assumption provenance.
+The forecasting code uses a **512-hour context window** and produces **96 hourly predictions**. It supports continuous weather variables such as temperature, surface pressure, wind speed, and relative humidity. Precipitation and wind direction require special handling, which the implementation reports. Forecasts provide environmental context; they do not detect road closures or predict hospital response times.
 
-See [run and demo instructions](docs/hackathon-demo.md) and the
-[current submission-readiness assessment](HACKATHON_FINAL_READINESS.md).
-Zetaris is **not connected**. The demonstrated pipeline is deterministic; a
-completed hosted-LLM investigation has not been established by this milestone.
+A separate optional **LangGraph agent** can use an OpenAI-compatible Chat Completions endpoint with function calling. There is **no default LLM or fixed agent model**: the operator supplies the endpoint, model identifier, and credentials. The model selects tools and citations; the server validates numerical claims and evidence references. The demonstrated saved investigation uses a deterministic tool pipeline. A successfully completed hosted-LLM investigation has not been established in the recorded milestone.
 
-On this already prepared laptop, run these in separate PowerShell terminals:
+## Hackathon and sponsor integrations
+
+| Item | Project details |
+| --- | --- |
+| Event | Open Agent Hackathon 2026 |
+| Problem addressed | Evidence-backed investigation of infrastructure disruption and hospital access |
+| Creator | [abdullah90907](https://github.com/abdullah90907) |
+| Repository | [LifelineTwin](https://github.com/abdullah90907/LifelineTwin) |
+| Meterless | Integrated through the real WorldModel reference engine for scenario assumptions, conflict resolution, and provenance |
+| Zetaris | Not connected; no completed Zetaris query is claimed |
+| NVIDIA | No verified NVIDIA integration is claimed |
+
+Meterless records which hypothetical closure assumptions remain active and which are superseded by a restoration preview. These records describe the scenario rather than verified observations of road conditions. Its optional runtime reports an explicit unavailable state if it cannot run; the analytical workflow can continue.
+
+See the [submission-readiness assessment](HACKATHON_FINAL_READINESS.md) for recorded evidence and remaining requirements. It is a dated assessment, not confirmation of submission or sponsor eligibility.
+
+## A concrete example
+
+In the recorded Heidelberg investigation, the cached graph contains **1,060 nodes**, **2,331 directed edges**, and **nine origin locations**. Three hypothetical road closures were applied.
+
+For one origin, the nearest-hospital driving distance increased from about **749 metres to 1,515 metres**, an increase of about **766 metres**. All nine origins remained connected to a hospital. Reopening either of two selected segments alone produced no savings, while reopening them together saved about **433 origin-metres** across the evaluated origins.
+
+Origin-metres are the sum of distance savings across origins. They do not represent travel time, population benefit, repair cost, or ambulance response time. This example shows why comparing combinations can reveal improvements that individual reopenings miss.
+
+The saved investigation was retrieved after a backend restart and checked against the geographic engine. Supporting screenshots and verification outputs are in [the recorded demo evidence](evidence/challenge-readiness-20261027/).
+
+## Run the local demo
+
+The following commands use the already prepared Python 3.13 environment and cached data/model assets. Use Node.js 22.12 or newer; Node 24 was verified in the recorded setup.
+
+Start the API from the repository root:
 
 ```powershell
-Set-Location 'D:\Projects 2026\LIfelineTwin'
+$env:HF_HUB_OFFLINE = '1'
+$env:TRANSFORMERS_OFFLINE = '1'
 .\.venv-migration\Scripts\python.exe -m uvicorn lifelinetwin_backend.main:app --host 127.0.0.1 --port 8000
 ```
 
+In a second terminal, start the frontend:
+
 ```powershell
-Set-Location 'D:\Projects 2026\LIfelineTwin\frontend'
+Set-Location frontend
+npm ci
 npm run dev
 ```
 
-Use Node 22.12+ (Node 24 was verified) and the existing Python 3.13 environment.
-Open http://127.0.0.1:5173. Existing geographic/weather/model caches are required;
-the investigation does not download geography or model weights. Missing Meterless
-is explicitly reported and does not disable the analytical pipeline.
+Open [the local application](http://127.0.0.1:5173). The default database is `data/backend/lifelinetwin.sqlite3`. Use a single backend instance per database.
 
-The numbered phase sections below are historical records, not the current feature inventory.
+The repository alone does not include every runtime asset. Another machine needs the Python dependencies, original Heidelberg cache, local frontend atlas, Hugging Face model cache, and the separately installed Meterless reference runtime. A fresh-machine installation has not been verified. Follow the [demo and setup runbook](docs/hackathon-demo.md) for asset preparation, runtime setup, alternative ports, and the demonstration walkthrough.
 
-## Phase 4B agent investigations
+## Current boundaries
 
-The same backend now supports a LangGraph LLM/tool investigation loop with an
-explicitly configured OpenAI-compatible provider, durable tool traces and
-evidence-bound findings. See [configuration and API usage](docs/phase4b-agent.md)
-and [measured Phase 4B results](PHASE4B_REPORT.md). Without provider configuration,
-the API returns an explicit error; controlled fake tests are not live LLM evidence.
+- Road closures are user-defined hypotheses, not a live incident feed.
+- Access calculations use network distance to cached hospital records. They do not account for live traffic, hospital capacity, or emergency response time.
+- Weather estimates and model predictions carry their own time and source limitations. Forecasting accuracy for operational use has not been established.
+- The working demonstration is local and has no public demo URL or production authentication.
+- The optional hosted agent and unconnected sponsor tools should not be interpreted as completed integrations.
 
-## Phase 4A backend
+## Repository guide
 
-The existing analysis modules are integrated into a deterministic FastAPI/SQLite
-incident-investigation workflow. See [backend setup and API examples](docs/phase4a-backend.md)
-and [actual Phase 4A results](PHASE4A_REPORT.md). Historical phase text below is
-retained. Current frontend functionality is described above.
+| Location | Contents |
+| --- | --- |
+| `frontend/` | React application and map interface |
+| `lifelinetwin_backend/` | API, persistence, investigation workflow, and optional agent |
+| `lifelinetwin_geo/` | Geographic calculations, weather handling, and forecasting |
+| `scripts/` | Data preparation, integration checks, and workflow verification |
+| `tests/` | Analytical and backend tests |
+| `docs/` | Setup instructions, methods, and technical notes |
+| `evidence/` | Recorded outputs, screenshots, and verification artifacts |
+| `data/heidelberg/` | Geographic snapshot information and attribution |
 
-AI-assisted infrastructure resilience for Open Agent Hackathon 2026. The intended system investigates how road disruptions change access to hospitals and other critical facilities, compares interventions, and explains recommendations.
+## Data and attribution
 
-Research inspiration: adaptive forecasting and lightweight learning under changing conditions (Prof. Zimeng Lyu), and geospatial relationships and agentic spatial services (Prof. Xinyue Ye). This project does not reproduce their published research.
+Geographic analysis uses OpenStreetMap data; see the [Heidelberg data notes](data/heidelberg/README.md) for snapshot details and attribution. Environmental evidence comes from Open-Meteo. Forecasting uses IBM Granite TinyTimeMixer, and scenario provenance uses the upstream Meterless reference implementation. Their respective data, model, and software licenses apply.
 
-## Phase 1 status
-
-Only technical foundation and sponsor feasibility are in scope. No frontend, maps, forecasting model, or full agent has been built.
-
-- **Meterless:** official reference executes locally; 10 smoke tests, 8 conformance checks, standalone idempotency check, and synthetic road update/provenance test pass. An additional persistence-reopen test fails; see the report before relying on durable state.
-- **Zetaris:** blocked, not confirmed. No SQL has executed against Zetaris. Docker/WSL and account-issued distribution are missing; usable machine RAM is substantially below the expected 16 GB.
-- No paid infrastructure, purchases, or model downloads.
-
-See [PHASE1_REPORT.md](PHASE1_REPORT.md) for evidence, limitations, and the manual next steps.
-
-## Layout
-
-```text
-scripts/           Machine inventory and real Meterless reference integration test
-sql/               Proposed Zetaris verification statements (not executed)
-docs/              Sponsor setup notes
-evidence/          Actual command output and synthetic persisted event logs
-vendor/Meterless/  Ignored official sparse checkout, with original Apache-2.0 license
-.env.example       Names only; credentials belong in local environment/private files
-```
-
-## Local development (PowerShell)
-
-Tested with Node 24.15.0, npm 11.12.1, Python 3.14.4, and Git 2.54.0. Python is used only for the Windows inventory. Meterless needs no Python packages, GPU, model, Docker, or server.
-
-The official source is pinned to `1742dec56a66e58eef9dda2d2b865823758ca8cd`. The existing checkout is ready. To recreate it in a fresh clone of LifelineTwin:
-
-```powershell
-git clone --filter=blob:none --sparse https://github.com/Meterless/Meterless.git vendor/Meterless
-git -C vendor/Meterless sparse-checkout set engines/world-model
-git -C vendor/Meterless checkout 1742dec56a66e58eef9dda2d2b865823758ca8cd
-Set-Location vendor/Meterless/engines/world-model/reference
-npm ci --no-audit --no-fund
-npm test -- --maxWorkers=1
-node node_modules/tsx/dist/cli.mjs ../conformance/runner.ts
-npm run idempotency-check
-Set-Location ../../../../..
-npm run test:road
-```
-
-Each road run creates a fresh `evidence/road-run-*` directory, preserving earlier runs. It uses the real upstream `WorldModel`, with synthetic inputs clearly marked. The test queries the winning fact for field-level provenance; entity-level provenance alone does not identify the latest status assertion.
-
-```powershell
-python scripts/inspect-machine.py
-# Additional diagnostic: currently expected to FAIL with exit code 1.
-npm run test:road -- --check-reopen
-```
-
-Do not interpret the last command's initial in-process PASS block as an overall pass: the subsequent reopen assertion fails. Upstream source was not modified. This is a reference feasibility check, not production readiness or hackathon judging approval.
-
-Credentials must never be pasted into chat or committed. Follow [the Zetaris notes](docs/zetaris-setup.md) once access and hardware are ready. Phase 2 is not authorized.
-
-## Phase 2: geographic intelligence
-
-The Phase 1 text above is retained as historical context. The subsequent user request authorizes Phase 2 only; forecasting, frontend/dashboard work, and Phase 3 remain out of scope. Existing Meterless tests are unchanged, and Zetaris remains a separate blocked integration.
-
-The new `lifelinetwin_geo` Python package measures nearest-hospital driving-network **distance**, applies three **hypothetical** road-segment closures, and ranks independent reopenings. It does not estimate travel time or identify actual incidents. See [the method](docs/phase2-method.md) and [PHASE2_REPORT.md](PHASE2_REPORT.md) for actual results and limitations.
-
-```powershell
-python -m venv .venv
-.venv/Scripts/python -m pip install --only-binary=:all: -r requirements-phase2-lock.txt
-# Explicit online acquisition, once; later calls retain the verified cache.
-.venv/Scripts/python -m lifelinetwin_geo download
-# Offline analysis and tests:
-.venv/Scripts/python -m lifelinetwin_geo analyze
-.venv/Scripts/python -m unittest discover -s tests -v
-```
-
-The engine is in `lifelinetwin_geo/engine.py`; download/cache handling is in `data.py` and the CLI in `__main__.py`. New tests live in `tests/test_geo.py`. `data/heidelberg/` stores the real snapshot and attribution; `evidence/phase2-*` stores outputs. The optional real-data test is explicitly skipped if no complete cache exists; synthetic unit tests alone do not establish real-data completion.
+Research inspiration includes adaptive forecasting and lightweight learning under changing conditions (Prof. Zimeng Lyu), and geospatial relationships and agentic spatial services (Prof. Xinyue Ye). The project does not reproduce their published research.
