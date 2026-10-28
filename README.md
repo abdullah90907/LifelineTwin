@@ -1,8 +1,22 @@
 # LifelineTwin
 
-**Understand how road disruptions change access to hospitals, compare recovery options, and inspect the evidence behind each recommendation.**
+**Infrastructure resilience, from road disruption to evidence-backed recovery planning.**
 
-Built for **Open Agent Hackathon 2026** by [abdullah90907](https://github.com/abdullah90907).
+LifelineTwin helps users understand how road closures change access to hospitals, compare reopening options, and inspect the evidence behind each recommendation—all in one map-based workspace.
+
+Built for **Open Agent Hackathon 2026** by **Abdullah Siddique**.
+
+[Portfolio](https://abdullah-siddique-dev.netlify.app/) · [LinkedIn](https://www.linkedin.com/in/mr-abdullah-siddique/) · [GitHub](https://github.com/abdullah90907) · [Demo setup](#run-the-local-demo)
+
+| Focus | Current implementation |
+| --- | --- |
+| Demonstration area | Heidelberg, Germany |
+| Core analysis | Hospital access and road-restoration comparisons |
+| Forecasting model | IBM Granite TinyTimeMixer, running locally on CPU |
+| Evidence storage | Saved investigations with inspectable sources and SQLite persistence |
+| Interface | Interactive map with desktop and mobile investigation views |
+
+[Challenge](#the-challenge) · [Workflow](#how-it-works) · [Screenshots](#demo-screenshots) · [Technology](#tools-and-technology) · [AI models](#which-ai-model-is-used) · [Results](#a-concrete-example)
 
 ## The challenge
 
@@ -10,7 +24,18 @@ A closed road can make a nearby hospital much harder to reach. Looking at a map 
 
 LifelineTwin brings these questions into one investigation. A user creates a hypothetical disruption, measures its effect on hospital access, compares restoration options, and reviews weather evidence alongside recommendations. The current demonstration focuses on Heidelberg, Germany, using a cached road network and hospital records.
 
-This is a local research prototype for planning and investigation. Its road closures are hypothetical, its routing measures distance, and its recommendations require human review.
+The current application is a local planning prototype. Its road closures are hypothetical, its routing measures distance, and its recommendations require human review.
+
+## What you can investigate
+
+| Question | What LifelineTwin provides |
+| --- | --- |
+| Which locations become harder to reach? | Baseline and disrupted hospital-access distances for each evaluated origin |
+| Which roads should we consider reopening? | Comparisons of individual and combined reopenings, ranked by reconnection and distance savings |
+| What environmental context is available? | Cached weather evidence and local forecasts with timestamps and model metadata |
+| Why was an action suggested? | Advisory actions linked to the evidence used to support them |
+| Which assumptions changed? | Meterless scenario memory with sources and superseded assumptions |
+| Can the investigation be reviewed later? | Saved results, routes, and evidence retrievable from the investigation library |
 
 ## How it works
 
@@ -22,6 +47,24 @@ This is a local research prototype for planning and investigation. Its road clos
 6. **Review and save.** Read advisory actions with evidence references, inspect scenario assumptions, and save the investigation for later retrieval.
 
 The saved evidence includes exact OpenStreetMap node identifiers, calculated paths, restoration metrics, model metadata, assumptions, and limitations. Recommendation citations open the corresponding evidence records.
+
+### System overview
+
+```text
+React + MapLibre interface
+          |
+       FastAPI
+          |
+          +-- Geographic engine ------ OpenStreetMap road and hospital cache
+          +-- Environmental analysis -- Open-Meteo cache + Granite TTM forecasts
+          +-- Scenario memory -------- Meterless WorldModel reference engine
+          |
+     Evidence + advisory actions
+          |
+     SQLite investigation storage
+```
+
+The optional LangGraph agent uses the backend's analytical tools through a separately configured LLM endpoint. The demonstrated workflow runs the tools deterministically.
 
 ## Demo screenshots
 
@@ -68,7 +111,7 @@ A separate optional **LangGraph agent** can use an OpenAI-compatible Chat Comple
 | --- | --- |
 | Event | Open Agent Hackathon 2026 |
 | Problem addressed | Evidence-backed investigation of infrastructure disruption and hospital access |
-| Creator | [abdullah90907](https://github.com/abdullah90907) |
+| Creator | [Abdullah Siddique](https://abdullah-siddique-dev.netlify.app/) |
 | Repository | [LifelineTwin](https://github.com/abdullah90907/LifelineTwin) |
 | Meterless | Integrated through the real WorldModel reference engine for scenario assumptions, conflict resolution, and provenance |
 | Zetaris | Not connected; no completed Zetaris query is claimed |
@@ -137,4 +180,10 @@ The repository alone does not include every runtime asset. Another machine needs
 
 Geographic analysis uses OpenStreetMap data; see the [Heidelberg data notes](data/heidelberg/README.md) for snapshot details and attribution. Environmental evidence comes from Open-Meteo. Forecasting uses IBM Granite TinyTimeMixer, and scenario provenance uses the upstream Meterless reference implementation. Their respective data, model, and software licenses apply.
 
-Research inspiration includes adaptive forecasting and lightweight learning under changing conditions (Prof. Zimeng Lyu), and geospatial relationships and agentic spatial services (Prof. Xinyue Ye). The project does not reproduce their published research.
+## About the creator
+
+**Abdullah Siddique** — creator of LifelineTwin.
+
+- **Portfolio:** [abdullah-siddique-dev.netlify.app](https://abdullah-siddique-dev.netlify.app/)
+- **LinkedIn:** [Abdullah Siddique](https://www.linkedin.com/in/mr-abdullah-siddique/)
+- **GitHub:** [@abdullah90907](https://github.com/abdullah90907)
