@@ -48,6 +48,10 @@ The current application is a local planning prototype. Its road closures are hyp
 
 The saved evidence includes exact OpenStreetMap node identifiers, calculated paths, restoration metrics, model metadata, assumptions, and limitations. Recommendation citations open the corresponding evidence records.
 
+Open **Weather** in the navigation to select temperature, wind speed, relative humidity, or surface pressure, then choose **Load evidence + forecast**. Forecasts run on demand against the historical snapshot.
+
+For an implementation check and the gaps still separating this prototype from a polished showcase, see the [showcase audit](docs/showcase-audit.md).
+
 ### System overview
 
 ```text

@@ -11,7 +11,7 @@ import InvestigationPage from './pages/Investigation'
 
 const navigation = [
   { to: '/', name: 'Spatial workspace', short: 'Explore', icon: Compass },
-  { to: '/environment', name: 'Environmental evidence', short: 'Signals', icon: CloudSun },
+  { to: '/environment', name: 'Environmental evidence', short: 'Weather', icon: CloudSun },
   { to: '/incidents', name: 'Investigation library', short: 'Records', icon: FolderGit2 },
 ]
 export default function App() {

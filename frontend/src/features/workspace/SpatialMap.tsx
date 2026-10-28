@@ -24,6 +24,7 @@ export default function SpatialMap(props: MapProps) {
   const reset = () => { const [w,s,e,n] = props.atlas.manifest.bbox_wsen; map.current?.resize(); map.current?.fitBounds([[w,s],[e,n]], { padding: { top: 65, bottom: 60, left: 35, right: 35 }, duration: reduceMotion() ? 0 : 700, bearing: 0, pitch: 0 }); setPitched(false) }
   useEffect(() => {
     let disposed = false
+    const startupTimeout = window.setTimeout(() => { if (!disposed) setFallback(true) }, 12000)
     setFallback(false)
     setReady(false)
     let instance: GLMap
@@ -34,6 +35,7 @@ export default function SpatialMap(props: MapProps) {
       instance.addControl(new ScaleControl({ unit: 'metric', maxWidth: 100 }), 'bottom-left')
       instance.on('load', () => {
         if (disposed) return
+        window.clearTimeout(startupTimeout)
         const atlas = callbacks.current.atlas
         const [w,s,e,n] = atlas.manifest.bbox_wsen
         const grid = []
@@ -77,12 +79,12 @@ export default function SpatialMap(props: MapProps) {
         }
         reset(); setReady(true)
       })
-      instance.on('error', e => { if (!disposed && /webgl|context/i.test(e.error.message)) setFallback(true) })
+      instance.on('error', () => { if (!disposed) setFallback(true) })
       const contextLost = () => { if (!disposed) setFallback(true) }
       instance.getCanvas().addEventListener('webglcontextlost', contextLost)
       const observer = new ResizeObserver(() => instance.resize()); observer.observe(host.current!)
-      return () => { disposed = true; observer.disconnect(); labels.current.forEach(l=>l.marker.remove()); labels.current=[]; instance.getCanvas().removeEventListener('webglcontextlost', contextLost); instance.remove(); map.current = null }
-    } catch (error) { console.warn('Local map initialization failed', error); setFallback(true) }
+        return () => { disposed = true; window.clearTimeout(startupTimeout); observer.disconnect(); labels.current.forEach(l=>l.marker.remove()); labels.current=[]; instance.getCanvas().removeEventListener('webglcontextlost', contextLost); instance.remove(); map.current = null }
+    } catch (error) { window.clearTimeout(startupTimeout); console.warn('Local map initialization failed', error); setFallback(true) }
   }, [props.atlas])
   useEffect(() => {
     const instance = map.current; if (!ready || !instance) return

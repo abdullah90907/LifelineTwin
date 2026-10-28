@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { MemoryRouter } from 'react-router-dom'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { atlasSchema, scenarioSchema, environmentSchema } from './api'
+import { api, atlasSchema, scenarioSchema, environmentSchema } from './api'
 import { accessibilitySummary, closureGeometry, matchingSnapshot, routeGeometry } from './features/workspace/spatial'
 import App from './App'
 vi.mock('./features/workspace/SpatialMap', () => ({ default: () => <div role="img" aria-label="Controlled renderer, not WebGL verification"/> }))
@@ -29,6 +29,12 @@ async function runScenario() {
   fireEvent.click(screen.getByRole('button',{name:'Analyze disruption'}))
 }
 describe('geographic integrity',()=>{
+  it('sends the selected weather variable to the real environment API contract',async()=>{
+    const fetch=vi.fn(async()=>new Response(JSON.stringify(environment)))
+    vi.stubGlobal('fetch',fetch)
+    await api.environment('2026-10-24T19:55:49Z',undefined,'wind_speed_10m')
+    expect(fetch).toHaveBeenCalledWith('/api/analysis/environment',expect.objectContaining({method:'POST',body:JSON.stringify({mode:'cache',variable:'wind_speed_10m',as_of:'2026-10-24T19:55:49Z'})}))
+  })
   it('matches equivalent timezone instants and rejects mismatched/invalid snapshots',()=>{
     expect(matchingSnapshot(atlas,baseline.dataset.download_completed_utc)).toBe(true)
     expect(matchingSnapshot(atlas,'2025-01-01T00:00:00Z')).toBe(false)

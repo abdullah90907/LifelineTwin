@@ -24,6 +24,20 @@ const atlas=atlasSchema.parse(JSON.parse(readFileSync(resolve('public/data/heide
 const props={atlas,selected:'O5',reopened:[],showRoads:true,showOrigins:true,showFacilities:true,onOrigin:vi.fn(),onFacility:vi.fn()}
 beforeEach(()=>{state.instances=[];vi.stubGlobal('ResizeObserver',class{observe(){}disconnect(){}})})
 describe('renderer lifecycle with a controlled GPU adapter, not live WebGL evidence',()=>{
+  it('shows cached geometry when a worker error prevents map startup',()=>{
+    const {container}=render(<SpatialMap {...props}/>)
+    act(()=>state.instances[0].callbacks.error({error:new Error('Worker failed to load')}))
+    expect(container.querySelector('[data-renderer]')).toHaveAttribute('data-renderer','compatibility')
+    expect(screen.getByRole('img',{name:/Compatibility rendering/})).toBeInTheDocument()
+  })
+  it('recovers from a renderer that never emits a load event',()=>{
+    vi.useFakeTimers()
+    const {container,unmount}=render(<SpatialMap {...props}/>)
+    try {
+      act(()=>vi.advanceTimersByTime(12000))
+      expect(container.querySelector('[data-renderer]')).toHaveAttribute('data-renderer','compatibility')
+    } finally { unmount(); vi.useRealTimers() }
+  })
   it('does not confuse Strict Mode cleanup context loss with active GPU failure',()=>{
     const {container}=render(<StrictMode><SpatialMap {...props}/></StrictMode>)
     expect(state.instances).toHaveLength(2)

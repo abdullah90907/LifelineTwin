@@ -50,7 +50,7 @@ export const api = {
   atlas: (signal?: AbortSignal) => request('/data/heidelberg-atlas.json', atlasSchema, signal, true),
   baseline: (signal?: AbortSignal) => request('/analysis/baseline', baselineSchema, signal),
   scenario: (count: number, signal?: AbortSignal) => request('/analysis/geographic', scenarioSchema, signal, false, { selection: 'betweenness', count }),
-  environment: (asOf: string, signal?: AbortSignal) => request('/analysis/environment', environmentSchema, signal, false, { mode: 'cache', variable: 'temperature_2m', as_of: asOf }),
+  environment: (asOf: string, signal?: AbortSignal, variable = 'temperature_2m') => request('/analysis/environment', environmentSchema, signal, false, { mode: 'cache', variable, as_of: asOf }),
   incidents: (offset: number, signal?: AbortSignal) => request(`/incidents?limit=12&offset=${offset}`, z.array(incidentSchema), signal),
   history: (id: string, agent: boolean, signal?: AbortSignal) => request(`/incidents/${encodeURIComponent(id)}/${agent ? 'agent-investigations' : 'investigations'}?limit=20`, historySchema, signal),
   investigation: (id: string, signal?: AbortSignal) => request(`/investigations/${encodeURIComponent(id)}`, investigationSchema, signal),
