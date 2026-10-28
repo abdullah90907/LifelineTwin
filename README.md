@@ -1,5 +1,54 @@
 # LifelineTwin
 
+**AI-assisted infrastructure resilience for Open Agent Hackathon 2026.**
+
+LifelineTwin explores how hypothetical road disruptions affect access to
+hospitals in Heidelberg, compares restoration options, and saves an
+investigation with inspectable evidence and cited advisory actions.
+
+## Hackathon and creator
+
+| | Details |
+| --- | --- |
+| Hackathon | Open Agent Hackathon 2026 |
+| Creator | [abdullah90907](https://github.com/abdullah90907) |
+| Repository | [LifelineTwin on GitHub](https://github.com/abdullah90907/LifelineTwin) |
+| Demo | Local application; follow the [demo runbook](docs/hackathon-demo.md) |
+
+## Demo screenshots
+
+Actual screenshots from the local application. The road closures shown are
+hypothetical scenarios, not reports of live incidents.
+
+### Disruption exploration
+
+![Desktop disruption lab showing the map-based scenario workflow](evidence/frontend-redesign/disruption-desktop.png)
+
+### Saved investigation — desktop
+
+![Saved Heidelberg investigation with hospital-access consequences, cited advisory actions, and Meterless scenario memory](evidence/challenge-readiness-20261027/saved-investigation-desktop.png)
+
+### Saved investigation — mobile
+
+<img src="evidence/challenge-readiness-20261027/saved-investigation-mobile.png" alt="Mobile view of the saved Heidelberg investigation" width="390">
+
+## What the demo does
+
+- Models hypothetical closures on a cached OpenStreetMap road network and
+  computes changes in nearest-hospital driving distance.
+- Compares reopening options using calculated access and distance savings.
+- Combines cached Open-Meteo evidence with local IBM Granite TTM forecasts.
+- Records scenario-assumption provenance using the real Meterless WorldModel
+  reference engine, with explicit availability reporting.
+- Saves investigations in SQLite so evidence and recommendations can be
+  inspected again after a backend restart.
+
+The demonstrated workflow is deterministic. The optional LangGraph agent
+integration is documented below; a completed hosted-LLM investigation has not
+been established. Zetaris is not connected. See the
+[readiness assessment](HACKATHON_FINAL_READINESS.md) for evidence and remaining
+hackathon requirements.
+
 ## Current local demonstration
 
 The map-first React/TypeScript application now connects hypothetical disruption
