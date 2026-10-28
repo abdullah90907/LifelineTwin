@@ -95,13 +95,19 @@ class IncidentStatus(StrEnum):
     resolved = "resolved"
 
 
+from .region import REGION
+
 class Context(Schema):
-    latitude: float = Field(default=49.415, ge=49.395, le=49.435, allow_inf_nan=False)
-    longitude: float = Field(default=8.6775, ge=8.650, le=8.705, allow_inf_nan=False)
-    origin_ids: list[str] = Field(default_factory=list, max_length=9)
+    latitude: float = Field(default=REGION["latitude"], ge=-90, le=90, allow_inf_nan=False)
+    longitude: float = Field(default=REGION["longitude"], ge=-180, le=180, allow_inf_nan=False)
+    origin_ids: list[str] = Field(default_factory=list, max_length=100)
 
     @model_validator(mode="after")
     def unique_origins(self):
+        houston = 29.68 <= self.latitude <= 29.735 and -95.43 <= self.longitude <= -95.36
+        legacy = 49.395 <= self.latitude <= 49.435 and 8.650 <= self.longitude <= 8.705
+        if not (houston or legacy):
+            raise ValueError('Coordinates must belong to a supported study area')
         if len(set(self.origin_ids)) != len(self.origin_ids):
             raise ValueError("Duplicate origin IDs")
         return self

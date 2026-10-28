@@ -27,7 +27,7 @@ def snap(graph, lon, lat):
     return int(nodes[i]), float(distances[i])
 
 
-def download(directory):
+def download(directory, bbox=BBOX, area=AREA, grid=(0.2, 0.5, 0.8)):
     directory = Path(directory)
     directory.mkdir(parents=True, exist_ok=True)
     if (directory / "manifest.json").exists():
@@ -41,14 +41,14 @@ def download(directory):
     if graph_file.exists():
         graph = ox.load_graphml(graph_file)
     else:
-        graph = ox.graph_from_bbox(BBOX, network_type="drive", simplify=True, retain_all=True)
+        graph = ox.graph_from_bbox(bbox, network_type="drive", simplify=True, retain_all=True)
         ox.save_graphml(graph, graph_file)
     raw_file = directory / "hospitals.geojson"
     if raw_file.exists():
         import geopandas as gpd
         features = gpd.read_file(raw_file).set_index(["element", "id"])
     else:
-        features = ox.features_from_bbox(BBOX, tags={"amenity": "hospital"})
+        features = ox.features_from_bbox(bbox, tags={"amenity": "hospital"})
         features.reset_index().to_file(raw_file, driver="GeoJSON")
     facilities = []
     for index, row in features.sort_index().iterrows():
@@ -62,10 +62,10 @@ def download(directory):
     if len({f["node"] for f in facilities}) < 2:
         raise ValueError("Need at least two distinct hospital routing nodes")
     origins = []
-    west, south, east, north = BBOX
+    west, south, east, north = bbox
     used = set()
-    for fy in (0.2, 0.5, 0.8):
-        for fx in (0.2, 0.5, 0.8):
+    for fy in grid:
+        for fx in grid:
             lon, lat = west + fx * (east-west), south + fy * (north-south)
             node, offset = snap(graph, lon, lat)
             if node not in used:
@@ -77,7 +77,7 @@ def download(directory):
     write_json(directory / "facilities.json", facilities)
     write_json(directory / "origins.json", origins)
     files = ("roads.graphml", "hospitals.geojson", "facilities.json", "origins.json")
-    write_json(directory / "manifest.json", {"area": AREA, "bbox_wsen": BBOX,
+    write_json(directory / "manifest.json", {"area": area, "bbox_wsen": bbox,
                "download_completed_utc": datetime.now(timezone.utc).isoformat(),
                "source": "OpenStreetMap via OSMnx/Overpass", "overpass_url": ox.settings.overpass_url,
                "attribution": "(c) OpenStreetMap contributors; ODbL https://www.openstreetmap.org/copyright",

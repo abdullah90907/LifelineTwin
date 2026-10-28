@@ -212,7 +212,7 @@ class ToolIntegrationTests(unittest.TestCase):
         fixture = json.loads(Settings().weather_snapshot.read_text(encoding="utf-8"))
         with patch("lifelinetwin_geo.weather.fetch_forecast", return_value=fixture) as fetch:
             result = Tools(Settings()).environment(EnvironmentRequest(mode="live", as_of="2026-10-25T00:55:49+05:00"))
-        fetch.assert_called_once_with(past_days=30, forecast_days=1)
+            fetch.assert_called_once_with(lat=49.415, lon=8.6775, past_days=30, forecast_days=1)
         self.assertEqual(result.provenance["mode"], "live")
         self.assertIsNone(result.provenance["snapshot_file"])
         self.assertTrue(result.provenance["context_cutoff_utc"].endswith("+00:00"))

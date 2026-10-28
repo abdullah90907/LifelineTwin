@@ -1,153 +1,129 @@
 # LifelineTwin
 
-**Infrastructure resilience, from road disruption to evidence-backed recovery planning.**
+**Hospital access under pressure — an interactive resilience workspace for Houston, Texas.**
 
-LifelineTwin helps users understand how road closures change access to hospitals, compare reopening options, and inspect the evidence behind each recommendation—all in one map-based workspace.
+Explore the Texas Medical Center and Brays Bayou area on a labelled street map, inspect current weather and official alerts, close selected road segments in a scenario, and measure how hospital access changes.
 
 Built for **Open Agent Hackathon 2026** by **Abdullah Siddique**.
 
-[Portfolio](https://abdullah-siddique-dev.netlify.app/) · [LinkedIn](https://www.linkedin.com/in/mr-abdullah-siddique/) · [GitHub](https://github.com/abdullah90907) · [Demo setup](#run-the-local-demo)
+[Portfolio](https://abdullah-siddique-dev.netlify.app/) · [LinkedIn](https://www.linkedin.com/in/mr-abdullah-siddique/) · [GitHub](https://github.com/abdullah90907)
 
-| Focus | Current implementation |
+[Features](#what-you-can-do) · [Demo](#screenshots) · [Models](#ai-and-analytical-methods) · [Setup](#run-locally) · [Data](#data-and-limitations)
+
+## Why Houston?
+
+Hospitals can remain operational while surrounding roads become difficult to access. Houston's Texas Medical Center makes that distinction concrete: flooding during Hurricane Harvey impeded travel to the medical center even after flood-protection improvements protected facilities. [Texas Medical Center's account](https://www.tmc.edu/news/2018/07/the-worlds-largest-medical-city-is-ready-for-the-storm/) describes the access problem.
+
+LifelineTwin asks a practical planning question: **if these road segments become unavailable, which sampled locations face longer hospital routes, and which reopening would help?**
+
+The active study area is a bounded part of Houston, rather than the whole city. Its real OpenStreetMap snapshot contains **2,804 road nodes, 7,161 directed edges, 25 sampled origins, and 12 hospital records**. The earlier Heidelberg dataset is retained for historical evidence and regression tests.
+
+## What you can do
+
+| Feature | How it works |
 | --- | --- |
-| Demonstration area | Heidelberg, Germany |
-| Core analysis | Hospital access and road-restoration comparisons |
-| Forecasting model | IBM Granite TinyTimeMixer, running locally on CPU |
-| Evidence storage | Saved investigations with inspectable sources and SQLite persistence |
-| Interface | Interactive map with desktop and mobile investigation views |
+| Labelled street map | OpenStreetMap streets, place names, and landmarks beneath the analytical network; toggle to an offline network view |
+| Road-name search | Search streets such as Old Spanish Trail and select specific intersection-to-intersection segments |
+| Direct road selection | Click roads to select up to six hypothetical closures; selected segments are highlighted |
+| Hospital-access analysis | Compare shortest driving-network distances before and after closures, respecting the cached graph's directions |
+| Recovery comparison | Inspect individual reopenings and, when individual reopenings offer no benefit, pairs of reopenings |
+| Current weather | Open-Meteo conditions for Houston, with source and retrieval timestamps, manual refresh, and five-minute updates |
+| Near-term outlook | A 12-hour table of temperature, rain probability, precipitation, and wind |
+| Official US alerts | National Weather Service alerts for the study-area point, including severity, descriptions, instructions, and expiry |
+| Local AI forecasting | Run IBM Granite TinyTimeMixer over downloaded Houston weather context; select temperature, wind, humidity, or pressure |
+| Saved investigations | Preserve exact road endpoints, routes, forecasts, recommendations, and evidence references in SQLite |
+| Scenario memory | Meterless records scenario assumptions and their provenance when its reference runtime is available |
 
-[Challenge](#the-challenge) · [Workflow](#how-it-works) · [Screenshots](#demo-screenshots) · [Technology](#tools-and-technology) · [AI models](#which-ai-model-is-used) · [Results](#a-concrete-example)
+**Current weather and alerts are external feeds. Road impacts are calculated what-if scenarios on a downloaded network. The application does not claim live traffic or verified road-closure detection.**
 
-## The challenge
+## Screenshots
 
-A closed road can make a nearby hospital much harder to reach. Looking at a map alone does not explain which communities lose access, how much farther they must travel, or which combination of roads would be most useful to reopen. Weather adds context, while separate data sources make it difficult to trace the reasoning behind a decision.
+Actual browser captures of the Houston implementation:
 
-LifelineTwin brings these questions into one investigation. A user creates a hypothetical disruption, measures its effect on hospital access, compares restoration options, and reviews weather evidence alongside recommendations. The current demonstration focuses on Heidelberg, Germany, using a cached road network and hospital records.
+### Houston street map and selected-road analysis
 
-The current application is a local planning prototype. Its road closures are hypothetical, its routing measures distance, and its recommendations require human review.
+![Houston street map with real road labels, current weather, manually selected closure, and hospital-access comparisons](evidence/houston-showcase/desktop.png)
 
-## What you can investigate
+### Current weather, official alerts, and outlook
 
-| Question | What LifelineTwin provides |
+![Houston current conditions and 12-hour weather outlook](evidence/houston-showcase/weather.png)
+
+### Mobile weather view
+
+<img src="evidence/houston-showcase/weather-mobile.png" alt="Houston weather and alerts on mobile" width="390">
+
+## Try the workflow
+
+1. Open **Explore** to inspect Houston's medical-center network and hospital records.
+2. Search a street name or click a road segment. Select up to six roads; click a selection again to remove it.
+3. Choose **Analyze disruption**. The app sends those exact OSM endpoint pairs to the backend and calculates the changed routes.
+4. Select an origin to inspect its baseline route, scenario distance, and destination hospital.
+5. Compare reopening alternatives in the inspector. Reopening benefits are measured across sampled origins.
+6. Create a saved investigation to retain the scenario, local model output, and supporting evidence.
+7. Open **Weather** for current conditions, NWS alerts, the next 12 hours, and local AI forecasting.
+
+A selected road can have zero measured effect. That is a valid computed result: an alternative route may remain available, or the segment may not serve the sampled origins.
+
+### Measured Houston example
+
+In the verified three-segment stress test, four of the 25 sampled origins had longer hospital routes. Origin O5 increased from **3.950 km to 4.293 km**, a **343-metre detour**. All 25 origins remained connected. The browser then saved the investigation successfully with **96 local Granite forecast values**. These are computed scenario results, not observed storm impacts.
+
+## AI and analytical methods
+
+### Local forecasting model
+
+**IBM Granite TinyTimeMixer** — `ibm-granite/granite-timeseries-ttm-r1` — runs on the CPU using existing pretrained Hugging Face weights. The implementation uses a **512-hour context** to produce **96 hourly predictions**, without training or fine-tuning.
+
+This is time-series extrapolation of weather variables. It does not detect flooding, road closures, or hospital demand. Forecasting skill against held-out observations has not been established. The local model uses a downloaded context snapshot, while the current-weather panel retrieves new provider data independently.
+
+### Routing and restoration
+
+The Python geographic engine uses a directed OpenStreetMap driving graph and NetworkX shortest-path calculations. Closures remove parallel edges between a selected endpoint pair in both directions. Other carriageways remain separate. The optional automatic stress test selects baseline-used segments ranked by length-weighted edge betweenness. For networks above 1,500 nodes, the interactive stress test uses 128 sampled sources with a fixed seed for reproducibility.
+
+Restoration alternatives are ranked by reconnected origins and aggregate distance savings. **Origin-metres** means the sum of savings across sampled origins; it does not measure population benefit, repair cost, or response time.
+
+### Optional LLM agent
+
+A separate LangGraph workflow supports a configured OpenAI-compatible endpoint with function calling. The operator supplies the endpoint, model identifier, and credentials; there is no default hosted LLM. The demonstrated main workflow is deterministic. A completed hosted-agent investigation is not claimed.
+
+## Technology
+
+| Layer | Tools |
 | --- | --- |
-| Which locations become harder to reach? | Baseline and disrupted hospital-access distances for each evaluated origin |
-| Which roads should we consider reopening? | Comparisons of individual and combined reopenings, ranked by reconnection and distance savings |
-| What environmental context is available? | Cached weather evidence and local forecasts with timestamps and model metadata |
-| Why was an action suggested? | Advisory actions linked to the evidence used to support them |
-| Which assumptions changed? | Meterless scenario memory with sources and superseded assumptions |
-| Can the investigation be reviewed later? | Saved results, routes, and evidence retrievable from the investigation library |
-
-## How it works
-
-1. **Explore the area.** View the Heidelberg road network and hospital locations on an interactive map.
-2. **Define a scenario.** Select road segments to treat as closed and set the investigation's evidence cutoff.
-3. **Measure the impact.** Compare the shortest driving-network distance to a nearest cached hospital before and after the closures. Inspect affected origins and route geometry.
-4. **Compare recovery options.** Evaluate individual reopenings and combinations, using reconnection and distance savings to identify useful alternatives.
-5. **Inspect environmental context.** Review cached weather estimates and local time-series forecasts, including their source, model, and time boundaries.
-6. **Review and save.** Read advisory actions with evidence references, inspect scenario assumptions, and save the investigation for later retrieval.
-
-The saved evidence includes exact OpenStreetMap node identifiers, calculated paths, restoration metrics, model metadata, assumptions, and limitations. Recommendation citations open the corresponding evidence records.
-
-Open **Weather** in the navigation to select temperature, wind speed, relative humidity, or surface pressure, then choose **Load evidence + forecast**. Forecasts run on demand against the historical snapshot.
-
-For an implementation check and the gaps still separating this prototype from a polished showcase, see the [showcase audit](docs/showcase-audit.md).
-
-### System overview
+| Interface | React, TypeScript, Vite, TanStack React Query, Zod |
+| Mapping | MapLibre GL, OpenStreetMap raster tiles, cached OSM geometry, SVG compatibility renderer |
+| API and validation | Python, FastAPI, Pydantic |
+| Geographic analysis | OSMnx, NetworkX |
+| Weather and alerts | Open-Meteo, US National Weather Service |
+| Local model | IBM Granite TinyTimeMixer, PyTorch CPU, granite-tsfm |
+| Persistence | SQLAlchemy, SQLite |
+| Scenario provenance | Meterless WorldModel reference engine |
+| Optional agent | LangGraph and a separately configured tool-calling LLM |
 
 ```text
-React + MapLibre interface
-          |
-       FastAPI
-          |
-          +-- Geographic engine ------ OpenStreetMap road and hospital cache
-          +-- Environmental analysis -- Open-Meteo cache + Granite TTM forecasts
-          +-- Scenario memory -------- Meterless WorldModel reference engine
-          |
-     Evidence + advisory actions
-          |
-     SQLite investigation storage
+Houston map and road selection
+              |
+           FastAPI
+              +-- OSM graph --> hospital-access and restoration analysis
+              +-- Open-Meteo --> current conditions and hourly outlook
+              +-- NWS -------> active official weather alerts
+              +-- Houston weather snapshot --> local Granite TTM forecast
+              +-- Meterless --> scenario assumptions and provenance
+              |
+     Evidence and advisory actions --> SQLite
 ```
 
-The optional LangGraph agent uses the backend's analytical tools through a separately configured LLM endpoint. The demonstrated workflow runs the tools deterministically.
+## Run locally
 
-## Demo screenshots
-
-Screenshots from the working local application; the scenarios shown do not report live road incidents.
-
-### Map and disruption exploration
-
-![Desktop disruption lab with map-based scenario exploration](evidence/frontend-redesign/disruption-desktop.png)
-
-### Saved investigation on desktop
-
-![Saved Heidelberg investigation showing hospital-access consequences, cited advisory actions, and scenario memory](evidence/challenge-readiness-20261027/saved-investigation-desktop.png)
-
-### Saved investigation on mobile
-
-<img src="evidence/challenge-readiness-20261027/saved-investigation-mobile.png" alt="Mobile view of the saved Heidelberg investigation" width="390">
-
-## Tools and technology
-
-| Component | Tools | Role in the project |
-| --- | --- | --- |
-| Web interface | React, TypeScript, Vite | Map exploration, scenario controls, investigation library, and evidence views |
-| Map rendering | MapLibre GL | Displays local geographic geometry and analytical overlays |
-| Frontend data and validation | TanStack React Query, Zod | Handles API data and validates frontend data structures |
-| Backend API | Python, FastAPI, Pydantic | Validates requests and connects the analytical tools to the interface |
-| Saved investigations | SQLAlchemy, SQLite | Stores investigations, evidence, results, and agent traces |
-| Geographic analysis | OpenStreetMap data and the project's Python geographic engine | Computes hospital-access distances, disrupted routes, and restoration comparisons |
-| Weather evidence | Open-Meteo | Supplies cached environmental estimates with timestamps and source metadata |
-| Forecasting | IBM Granite TinyTimeMixer, PyTorch CPU, granite-tsfm | Runs pretrained time-series inference locally |
-| Scenario memory | Meterless WorldModel reference engine, Node.js | Resolves scenario assumptions and records field-level provenance |
-| Optional agent workflow | LangGraph and a configured tool-calling LLM endpoint | Lets an LLM select analytical tools and assemble evidence-bound findings |
-
-## Which AI model is used?
-
-The demonstrated forecasting model is **IBM Granite TinyTimeMixer**, specifically `ibm-granite/granite-timeseries-ttm-r1`. It runs locally on the CPU using pretrained weights, without training or fine-tuning.
-
-The forecasting code uses a **512-hour context window** and produces **96 hourly predictions**. It supports continuous weather variables such as temperature, surface pressure, wind speed, and relative humidity. Precipitation and wind direction require special handling, which the implementation reports. Forecasts provide environmental context; they do not detect road closures or predict hospital response times.
-
-A separate optional **LangGraph agent** can use an OpenAI-compatible Chat Completions endpoint with function calling. There is **no default LLM or fixed agent model**: the operator supplies the endpoint, model identifier, and credentials. The model selects tools and citations; the server validates numerical claims and evidence references. The demonstrated saved investigation uses a deterministic tool pipeline. A successfully completed hosted-LLM investigation has not been established in the recorded milestone.
-
-## Hackathon and sponsor integrations
-
-| Item | Project details |
-| --- | --- |
-| Event | Open Agent Hackathon 2026 |
-| Problem addressed | Evidence-backed investigation of infrastructure disruption and hospital access |
-| Creator | [Abdullah Siddique](https://abdullah-siddique-dev.netlify.app/) |
-| Repository | [LifelineTwin](https://github.com/abdullah90907/LifelineTwin) |
-| Meterless | Integrated through the real WorldModel reference engine for scenario assumptions, conflict resolution, and provenance |
-| Zetaris | Not connected; no completed Zetaris query is claimed |
-| NVIDIA | No verified NVIDIA integration is claimed |
-
-Meterless records which hypothetical closure assumptions remain active and which are superseded by a restoration preview. These records describe the scenario rather than verified observations of road conditions. Its optional runtime reports an explicit unavailable state if it cannot run; the analytical workflow can continue.
-
-See the [submission-readiness assessment](HACKATHON_FINAL_READINESS.md) for recorded evidence and remaining requirements. It is a dated assessment, not confirmation of submission or sponsor eligibility.
-
-## A concrete example
-
-In the recorded Heidelberg investigation, the cached graph contains **1,060 nodes**, **2,331 directed edges**, and **nine origin locations**. Three hypothetical road closures were applied.
-
-For one origin, the nearest-hospital driving distance increased from about **749 metres to 1,515 metres**, an increase of about **766 metres**. All nine origins remained connected to a hospital. Reopening either of two selected segments alone produced no savings, while reopening them together saved about **433 origin-metres** across the evaluated origins.
-
-Origin-metres are the sum of distance savings across origins. They do not represent travel time, population benefit, repair cost, or ambulance response time. This example shows why comparing combinations can reveal improvements that individual reopenings miss.
-
-The saved investigation was retrieved after a backend restart and checked against the geographic engine. Supporting screenshots and verification outputs are in [the recorded demo evidence](evidence/challenge-readiness-20261027/).
-
-## Run the local demo
-
-The following commands use the already prepared Python 3.13 environment and cached data/model assets. Use Node.js 22.12 or newer; Node 24 was verified in the recorded setup.
+Use the prepared Python 3.13 environment and Node.js 22.12+; Node 24 was verified. Houston is the default backend region.
 
 Start the API from the repository root:
 
 ```powershell
-$env:HF_HUB_OFFLINE = '1'
-$env:TRANSFORMERS_OFFLINE = '1'
 .\.venv-migration\Scripts\python.exe -m uvicorn lifelinetwin_backend.main:app --host 127.0.0.1 --port 8000
 ```
 
-In a second terminal, start the frontend:
+Start the frontend in a second terminal:
 
 ```powershell
 Set-Location frontend
@@ -155,39 +131,57 @@ npm ci
 npm run dev
 ```
 
-Open [the local application](http://127.0.0.1:5173). The default database is `data/backend/lifelinetwin.sqlite3`. Use a single backend instance per database.
+Open [the local application](http://127.0.0.1:5173). The API and frontend must both run. Keep one backend instance per SQLite database.
 
-The repository alone does not include every runtime asset. Another machine needs the Python dependencies, original Heidelberg cache, local frontend atlas, Hugging Face model cache, and the separately installed Meterless reference runtime. A fresh-machine installation has not been verified. Follow the [demo and setup runbook](docs/hackathon-demo.md) for asset preparation, runtime setup, alternative ports, and the demonstration walkthrough.
+Current weather, alerts, and street tiles require internet access. The cached analytical network remains usable without those feeds. Provider errors are displayed instead of fabricated current data. The map also has a compatibility renderer for devices without working WebGL.
 
-## Current boundaries
+To prepare Houston data explicitly on another machine after installing dependencies:
 
-- Road closures are user-defined hypotheses, not a live incident feed.
-- Access calculations use network distance to cached hospital records. They do not account for live traffic, hospital capacity, or emergency response time.
-- Weather estimates and model predictions carry their own time and source limitations. Forecasting accuracy for operational use has not been established.
-- The working demonstration is local and has no public demo URL or production authentication.
-- The optional hosted agent and unconnected sponsor tools should not be interpreted as completed integrations.
+```powershell
+.\.venv-migration\Scripts\python.exe scripts/prepare_houston.py
+.\.venv-migration\Scripts\python.exe scripts/export_frontend_atlas.py --region houston
+```
+
+Existing verified geography is retained. The model weights and Meterless runtime are separately prepared assets; a repository clone alone is not a complete runtime installation. See [setup details](docs/hackathon-demo.md) and [the Houston data notes](data/houston/README.md). The older runbook includes historical Heidelberg examples; Houston instructions above supersede its location-specific defaults.
+
+## Validation
+
+A real headless Edge browser exercised road-name search, manual selection, the geographic API, the Houston weather view, and mobile rendering. Captures and the machine-readable result are in [Houston browser evidence](evidence/houston-showcase/). Controlled frontend tests also cover map failure recovery and the API request contracts.
+
+See the [showcase audit](docs/showcase-audit.md) for historical findings and remaining limits. Running tests or producing model outputs alone does not establish operational effectiveness.
+
+## Data and limitations
+
+- **Geography:** OpenStreetMap contributors, ODbL. Routes use the downloaded graph; roads outside its boundary are excluded.
+- **Hospitals:** tagged OSM hospital nodes and closed ways within the medical-center acquisition box. Relations are excluded; this is not a complete hospital directory or a statement of emergency-service availability.
+- **Origins:** 25 sampled grid locations with equal weight, rather than population-weighted communities or live patient locations.
+- **Routing:** distance between snapped road nodes; traffic, travel time, hospital capacity, and ambulance dispatch are not modelled.
+- **Weather:** model-derived provider conditions and forecasts, with five-minute application caching. They are not verified road observations.
+- **Alerts:** NWS alerts apply to the queried point. No returned alerts does not establish that every location or road is safe.
+- **Deployment:** local prototype with no production authentication or public deployment.
+
+Public street tiles follow the [OSM tile-use policy](https://operations.osmfoundation.org/policies/tiles/), with visible attribution and ordinary browser caching. No bulk tile download is implemented. `VITE_MAP_TILE_URL` allows a compatible alternative tile endpoint; update attribution when changing providers.
+
+## Hackathon and integrations
+
+**Event:** Open Agent Hackathon 2026. **Focus:** evidence-backed infrastructure and hospital-access investigation.
+
+Meterless is integrated through its reference engine. Zetaris is not connected, and no verified NVIDIA integration or completed hosted-agent run is claimed. The [dated submission assessment](HACKATHON_FINAL_READINESS.md) records earlier requirements and limitations; it does not establish submission or sponsor eligibility.
 
 ## Repository guide
 
 | Location | Contents |
 | --- | --- |
-| `frontend/` | React application and map interface |
-| `lifelinetwin_backend/` | API, persistence, investigation workflow, and optional agent |
-| `lifelinetwin_geo/` | Geographic calculations, weather handling, and forecasting |
-| `scripts/` | Data preparation, integration checks, and workflow verification |
-| `tests/` | Analytical and backend tests |
-| `docs/` | Setup instructions, methods, and technical notes |
-| `evidence/` | Recorded outputs, screenshots, and verification artifacts |
-| `data/heidelberg/` | Geographic snapshot information and attribution |
+| `frontend/` | Map, weather, scenario controls, and saved evidence views |
+| `lifelinetwin_backend/` | API, current weather, alerts, persistence, and optional agent |
+| `lifelinetwin_geo/` | Geographic engine, weather ingestion, and local forecasting |
+| `data/houston/` | Active geographic snapshot, hospital records, origins, and weather context |
+| `scripts/` | Acquisition, atlas export, and verification tools |
+| `tests/` | Analytical and backend regression tests |
+| `evidence/houston-showcase/` | Actual Houston browser captures and verification results |
 
-## Data and attribution
+## Creator
 
-Geographic analysis uses OpenStreetMap data; see the [Heidelberg data notes](data/heidelberg/README.md) for snapshot details and attribution. Environmental evidence comes from Open-Meteo. Forecasting uses IBM Granite TinyTimeMixer, and scenario provenance uses the upstream Meterless reference implementation. Their respective data, model, and software licenses apply.
+**Abdullah Siddique**
 
-## About the creator
-
-**Abdullah Siddique** — creator of LifelineTwin.
-
-- **Portfolio:** [abdullah-siddique-dev.netlify.app](https://abdullah-siddique-dev.netlify.app/)
-- **LinkedIn:** [Abdullah Siddique](https://www.linkedin.com/in/mr-abdullah-siddique/)
-- **GitHub:** [@abdullah90907](https://github.com/abdullah90907)
+[Portfolio](https://abdullah-siddique-dev.netlify.app/) · [LinkedIn](https://www.linkedin.com/in/mr-abdullah-siddique/) · [GitHub](https://github.com/abdullah90907)

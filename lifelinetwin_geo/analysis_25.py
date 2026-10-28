@@ -54,7 +54,11 @@ def choose_closures_by_betweenness(
 
     # Directed edge betweenness (length-weighted).
     # NetworkX returns (u, v, key) tuples for MultiDiGraph.
-    ebc_raw = nx.edge_betweenness_centrality(graph, weight="length", normalized=True)
+    # Bound interactive cost on larger study networks. The fixed seed makes
+    # the approximation reproducible; smaller historical networks stay exact.
+    sampled = graph.number_of_nodes() > 1500
+    ebc_raw = nx.edge_betweenness_centrality(graph, weight="length", normalized=True,
+                                            **({'k':128,'seed':42} if sampled else {}))
     ebc_by_pair: dict[tuple[int, int], float] = defaultdict(float)
     for edge_key, val in ebc_raw.items():
         u, v = edge_key[0], edge_key[1]
@@ -88,7 +92,7 @@ def choose_closures_by_betweenness(
             "v": int(v),
             "name": "; ".join(names),
             "betweenness_score": float(score),
-            "selection_method": "betweenness_baseline_used_nonadjacent",
+            "selection_method": "sampled_betweenness_k128_seed42_baseline_used_nonadjacent" if sampled else "betweenness_baseline_used_nonadjacent",
             "hypothetical": True,
         })
         used_nodes.update({u, v})

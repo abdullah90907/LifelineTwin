@@ -1,0 +1,43 @@
+{
+  "nodes": 2804,
+  "edges": 7161,
+  "hospitals": 12,
+  "origins": 25,
+  "selected_road": "Old Spanish Trail",
+  "manual_analysis": "passed",
+  "affected_origins": [
+    {
+      "id": "O5",
+      "baseline_m": 3949.913373415619,
+      "scenario_m": 4292.921384561285,
+      "newly_disconnected": false,
+      "increase_m": 343.00801114566593
+    },
+    {
+      "id": "O10",
+      "baseline_m": 2765.235642318037,
+      "scenario_m": 2765.5229450903475,
+      "newly_disconnected": false,
+      "increase_m": 0.2873027723103405
+    },
+    {
+      "id": "O22",
+      "baseline_m": 2835.6467326192933,
+      "scenario_m": 2855.513124848253,
+      "newly_disconnected": false,
+      "increase_m": 19.86639222895974
+    },
+    {
+      "id": "O23",
+      "baseline_m": 1273.081356701832,
+      "scenario_m": 1280.2744866820046,
+      "newly_disconnected": false,
+      "increase_m": 7.193129980172671
+    }
+  ],
+  "saved_investigation": "4a247482-f668-433e-9ab7-0971e800b983",
+  "forecast_points": 96,
+  "page_errors": [],
+  "actual_context_loss_recovery": "passed; screenshot inspected",
+  "mobile_map_rendering": "passed; screenshot inspected"
+}

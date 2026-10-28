@@ -1,0 +1,98 @@
+[
+  {
+    "id": "node/356816038",
+    "name": "Plaza Specialty Hospital",
+    "node": 152621215,
+    "lon": -95.386876,
+    "lat": 29.7233769,
+    "snap_distance_m": 55.717275492727
+  },
+  {
+    "id": "node/1975596439",
+    "name": "Texas Heart Institute - Denton A. Cooley Building",
+    "node": 152305434,
+    "lon": -95.399419,
+    "lat": 29.7079305,
+    "snap_distance_m": 74.34325105519994
+  },
+  {
+    "id": "way/43035587",
+    "name": "Ben Taub General Hospital",
+    "node": 152300552,
+    "lon": -95.39340460239124,
+    "lat": 29.71060515,
+    "snap_distance_m": 111.02691847425372
+  },
+  {
+    "id": "way/51812681",
+    "name": "Children's Memorial Hermann Hospital",
+    "node": 8005961294,
+    "lon": -95.39550321335346,
+    "lat": 29.713817300000002,
+    "snap_distance_m": 148.6803436062696
+  },
+  {
+    "id": "way/51815686",
+    "name": "University of Texas MD Anderson Cancer Center",
+    "node": 2392311858,
+    "lon": -95.39784363145692,
+    "lat": 29.7076703,
+    "snap_distance_m": 124.98035086165403
+  },
+  {
+    "id": "way/207815845",
+    "name": "Kindred Hospital Houston Medical Center",
+    "node": 3232451622,
+    "lon": -95.399092586012,
+    "lat": 29.7129629,
+    "snap_distance_m": 75.68142900509321
+  },
+  {
+    "id": "way/229203752",
+    "name": "US Pain & Spine Hospital",
+    "node": 152889837,
+    "lon": -95.384009463751,
+    "lat": 29.72420535,
+    "snap_distance_m": 52.202891877287286
+  },
+  {
+    "id": "way/426628324",
+    "name": "Shriners Hospitals for Children — Houston",
+    "node": 3232451598,
+    "lon": -95.405708412529,
+    "lat": 29.70435755,
+    "snap_distance_m": 64.69738043224241
+  },
+  {
+    "id": "way/567613307",
+    "name": "Park Plaza Hospital",
+    "node": 1209983004,
+    "lon": -95.3870177461601,
+    "lat": 29.72345775,
+    "snap_distance_m": 56.868190770775456
+  },
+  {
+    "id": "way/567813747",
+    "name": "CommonSpirit - Baylor St. Luke’s Medical Center - McNair Campus - Houston",
+    "node": 1578698023,
+    "lon": -95.39390940532067,
+    "lat": 29.700317599999998,
+    "snap_distance_m": 64.03895313743584
+  },
+  {
+    "id": "way/567813753",
+    "name": "Michael E. DeBakey VA Medical Center",
+    "node": 5624676819,
+    "lon": -95.38885496647026,
+    "lat": 29.70187215,
+    "snap_distance_m": 5.929583298338717
+  },
+  {
+    "id": "way/597306771",
+    "name": "Houston Methodist Hospital",
+    "node": 1210065716,
+    "lon": -95.39926397738664,
+    "lat": 29.7108167,
+    "snap_distance_m": 60.853321194201605
+  }
+]

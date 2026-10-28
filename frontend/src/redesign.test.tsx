@@ -16,7 +16,7 @@ const environment=environmentSchema.parse(read('../evidence/phase4c-final/live-a
 function setup(path='/', mode:'ok'|'error'|'mismatch'='ok') {
   const fetch=vi.fn(async (url:string)=>{
     if(url.includes('/analysis/geographic')&&mode==='error')return new Response('unavailable',{status:503})
-    const response=url.includes('heidelberg-atlas')?atlas:url.includes('/health')?{status:'ok',database:'ok',geographic_cache_present:true,model_cache_present:true}:url.includes('/baseline')?baseline:url.includes('/geographic')?mode==='mismatch'?{...scenario,dataset:{...scenario.dataset,download_completed_utc:'2025-01-01T00:00:00Z'}}:scenario:url.includes('/environment')?environment:[]
+    const response=url.includes('active-atlas')?atlas:url.includes('/health')?{status:'ok',database:'ok',geographic_cache_present:true,model_cache_present:true}:url.includes('/baseline')?baseline:url.includes('/geographic')?mode==='mismatch'?{...scenario,dataset:{...scenario.dataset,download_completed_utc:'2025-01-01T00:00:00Z'}}:scenario:url.includes('/environment')?environment:[]
     return new Response(JSON.stringify(response))
   })
   vi.stubGlobal('fetch',fetch)

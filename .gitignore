@@ -25,3 +25,6 @@ frontend/*.tsbuildinfo
 *.sqlite3-wal
 *.sqlite3-shm
 evidence/**/*.log
+# Large raw acquisition payloads remain local; derived attributed geometry is versioned.
+data/houston/*.osm
+data/houston/http-cache/

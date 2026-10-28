@@ -14,7 +14,7 @@ const baseline = baselineSchema.parse(JSON.parse(readFileSync(resolve('../eviden
 const health = { status: 'ok', database: 'ok', geographic_cache_present: true, model_cache_present: true }
 function mockApi(offline = false) {
   const fetch = vi.fn(async (url: string) => {
-    if (url.includes('heidelberg-atlas.json')) return new Response(JSON.stringify(atlas))
+    if (url.includes('active-atlas.json')) return new Response(JSON.stringify(atlas))
     if (offline) return new Response('unavailable', { status: 503 })
     const data = url.includes('/health') ? health : url.includes('/baseline') ? baseline : []
     return new Response(JSON.stringify(data))
@@ -103,7 +103,7 @@ describe('application foundation', () => {
     const calls: string[] = []
     vi.stubGlobal('fetch', vi.fn(async (url: string) => {
       calls.push(url)
-      const value = url.includes('heidelberg-atlas') ? atlas : url.includes('/health') ? health : url.includes('/baseline') ? baseline : url.includes('/agent-investigations') ? [{ id: 'test-agent-history', status: 'limited', created_at: '2026-10-24T00:00:00Z' }] : url.includes('/investigations') ? [] : [{ id, title: 'TEST ONLY record', description: '<script>escaped test text</script>', kind: 'hypothetical', status: 'open', occurred_at: '2026-10-24T00:00:00Z', created_at: '2026-10-24T00:00:00Z', context: { latitude: 49.415, longitude: 8.6775 } }]
+      const value = url.includes('active-atlas') ? atlas : url.includes('/health') ? health : url.includes('/baseline') ? baseline : url.includes('/agent-investigations') ? [{ id: 'test-agent-history', status: 'limited', created_at: '2026-10-24T00:00:00Z' }] : url.includes('/investigations') ? [] : [{ id, title: 'TEST ONLY record', description: '<script>escaped test text</script>', kind: 'hypothetical', status: 'open', occurred_at: '2026-10-24T00:00:00Z', created_at: '2026-10-24T00:00:00Z', context: { latitude: 49.415, longitude: 8.6775 } }]
       return new Response(JSON.stringify(value))
     }))
     app('/incidents')

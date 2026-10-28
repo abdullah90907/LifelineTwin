@@ -1,0 +1,31 @@
+{
+  "area": "Texas Medical Center and Brays Bayou, Houston, Texas, USA",
+  "bbox_wsen": [
+    -95.43,
+    29.68,
+    -95.36,
+    29.735
+  ],
+  "download_completed_utc": "2026-10-29T00:20:13.200127+05:00",
+  "source": "OpenStreetMap via OSMnx/Overpass",
+  "overpass_url": "https://overpass.private.coffee/api",
+  "attribution": "(c) OpenStreetMap contributors; ODbL https://www.openstreetmap.org/copyright",
+  "osmnx": "2.1.1",
+  "network_type": "drive",
+  "weight": "length (metres)",
+  "nodes": 2804,
+  "directed_edges": 7161,
+  "sha256": {
+    "roads.graphml": "7ad5cd10b31abab8a497e3f841e49134397cf4453606c61dae386f29a911e645",
+    "hospitals.geojson": "364b97fb14b3d6a4f9a522d7fbc8782e1f1917212b6e05f37986ddb37c9fc155",
+    "facilities.json": "faa02edcd140f9e8280cc0026122a5b231957bd11d98c7ab940d4e5559b2653b",
+    "origins.json": "9fbaf4be4d0e6b329b95108cfb4ca21b017823a46e8910e325e9690474ceab85"
+  },
+  "hospital_source": "OpenStreetMap API 0.6 map; tagged hospital nodes and closed ways only; relations excluded",
+  "hospital_bbox_wsen": [
+    -95.408,
+    29.697,
+    -95.383,
+    29.724
+  ]
+}

@@ -37,7 +37,7 @@ class Tools:
         if request.context.origin_ids:
             known = {o["id"] for o in origins}
             if not set(request.context.origin_ids) <= known:
-                raise ValueError("Unknown origin ID; use origin IDs from the cached Heidelberg dataset")
+                raise ValueError("Unknown origin ID; use origin IDs from the selected cached dataset")
             origins = [o for o in origins if o["id"] in request.context.origin_ids]
         closures = [dict(s.model_dump(), hypothetical=True) for s in request.closures]
         if request.selection == "betweenness":
@@ -65,14 +65,16 @@ class Tools:
             context=request.context, limitations=[
                 "All closures are conditional hypothetical graph scenarios; no current road state is established.",
                 "Distances are between snapped road nodes, not travel times or door-to-door access; facility capability is unverified.",
-                "Incident coordinates validate study-area membership; analysis uses the selected cached grid origins, not a new incident-point route.",
-                "The fixed 2026-10-24 OSM snapshot excludes external roads/hospitals; origins have equal weight.",
+                "Analysis uses the selected cached grid origins, not a new incident-point route.",
+                "The selected bounded OSM snapshot excludes external roads/hospitals; origins have equal weight.",
                 "All parallel edges between both endpoint directions are removed; other carriageways are unaffected.",
                 "Pairs are evaluated only if every individual reopening has zero benefit; at most six supplied closures (15 pairs).",
+                "Automatic selection uses reproducible 128-source sampled edge betweenness on graphs above 1,500 nodes; smaller graphs use exact centrality.",
             ])
 
     def environment(self, request: EnvironmentRequest) -> EnvironmentResult:
-        from lifelinetwin_geo.weather import load_observations, fetch_forecast, STUDY_AREA
+        from lifelinetwin_geo.weather import load_observations, fetch_forecast
+        from .region import REGION
         from lifelinetwin_geo.forecasting import TTMForecaster
 
         if request.mode == "cache":
@@ -84,7 +86,7 @@ class Tools:
             cache_file = path.name
         else:
             # The existing ingestion/parser is reused; no existing cache is overwritten.
-            obs = fetch_forecast(past_days=30, forecast_days=1)
+            obs = fetch_forecast(lat=REGION['latitude'],lon=REGION['longitude'],past_days=30, forecast_days=1)
             source_digest = hashlib.sha256(json.dumps(obs, sort_keys=True).encode()).hexdigest()
             cache_file = None
         if request.as_of > datetime.now(timezone.utc):
@@ -126,7 +128,7 @@ class Tools:
             "model_id": MODEL_ID, "model_revision": MODEL_REVISION,
             "model_weights_sha256": hashlib.sha256((snapshot / "model.safetensors").read_bytes()).hexdigest(),
             "product_type": "Open-Meteo forecast API recent-past model-derived estimates; not verified station measurements",
-            "requested_location": {"latitude": STUDY_AREA["lat"], "longitude": STUDY_AREA["lon"]},
+            "requested_location": {"latitude": REGION['latitude'], "longitude": REGION['longitude']},
             "returned_grid_location": {"latitude": obs["lat"], "longitude": obs["lon"]},
             "excluded_future_hours": len(times) - len(indices),
             "weather_implies_road_closure": False,

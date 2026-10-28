@@ -184,6 +184,24 @@ def create_app(settings: Settings | None = None, tools=None, agent_provider_fact
     def environment(body: EnvironmentRequest):
         return run_tool(tools.environment, body)
 
+    @app.get("/weather/current")
+    def weather_current():
+        from .live_weather import current_weather
+        try:
+            return current_weather()
+        except Exception:
+            logger.exception('Current weather provider unavailable')
+            raise HTTPException(503, 'Current weather is unavailable. Retry later; no historical values were substituted.')
+
+    @app.get('/weather/alerts')
+    def weather_alerts():
+        from .live_weather import active_alerts
+        try:
+            return active_alerts()
+        except Exception:
+            logger.exception('NWS alerts unavailable')
+            raise HTTPException(503,'NWS alert service unavailable. Absence of data does not mean absence of hazards.')
+
     from .agent_api import agent_router
     app.include_router(agent_router(db, settings, agent_provider_factory))
     return app

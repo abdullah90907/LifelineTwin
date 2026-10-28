@@ -15,7 +15,8 @@ export function useAnalysis(w: Workspace) {
   const [facility, setFacility] = useState<string | null>(null)
   const [layers, setLayers] = useState({ roads: true, origins: true, facilities: true })
   const [compare, setCompare] = useState(true)
-  const scenario = useQuery({ queryKey: ['scenario', count], queryFn: ({ signal }) => api.scenario(count, signal), enabled: false, staleTime: Infinity, retry: false })
+  const [roads,setRoads] = useState<{id:string;u:number;v:number;name?:string}[]>([])
+  const scenario = useQuery({ queryKey: ['scenario', count, roads], queryFn: ({ signal }) => roads.length ? api.providedScenario(roads.map(({id,u,v})=>({id,u,v})),signal) : api.scenario(count, signal), enabled: false, staleTime: Infinity, retry: false })
   const atlas = w.atlas.data
   const baseline = !w.baseline.isError && w.baseline.data && atlas && matchingSnapshot(atlas, w.baseline.data.dataset) ? w.baseline.data : undefined
   const result = scenario.data && atlas && matchingSnapshot(atlas, scenario.data.dataset) ? scenario.data : undefined
@@ -40,6 +41,13 @@ export function useAnalysis(w: Workspace) {
   function preview(r: Restoration) { setRestoration(r); setView('restoration'); setCompare(true) }
   function changeCount(n: number) { setCount(n); setView('baseline'); setRestoration(null) }
   function reset() { setView('baseline'); setRestoration(null) }
-  return { w, selected, chooseOrigin, leftTab, setLeftTab, count, changeCount, view, setView, restoration, facility, setFacility, layers, setLayers, compare, setCompare, scenario, atlas, baseline, result, before, after, base, active, reopened, stats, allRestorations, selectedFacility, online, analyze, preview, reset }
+  function toggleRoad(road:{u:number;v:number;name?:string}) {
+    if (scenario.isFetching) return
+    const id = `road-${Math.min(road.u,road.v)}-${Math.max(road.u,road.v)}`
+    setRoads(previous=>previous.some(r=>r.id===id) ? previous.filter(r=>r.id!==id) : previous.length<6 ? [...previous,{...road,id}] : previous)
+    setLeftTab('scenario'); reset()
+  }
+  function clearRoads() { if (!scenario.isFetching) {setRoads([]); reset()} }
+  return { city: atlas?.manifest.area?.includes("Houston") ? "Houston" : "Heidelberg", w, roads, toggleRoad, clearRoads, selected, chooseOrigin, leftTab, setLeftTab, count, changeCount, view, setView, restoration, facility, setFacility, layers, setLayers, compare, setCompare, scenario, atlas, baseline, result, before, after, base, active, reopened, stats, allRestorations, selectedFacility, online, analyze, preview, reset }
 }
 export type Analysis = ReturnType<typeof useAnalysis>

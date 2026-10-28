@@ -16,6 +16,7 @@ describe('explicit scenario to saved investigation', () => {
     const create = vi.spyOn(api, 'createIncident').mockImplementation(() => new Promise(resolve => { finish = resolve }))
     const run = vi.spyOn(api, 'investigate').mockResolvedValue({ id: 'saved' } as Awaited<ReturnType<typeof api.investigate>>)
     form(); const button = screen.getByRole('button', { name: 'Create saved investigation' })
+    fireEvent.change(screen.getByLabelText('Evidence cutoff (UTC)'),{target:{value:'2026-10-24T19:55:49Z'}})
     fireEvent.click(button); fireEvent.click(button)
     expect(create).toHaveBeenCalledTimes(1)
     expect(button).toBeDisabled()
@@ -33,7 +34,7 @@ describe('explicit scenario to saved investigation', () => {
     expect(create).toHaveBeenCalledTimes(1); expect(run).toHaveBeenCalledTimes(1)
   })
   it('requires an explicit timezone and a nonempty title', () => {
-    form(); fireEvent.change(screen.getByLabelText('Historical evidence cutoff (UTC)'), {target:{value:'2026-10-24T19:55:49'}})
+    form(); fireEvent.change(screen.getByLabelText('Evidence cutoff (UTC)'), {target:{value:'2026-10-24T19:55:49'}})
     expect(screen.getByRole('button',{name:'Create saved investigation'})).toBeDisabled()
   })
   it('renders a real saved result, resolves a citation and exposes exact computed metrics', async () => {

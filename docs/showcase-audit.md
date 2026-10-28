@@ -2,6 +2,18 @@
 
 29 October 2026, Asia/Karachi.
 
+## Houston implementation update
+
+The findings below describe the earlier Heidelberg prototype. The active application now targets Houston's Texas Medical Center and Brays Bayou area. A real Edge browser verified labelled OSM tiles, road-name search, manually supplied closure endpoints, the current-weather/outlook screen, and a complete saved investigation. Screenshots and JSON are in `evidence/houston-showcase/`.
+
+The real Houston dataset has 2,804 nodes, 7,161 directed edges, 25 origins, and 12 tagged hospital records. The three-segment sampled-centrality stress test increased distances for four origins; O5 gained 343.008 metres. All 25 remained connected. Investigation `4a247482-f668-433e-9ab7-0971e800b983` completed with 96 local TTM predictions. No browser page errors were recorded. Current weather and NWS alerts were retrieved separately from the hypothetical road analysis.
+
+Large-network stress tests now use reproducible 128-source sampled edge betweenness (seed 42), because exact all-source calculation exceeded the interactive request budget. This approximation is recorded in closure metadata and documented in the UI and README. Manual closures use exact shortest-path calculations.
+
+The earlier gaps for map context, direct road selection, and browser verification have been addressed for the Houston flow. Model skill evaluation, population-weighted access, verified road-status feeds, production deployment, clean-machine setup, and completed hosted-agent verification remain outside the demonstrated capability.
+
+Actual WebGL context-loss recovery was also exercised in Edge. The compatibility map retained labelled tiles and analytical geometry on desktop and at 390-pixel mobile width. Its screenshots were inspected. Regression verification passed 32 frontend tests, 16 historical backend tests, and four current-feed tests; the production frontend build passed. The browser verification script requires Playwright and Edge; `LIFELINETWIN_PLAYWRIGHT` can point to a bundled Playwright package.
+
 ## Verdict
 
 LifelineTwin has a working local analytical pipeline. It is suitable for explaining a small hypothetical hospital-access investigation, but this audit does not establish readiness for a professor-facing product demonstration or an operational decision system.

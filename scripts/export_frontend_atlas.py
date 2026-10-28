@@ -2,12 +2,16 @@
 import json
 from pathlib import Path
 import sys
+import argparse
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 def main():
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--region',choices=['houston','heidelberg'],default='houston')
+    args=parser.parse_args()
     from lifelinetwin_geo.data import load
-    graph, origins, facilities, manifest = load(ROOT / 'data/heidelberg')
+    graph, origins, facilities, manifest = load(ROOT / f'data/{args.region}')
     roads = []
     road_features = []
     edge_routes = {}
@@ -23,7 +27,10 @@ def main():
             kind = data.get('highway', 'unclassified')
             if isinstance(kind, list):
                 kind = kind[0] if kind else 'unclassified'
-            road_features.append({'u': u, 'v': v, 'kind': kind, 'coordinates': line})
+            name = data.get('name', '')
+            if isinstance(name, list):
+                name = ' / '.join(str(part) for part in name)
+            road_features.append({'u': u, 'v': v, 'kind': kind, 'name': str(name), 'coordinates': line})
         index = seen[key]
         displayed = roads[index]
         start = (float(graph.nodes[u]['x']), float(graph.nodes[u]['y']))
@@ -36,7 +43,7 @@ def main():
     result = {'manifest': manifest, 'roads': roads, 'origins': origins, 'facilities': facilities,
               'nodes': {str(n): [a['x'], a['y']] for n, a in graph.nodes(data=True)},
               'road_features': road_features, 'edge_routes': edge_routes}
-    target = ROOT / 'frontend/public/data/heidelberg-atlas.json'
+    target = ROOT / 'frontend/public/data/active-atlas.json'
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(result, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
     print(json.dumps({'output': str(target), 'display_lines': len(roads), 'bytes': target.stat().st_size, 'downloaded': False}))
