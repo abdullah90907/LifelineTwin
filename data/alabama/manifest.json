@@ -1,0 +1,21 @@
+{
+  "area": "Tuscaloosa, Northport and Moundville, Alabama, USA",
+  "bbox_wsen": [
+    -87.71,
+    32.97,
+    -87.46,
+    33.29
+  ],
+  "nodes": 26865,
+  "directed_edges": 66035,
+  "download_completed_utc": "2026-10-28T20:05:51.203393+00:00",
+  "source": "OpenStreetMap API 0.6; filtered driving ways via OSMnx",
+  "origin_method": "Named OSM place reference points; not population centroids",
+  "attribution": "© OpenStreetMap contributors; ODbL https://www.openstreetmap.org/copyright",
+  "sha256": {
+    "roads.graphml": "44203f7b9e90f03d3e07db6ff8acfd5f4a3b1ecf094208cde819ec0ff76f81af",
+    "hospitals.geojson": "90f759e7691059a10e3c518f71c71e15eba687d6e60331d4285b6dc8a0f0014a",
+    "facilities.json": "0cd2b0efbdc05c51f96a5e33db66b6526afb7ec692f594c2c96f816f7168671b",
+    "origins.json": "876a3861d3fa22c5d70ef16763c25ff08a9e971e2bba78261f8e84f3249df27c"
+  }
+}

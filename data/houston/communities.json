@@ -1,0 +1,32 @@
+[
+  {
+    "id": "place/10093698005",
+    "name": "Texas Medical Center",
+    "lat": 29.7100796,
+    "lon": -95.3973355,
+    "node": 660192428,
+    "snap_distance_m": 10.079415532965847,
+    "source": "https://www.openstreetmap.org/node/10093698005",
+    "population": null
+  },
+  {
+    "id": "place/11963565284",
+    "name": "Central City",
+    "lat": 29.7008707,
+    "lon": -95.3838559,
+    "node": 152950481,
+    "snap_distance_m": 58.61051803308285,
+    "source": "https://www.openstreetmap.org/node/11963565284",
+    "population": null
+  },
+  {
+    "id": "place/12403257188",
+    "name": "Southgate",
+    "lat": 29.7103822,
+    "lon": -95.4079986,
+    "node": 152149178,
+    "snap_distance_m": 14.908703077246484,
+    "source": "https://www.openstreetmap.org/node/12403257188",
+    "population": null
+  }
+]

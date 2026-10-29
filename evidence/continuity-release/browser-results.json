@@ -1,0 +1,52 @@
+{
+  "results": [
+    {
+      "region": "houston",
+      "id": "41320fbe-f087-48d9-97aa-f1422765f13c",
+      "summary": {
+        "communities_evaluated": 3,
+        "communities_with_longer_routes": 1,
+        "communities_newly_disconnected": 0,
+        "largest_increase_m": 1012.2504654015524,
+        "population_affected": null
+      },
+      "alternatives": [
+        {
+          "kind": "facility_restoration",
+          "reconnected": 0,
+          "saved_m": 1012.2504654015524
+        },
+        {
+          "kind": "temporary_service",
+          "reconnected": 0,
+          "saved_m": 991.1809964837718
+        }
+      ]
+    },
+    {
+      "region": "alabama",
+      "id": "3e39e7e7-7443-415d-a93f-ca435a9595fd",
+      "summary": {
+        "communities_evaluated": 210,
+        "communities_with_longer_routes": 105,
+        "communities_newly_disconnected": 0,
+        "largest_increase_m": 6734.081011266033,
+        "population_affected": null
+      },
+      "alternatives": [
+        {
+          "kind": "facility_restoration",
+          "reconnected": 0,
+          "saved_m": 462855.3055913438
+        },
+        {
+          "kind": "temporary_service",
+          "reconnected": 0,
+          "saved_m": 52129.067970489916
+        }
+      ]
+    }
+  ],
+  "page_errors": [],
+  "mobile_overflow": false
+}

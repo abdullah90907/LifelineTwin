@@ -19,7 +19,8 @@
     "roads.graphml": "7ad5cd10b31abab8a497e3f841e49134397cf4453606c61dae386f29a911e645",
     "hospitals.geojson": "364b97fb14b3d6a4f9a522d7fbc8782e1f1917212b6e05f37986ddb37c9fc155",
     "facilities.json": "faa02edcd140f9e8280cc0026122a5b231957bd11d98c7ab940d4e5559b2653b",
-    "origins.json": "9fbaf4be4d0e6b329b95108cfb4ca21b017823a46e8910e325e9690474ceab85"
+    "origins.json": "9fbaf4be4d0e6b329b95108cfb4ca21b017823a46e8910e325e9690474ceab85",
+    "communities.json": "1833c0d3b2bcd00a2828bf65fd983a7f1caecc79273fffe9a69cc72566e56f67"
   },
   "hospital_source": "OpenStreetMap API 0.6 map; tagged hospital nodes and closed ways only; relations excluded",
   "hospital_bbox_wsen": [

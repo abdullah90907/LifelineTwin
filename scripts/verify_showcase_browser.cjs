@@ -7,7 +7,7 @@ const path=require('node:path');
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  const evidence=path.resolve('evidence/houston-showcase');fs.mkdirSync(evidence,{recursive:true});
  try {
-  await page.goto('http://127.0.0.1:5173/',{waitUntil:'domcontentloaded'});
+  await page.goto('http://127.0.0.1:5173/explore',{waitUntil:'domcontentloaded'});
   await page.getByRole('heading',{name:/Houston Texas Medical Center access/}).waitFor();
   await page.waitForFunction(()=>document.querySelector('[data-renderer]')?.getAttribute('data-renderer')!=='initializing');
   const atlas=await (await page.request.get('http://127.0.0.1:5173/data/active-atlas.json')).json();

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import LiveWeather from '../environment/LiveWeather'
 import { ArrowRight, GitCompareArrows, Hospital, Layers3, LoaderCircle, MapPin, Network, Play, RotateCcw, ShieldCheck, SlidersHorizontal, TriangleAlert } from 'lucide-react'
@@ -27,7 +28,7 @@ export default function Controls({ model: m }: { model: Analysis }) {
       <button className="run-analysis" disabled={!m.online || !m.baseline || m.scenario.isFetching} onClick={() => void m.analyze()}>{m.scenario.isFetching ? <LoaderCircle className="spinning" size={15}/> : <Play size={14}/>} {m.scenario.isFetching ? 'Computing scenario…' : 'Analyze disruption'}<ArrowRight size={14}/></button>
       {m.scenario.isError && <ErrorState error={m.scenario.error}/>}
       {m.result && <div className="scenario-output"><div className="panel-section-title"><span>COMPUTED SEGMENTS</span><span>{m.result.analysis.closures.length}</span></div>{m.result.analysis.closures.map(c => <div className="closure-record" key={c.id}><span className="closure-mark"/><span><strong>{c.id} · hypothetical</strong><small>OSM {c.u}<ArrowRight size={9}/>{c.v}</small></span></div>)}<button className="text-button" onClick={m.reset}><RotateCcw size={12}/>Return to baseline</button></div>}
-      {m.result && <SaveInvestigation key={JSON.stringify(m.result.analysis.closures)} scenario={m.result}/>}
+      {m.result && <Link className="text-button" to={`/?region=houston&graph=${m.result.dataset.sha256?.["roads.graphml"] ?? ""}&roads=${encodeURIComponent(JSON.stringify(m.result.analysis.closures.map(({id,u,v})=>({id,u,v}))))}`}>Assess community access in a continuity case →</Link>}{m.result && <SaveInvestigation key={JSON.stringify(m.result.analysis.closures)} scenario={m.result}/>}
       <div className="guardrail"><ShieldCheck size={16}/><p>Map previews remain in memory. Create a saved investigation explicitly to preserve evidence. No real closure is asserted.</p></div>
     </>}</div>
     <div className="panel-source"><Layers3 size={16}/><span>OSM snapshot<small>{m.atlas ? date(m.atlas.manifest.download_completed_utc) : 'Loading cached geometry…'}</small></span><span className="source-badge">CACHED</span></div>

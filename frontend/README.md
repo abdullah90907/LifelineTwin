@@ -1,65 +1,33 @@
-# LifelineTwin frontend · Phase 5A
+# LifelineTwin frontend
 
-Local React/TypeScript research workspace. No account, tile-service key or hosted
-LLM credential is required. Start the existing backend in one terminal:
+React and TypeScript interface for hospital-access continuity planning.
 
-```powershell
-Set-Location 'D:\Projects 2026\LIfelineTwin'
-.\.venv-migration\Scripts\python.exe -m uvicorn lifelinetwin_backend.main:app --host 127.0.0.1 --port 8000
-```
+## Local development
 
-Start the frontend in another terminal:
+Run the FastAPI backend on `127.0.0.1:8000`, then start this directory with:
 
 ```powershell
-Set-Location 'D:\Projects 2026\LIfelineTwin\frontend'
 npm ci
 npm run dev
 ```
 
-Open http://127.0.0.1:5173. Node 20.19+ / 22.12+ is required by the selected Vite
-release; verified here with Node 20.20.2. `npm run build` performs TypeScript checks
-and emits `dist/`; `npm test` runs the frontend contracts and interaction tests.
-Tests use real saved baseline/cache fixtures and mocked HTTP, with clearly
-labeled test-only incident fixtures. They never call a hosted model or persist
-test incidents to the application database. Windows sandbox restrictions may
-require running tests in a normal terminal with TEMP/TMP in a writable directory.
+Open http://127.0.0.1:5173/ for the Houston and West Alabama briefing workflow. The development server proxies `/api` to the local backend; `LIFELINETWIN_API_TARGET` can select a different local API origin.
 
-## Architecture and boundaries
+## Views
 
-- `src/api.ts`: Zod-validated response subsets, typed read methods, cancellation
-  and sanitized errors. `VITE_API_BASE` is public; never put secrets in VITE_*.
-- `src/main.tsx`: QueryClient and browser router; no polling, automatic retries
-  or focus refetch. Queries are cached and refreshed explicitly.
-- `src/App.tsx`: application shell and route registration. `src/pages/` contains
-  overview, atlas, incidents and intelligence views; `src/hooks/useWorkspace.ts`
-  owns shared queries. `src/features/` holds incident browsing/history and the
-  reusable intelligence layer stack. No write/inference/agent execution controls
-  in this phase.
-- `src/components.tsx`: identity, tags, errors, section headings and cached SVG map.
-- `src/styles.css`: paper/forest/coral identity, responsive composition, focus
-  treatment and reduced-motion overrides. Fonts are self-hosted npm assets.
-- `public/data/heidelberg-atlas.json`: generated display geometry from the original
-  checksum-verified cache. Regenerate from the repository root with
-  `.venv-migration/Scripts/python scripts/export_frontend_atlas.py`; this reads
-  existing data, never downloads geographic data or changes calculations.
-- `qa.html`: development-only viewport harness, excluded from the default
-  production build. Supports 1440/1024/768/390-pixel iframe viewports for manual QA.
+- `/`: regional evidence, explicit facility-outage cases, named-place consequences, response comparisons, saved cases, and Markdown brief downloads.
+- `/explore`: advanced Houston street map, exact road selection, disruption/restoration analysis, and transfer of selected roads into a continuity case.
+- `/environment`: current Houston weather and local Granite forecasting controls.
+- `/incidents` and `/investigations/:id`: existing advanced investigation records and evidence.
 
-The map uses local geometry and the existing GET `/analysis/baseline` endpoint.
-Its route visualization joins original route nodes; it is not a navigation map.
-No tiles, travel-time claims, verified closures or current facility capability
-are inferred. The displayed mean averages only reachable sampled grid origins.
-Cache presence is distinguished from inference/provider readiness.
+The briefing endpoints are region-scoped. Switching pilots clears the selected case and starts the region's form and queries independently. Source errors remain errors; missing alert data is not represented as zero alerts. User reports remain unverified, and temporary-site comparisons are location-only proxies.
 
-Incident lists use 12-record pagination. Details load the most recent 20 records
-per investigation pipeline. An empty database stays empty; historical verification
-databases are not imported. A native dialog provides modal focus/escape behavior.
+`src/continuityApi.ts` validates the new API contracts with Zod. `src/pages/Continuity.tsx` implements the decision workflow. `src/continuity.css` contains its responsive layout. The older advanced map remains in `src/features/workspace/`.
 
-Vite proxies `/api` to loopback port 8000 so no backend CORS change is needed.
-For production, configure a same-origin reverse proxy for `/api` (strip prefix),
-SPA fallback to `index.html`, and static caching. The static build alone is not a
-backend deployment. A different cross-origin API needs deliberate backend CORS
-configuration, which this phase does not add. The API contract link uses the
-same configured API base and opens OpenAPI JSON.
+## Verification
 
-See `../PHASE5A_REPORT.md` for actual verification and next-phase scope.
+`npm test` runs the frontend regression suite; `npm run build` checks TypeScript and creates the production bundle. Tests use controlled HTTP and renderer adapters, rather than claiming live provider or GPU verification.
+
+The repository's `scripts/verify_continuity_browser.cjs` exercises both pilots in a real Edge browser, saves cases, downloads briefs, reopens records, and checks mobile overflow. It requires Playwright and Edge; `LIFELINETWIN_PLAYWRIGHT` can point to a bundled Playwright package. Recorded captures are under `evidence/continuity-release/`.
+
+A static frontend build alone is not a full deployment. Configure a same-origin API reverse proxy and SPA fallback when hosting it. The backend remains a local prototype without production authentication. See the repository README for data preparation, facility scope, limits, and source attribution.

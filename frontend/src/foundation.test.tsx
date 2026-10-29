@@ -22,7 +22,7 @@ function mockApi(offline = false) {
   vi.stubGlobal('fetch', fetch)
   return fetch
 }
-function app(path = '/') { return render(<QueryClientProvider client={new QueryClient({ defaultOptions: { queries: { retry: false } } })}><MemoryRouter initialEntries={[path]}><App/></MemoryRouter></QueryClientProvider>) }
+function app(path = '/explore') { return render(<QueryClientProvider client={new QueryClient({ defaultOptions: { queries: { retry: false } } })}><MemoryRouter initialEntries={[path]}><App/></MemoryRouter></QueryClientProvider>) }
 
 describe('typed API boundary', () => {
   it('rejects incompatible data instead of substituting results', async () => {

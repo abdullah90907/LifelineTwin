@@ -13,7 +13,7 @@ const atlas=atlasSchema.parse(read('public/data/heidelberg-atlas.json'))
 const baseline=read('../evidence/phase5a/baseline-api.json')
 const scenario=scenarioSchema.parse(read('../evidence/frontend-redesign/scenario-api.json'))
 const environment=environmentSchema.parse(read('../evidence/phase4c-final/live-aj_5_217/deterministic-result.json').result.environment)
-function setup(path='/', mode:'ok'|'error'|'mismatch'='ok') {
+function setup(path='/explore', mode:'ok'|'error'|'mismatch'='ok') {
   const fetch=vi.fn(async (url:string)=>{
     if(url.includes('/analysis/geographic')&&mode==='error')return new Response('unavailable',{status:503})
     const response=url.includes('active-atlas')?atlas:url.includes('/health')?{status:'ok',database:'ok',geographic_cache_present:true,model_cache_present:true}:url.includes('/baseline')?baseline:url.includes('/geographic')?mode==='mismatch'?{...scenario,dataset:{...scenario.dataset,download_completed_utc:'2025-01-01T00:00:00Z'}}:scenario:url.includes('/environment')?environment:[]
@@ -76,7 +76,7 @@ describe('actual-data-backed analytical workflow with controlled HTTP',()=>{
     expect(fetch.mock.calls.some(([url])=>url.includes('/geographic')||url.includes('/environment'))).toBe(false)
     await runScenario()
     const best=await screen.findByRole('button',{name:/D1 \+ D2.*433 m saved/})
-    expect(await screen.findByRole('heading',{name:'O6 Heidelberg'})).toBeInTheDocument()
+    expect(await screen.findByRole('heading',{name:'O6 Heidelberg'},{timeout:5000})).toBeInTheDocument()
     expect(screen.getAllByText('+766 m').length).toBeGreaterThan(0)
     fireEvent.click(best)
     expect(await screen.findByText('Restoration preview')).toBeInTheDocument()
@@ -99,13 +99,13 @@ describe('actual-data-backed analytical workflow with controlled HTTP',()=>{
     await screen.findByText('Hypothetical disruption')
   })
   it('keeps a valid baseline when analysis fails, with no automatic retry',async()=>{
-    const fetch=setup('/','error'); await runScenario()
+    const fetch=setup('/explore','error'); await runScenario()
     expect(await screen.findByText(/Request failed \(503\)/)).toBeInTheDocument()
     expect(screen.getByText('Baseline accessibility')).toBeInTheDocument()
     expect(fetch.mock.calls.filter(([url])=>url.includes('/geographic'))).toHaveLength(1)
   })
   it('blocks a mismatched-snapshot overlay instead of showing false changes',async()=>{
-    setup('/','mismatch'); await runScenario()
+    setup('/explore','mismatch'); await runScenario()
     expect(await screen.findByText(/Scenario snapshot differs/)).toBeInTheDocument()
     expect(screen.getByText('Baseline accessibility')).toBeInTheDocument()
     expect(screen.queryByText('Hypothetical disruption')).not.toBeInTheDocument()

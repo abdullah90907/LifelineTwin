@@ -28,3 +28,5 @@ evidence/**/*.log
 # Large raw acquisition payloads remain local; derived attributed geometry is versioned.
 data/houston/*.osm
 data/houston/http-cache/
+data/alabama/*.osm
+data/alabama/http-cache/

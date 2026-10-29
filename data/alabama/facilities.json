@@ -1,0 +1,32 @@
+[
+  {
+    "id": "way/79143015",
+    "name": "Northport Medical Center",
+    "lon": -87.57095112277796,
+    "lat": 33.2347532,
+    "node": 5960233615,
+    "snap_distance_m": 5.018187197805874,
+    "capability_status": "unverified",
+    "source": "https://www.openstreetmap.org/way/79143015"
+  },
+  {
+    "id": "way/510789152",
+    "name": "DCH Regional Medical Center",
+    "lon": -87.52753681434177,
+    "lat": 33.204164,
+    "node": 2180492570,
+    "snap_distance_m": 16.682218117668633,
+    "capability_status": "unverified",
+    "source": "https://www.openstreetmap.org/way/510789152"
+  },
+  {
+    "id": "way/79101227",
+    "name": "Bryce Hospital",
+    "lon": -87.51558246752178,
+    "lat": 33.20760095,
+    "node": 4972915833,
+    "snap_distance_m": 68.12235972600214,
+    "capability_status": "unverified",
+    "source": "https://www.openstreetmap.org/way/79101227"
+  }
+]

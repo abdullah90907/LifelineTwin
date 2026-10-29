@@ -1,4 +1,4 @@
 # Preserve checksum-verified datasets and saved evidence byte-for-byte.
-data/** -text
-frontend/public/data/** -text
-evidence/** -text
+data/** -text whitespace=cr-at-eol
+frontend/public/data/** -text whitespace=cr-at-eol
+evidence/** -text whitespace=cr-at-eol

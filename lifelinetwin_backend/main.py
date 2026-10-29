@@ -204,6 +204,8 @@ def create_app(settings: Settings | None = None, tools=None, agent_provider_fact
 
     from .agent_api import agent_router
     app.include_router(agent_router(db, settings, agent_provider_factory))
+    from .continuity import router as continuity_router
+    app.include_router(continuity_router(db))
     return app
 
 

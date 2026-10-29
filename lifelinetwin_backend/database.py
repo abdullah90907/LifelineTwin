@@ -27,6 +27,15 @@ class IncidentRow(Base):
     updated_at: Mapped[str] = mapped_column(String, default=now)
 
 
+class ContinuityCaseRow(Base):
+    __tablename__ = 'continuity_cases'
+    id: Mapped[str] = mapped_column(String, primary_key=True, default=uid)
+    region: Mapped[str] = mapped_column(String, index=True)
+    created_at: Mapped[str] = mapped_column(String, default=now)
+    request: Mapped[dict] = mapped_column(JSON)
+    result: Mapped[dict] = mapped_column(JSON)
+
+
 class InvestigationRow(Base):
     __tablename__ = "investigations"
     id: Mapped[str] = mapped_column(String, primary_key=True, default=uid)

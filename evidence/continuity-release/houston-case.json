@@ -1,0 +1,275 @@
+{
+  "id": "41320fbe-f087-48d9-97aa-f1422765f13c",
+  "region": "houston",
+  "created_at": "2026-10-29T21:56:53.343135+00:00",
+  "request": {
+    "region": "houston",
+    "title": "Exercise: Ben Taub General Hospital",
+    "evidence_kind": "exercise",
+    "source": "Planning exercise created in LifelineTwin",
+    "observed_at": "2026-10-29T21:56:00Z",
+    "unavailable_facilities": [
+      "way/43035587"
+    ],
+    "closures": [],
+    "temporary_site": "place/12403257188",
+    "context_alert": null,
+    "expected_graph_sha256": null
+  },
+  "result": {
+    "region": "houston",
+    "region_name": "Houston, Texas",
+    "computed_at": "2026-10-29T21:56:53.342448+00:00",
+    "evidence_kind": "exercise",
+    "verification": "exercise",
+    "input_sha256": "78d12cf18a774b45d4f55cfa7d166784670a7ac9b414badb0994444feb38ee10",
+    "dataset": {
+      "area": "Texas Medical Center and Brays Bayou, Houston, Texas, USA",
+      "bbox_wsen": [
+        -95.43,
+        29.68,
+        -95.36,
+        29.735
+      ],
+      "download_completed_utc": "2026-10-29T00:20:13.200127+05:00",
+      "source": "OpenStreetMap via OSMnx/Overpass",
+      "overpass_url": "https://overpass.private.coffee/api",
+      "attribution": "(c) OpenStreetMap contributors; ODbL https://www.openstreetmap.org/copyright",
+      "osmnx": "2.1.1",
+      "network_type": "drive",
+      "weight": "length (metres)",
+      "nodes": 2804,
+      "directed_edges": 7161,
+      "sha256": {
+        "roads.graphml": "7ad5cd10b31abab8a497e3f841e49134397cf4453606c61dae386f29a911e645",
+        "hospitals.geojson": "364b97fb14b3d6a4f9a522d7fbc8782e1f1917212b6e05f37986ddb37c9fc155",
+        "facilities.json": "faa02edcd140f9e8280cc0026122a5b231957bd11d98c7ab940d4e5559b2653b",
+        "origins.json": "9fbaf4be4d0e6b329b95108cfb4ca21b017823a46e8910e325e9690474ceab85",
+        "communities.json": "1833c0d3b2bcd00a2828bf65fd983a7f1caecc79273fffe9a69cc72566e56f67"
+      },
+      "hospital_source": "OpenStreetMap API 0.6 map; tagged hospital nodes and closed ways only; relations excluded",
+      "hospital_bbox_wsen": [
+        -95.408,
+        29.697,
+        -95.383,
+        29.724
+      ]
+    },
+    "source": "Planning exercise created in LifelineTwin",
+    "observed_at": "2026-10-29T21:56:00+00:00",
+    "facility_scope": [
+      {
+        "id": "way/43035587",
+        "name": "Ben Taub General Hospital",
+        "node": 152300552,
+        "lon": -95.39340460239124,
+        "lat": 29.71060515,
+        "snap_distance_m": 111.02691847425372,
+        "capability_status": "Emergency services documented; live availability and capacity unverified",
+        "service_source": "https://www.harrishealth.org/locations-hh/Pages/ben-taub.aspx",
+        "service_reviewed_on": "2026-10-29"
+      },
+      {
+        "id": "way/597306771",
+        "name": "Houston Methodist Hospital",
+        "node": 1210065716,
+        "lon": -95.39926397738664,
+        "lat": 29.7108167,
+        "snap_distance_m": 60.853321194201605,
+        "capability_status": "Emergency services documented; live availability and capacity unverified",
+        "service_source": "https://www.houstonmethodist.org/locations/texas-medical-center/emergency-department/",
+        "service_reviewed_on": "2026-10-29"
+      }
+    ],
+    "summary": {
+      "communities_evaluated": 3,
+      "communities_with_longer_routes": 1,
+      "communities_newly_disconnected": 0,
+      "largest_increase_m": 1012.2504654015524,
+      "population_affected": null
+    },
+    "communities": [
+      {
+        "id": "place/10093698005",
+        "name": "Texas Medical Center",
+        "source": "https://www.openstreetmap.org/node/10093698005",
+        "baseline_m": 541.2490325785301,
+        "scenario_m": 541.2490325785301,
+        "increase_m": 0,
+        "newly_disconnected": false,
+        "alternative_facility": "Houston Methodist Hospital",
+        "baseline_path": [
+          660192428,
+          152494938,
+          1975678641,
+          152085040,
+          2296605244,
+          152085034,
+          1210065434,
+          152085032,
+          1975678644,
+          152720998,
+          1210065716
+        ],
+        "scenario_path": [
+          660192428,
+          152494938,
+          1975678641,
+          152085040,
+          2296605244,
+          152085034,
+          1210065434,
+          152085032,
+          1975678644,
+          152720998,
+          1210065716
+        ],
+        "reference_point": {
+          "latitude": 29.7100796,
+          "longitude": -95.3973355
+        },
+        "population_affected": null
+      },
+      {
+        "id": "place/11963565284",
+        "name": "Central City",
+        "source": "https://www.openstreetmap.org/node/11963565284",
+        "baseline_m": 1965.9597229662863,
+        "scenario_m": 2978.210188367839,
+        "increase_m": 1012.2504654015524,
+        "newly_disconnected": false,
+        "alternative_facility": "Houston Methodist Hospital",
+        "baseline_path": [
+          152950481,
+          152950462,
+          152708194,
+          1723237731,
+          152960715,
+          1723238007,
+          1723237706,
+          3082611797,
+          3082611795,
+          152247531,
+          8107693434,
+          552450803,
+          1427331333,
+          152300568,
+          152300556,
+          152300552
+        ],
+        "scenario_path": [
+          152950481,
+          152950462,
+          152708194,
+          1723237731,
+          152960715,
+          1723238007,
+          1723237706,
+          3082611797,
+          3082611795,
+          152247531,
+          1723240669,
+          152638966,
+          1723242201,
+          4258949726,
+          4258949731,
+          1723267735,
+          1723267660,
+          152305472,
+          152456638,
+          4682609751,
+          152231432,
+          152494938,
+          1975678641,
+          152085040,
+          2296605244,
+          152085034,
+          1210065434,
+          152085032,
+          1975678644,
+          152720998,
+          1210065716
+        ],
+        "reference_point": {
+          "latitude": 29.7008707,
+          "longitude": -95.3838559
+        },
+        "population_affected": null
+      },
+      {
+        "id": "place/12403257188",
+        "name": "Southgate",
+        "source": "https://www.openstreetmap.org/node/12403257188",
+        "baseline_m": 991.1809964837718,
+        "scenario_m": 991.1809964837718,
+        "increase_m": 0,
+        "newly_disconnected": false,
+        "alternative_facility": "Houston Methodist Hospital",
+        "baseline_path": [
+          152149178,
+          152723355,
+          152173507,
+          152863754,
+          8992416255,
+          152700458,
+          152700452,
+          152700449,
+          152697185,
+          3232451618,
+          152720998,
+          1210065716
+        ],
+        "scenario_path": [
+          152149178,
+          152723355,
+          152173507,
+          152863754,
+          8992416255,
+          152700458,
+          152700452,
+          152700449,
+          152697185,
+          3232451618,
+          152720998,
+          1210065716
+        ],
+        "reference_point": {
+          "latitude": 29.7103822,
+          "longitude": -95.4079986
+        },
+        "population_affected": null
+      }
+    ],
+    "alternatives": [
+      {
+        "id": "facility:way/43035587",
+        "action": "Restore availability of Ben Taub General Hospital",
+        "kind": "facility_restoration",
+        "reconnected_communities": 0,
+        "communities_with_shorter_routes": 1,
+        "distance_saved_m": 1012.2504654015524,
+        "mean_distance_saved_m": 1012.2504654015524,
+        "assumption": "Requires operator verification of staffing, service capability, and feasibility."
+      },
+      {
+        "id": "temporary:place/12403257188",
+        "action": "Explore a temporary service point at Southgate",
+        "kind": "temporary_service",
+        "reconnected_communities": 0,
+        "communities_with_shorter_routes": 1,
+        "distance_saved_m": 991.1809964837718,
+        "mean_distance_saved_m": 991.1809964837718,
+        "assumption": "Location-only access proxy; no hospital-equivalent service, capacity, land access, staffing, or deployment feasibility is established."
+      }
+    ],
+    "limitations": [
+      "Community reference points represent locations, not every resident or a population-weighted catchment.",
+      "Population impact is unavailable; no affected-person count is inferred from reference points.",
+      "Only the explicitly documented emergency-service subset is compared; operator websites document services, not current availability, capacity or suitability for a particular patient.",
+      "Distances exclude travel-time, traffic, and snap offsets; hospitals and roads outside the bounded snapshot are excluded.",
+      "The observation time records the case source; the calculation uses the downloaded snapshot and does not reconstruct historical conditions.",
+      "Live weather warnings do not automatically close roads. Facility outages and road restrictions are explicit case inputs.",
+      "Interventions are independently modeled comparisons, not operational instructions."
+    ]
+  }
+}
