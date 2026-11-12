@@ -1,0 +1,17 @@
+.git
+.aws
+.codex
+.agents
+.env*
+.venv*
+.runtime
+**/__pycache__
+**/node_modules
+frontend/dist
+frontend/*.tsbuildinfo
+evidence
+vendor
+data/backend
+**/*.sqlite3*
+data/**/*.osm
+data/**/http-cache

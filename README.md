@@ -53,23 +53,65 @@ These sources document services. **Live availability, capacity, patient acceptan
 
 ## Screenshots
 
-Actual captures from a real Edge browser:
+These Edge screenshots show the teal LifelineTwin logo, two-tone wordmark, light theme, and larger interface labels. The case results come from saved planning exercises.
 
-### Regional briefing
+### Houston briefing
 
-![Houston and West Alabama continuity overview with current sources and a case workflow](evidence/continuity-release/overview.png)
+Current weather, official alerts, and the case form in the bright theme.
 
-### Alabama outage exercise
+![Houston briefing](evidence/bright-interface/houston-briefing.png)
 
-![Alabama planning exercise with named locations, alternative care access, and response comparisons](evidence/continuity-release/alabama-case.png)
+### Houston case results
 
-### Mobile result
+Named-place access changes, recovery options, and the brief export for the saved Ben Taub exercise.
 
-<img src="evidence/continuity-release/alabama-mobile.png" alt="Alabama continuity-case results on mobile" width="390">
+![Houston case results](evidence/bright-interface/houston-result.png)
 
-### Advanced Houston map
+### West Alabama briefing
 
-![Labelled Houston streets and detailed road-access analysis](evidence/houston-showcase/desktop.png)
+Conditions and case setup for the Tuscaloosa–Northport–Moundville corridor.
+
+![West Alabama briefing](evidence/bright-interface/alabama-briefing.png)
+
+### West Alabama case results
+
+The DCH Regional exercise shows the places with the largest added distances first.
+
+![West Alabama case results](evidence/bright-interface/alabama-result.png)
+
+The same case at a 390 px mobile width.
+
+<img src="evidence/bright-interface/alabama-mobile.png" alt="West Alabama case results on mobile" width="390">
+
+### Houston road disruption map
+
+The map displays street names, a selected road segment, baseline and scenario routes, and a restoration option.
+
+![Houston road disruption map](evidence/bright-interface/houston-road-disruption.png)
+
+### Houston weather outlook
+
+Current conditions and hourly outlook from the live weather view.
+
+![Houston weather outlook](evidence/bright-interface/weather-outlook.png)
+
+### Granite forecast
+
+The temperature chart shows the cached estimates, local model predictions, and model provenance.
+
+![Granite forecast](evidence/bright-interface/granite-forecast.png)
+
+### Investigation library
+
+The library lists stored investigations and their status.
+
+![Investigation library](evidence/bright-interface/investigation-library.png)
+
+### Saved investigation
+
+The completed Houston exercise shows network impact, source evidence, and advisory actions.
+
+![Saved investigation](evidence/bright-interface/saved-investigation.png)
 
 ## A measured planning example
 
@@ -189,3 +231,20 @@ Meterless remains in the advanced workflow. Zetaris is not connected, and no ver
 [Portfolio](https://abdullah-siddique-dev.netlify.app/) · [LinkedIn](https://www.linkedin.com/in/mr-abdullah-siddique/) · [GitHub](https://github.com/abdullah90907)
 
 Geographic data: © OpenStreetMap contributors, ODbL. Weather and alert records retain their source provenance. See [the researched product direction](docs/impact-product-direction.md) for the reasoning behind the continuity workflow.
+
+## Run on Railway with Docker
+
+Connect the GitHub repository to a Railway service and use the repository root as its source directory. Railway detects the root `Dockerfile`. It builds the frontend and serves it with FastAPI on the port Railway assigns. The browser reaches the API at `/api` on the same domain, and `railway.toml` checks `/api/health`.
+
+Attach a Railway volume at `/var/lib/lifelinetwin` to retain SQLite cases across redeployments. Use one replica with that database. Generate a Railway domain when you are ready to share the app. Anyone who can reach the current API can read and create cases, so use exercise data in a public demo.
+
+To build and run the same image on a machine with Docker:
+
+```powershell
+docker build -t lifelinetwin .
+docker run --rm -p 8000:8000 -v lifelinetwin-data:/var/lib/lifelinetwin lifelinetwin
+```
+
+Open `http://localhost:8000/` and check `http://localhost:8000/api/health`. The image includes both geographic datasets for continuity cases. Local Granite forecasting requires building with `INSTALL_FORECASTING=1` and placing the pinned model snapshot in a persistent directory. Set `LIFELINETWIN_MODEL_CACHE` to that Hugging Face hub directory, for example `/var/lib/lifelinetwin/hub`. Meterless requires its separate runtime.
+
+[Railway Dockerfile setup](https://docs.railway.com/builds/dockerfiles) · [Health checks](https://docs.railway.com/deployments/healthchecks) · [Persistent volumes](https://docs.railway.com/volumes)

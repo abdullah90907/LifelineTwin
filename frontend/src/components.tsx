@@ -3,7 +3,14 @@ import { ArrowUpRight, Layers, Minus, Plus, RotateCcw, AlertCircle, ArrowRight }
 import { Link } from 'react-router-dom'
 import type { AtlasData, Baseline } from './api'
 
-export function Brand() { return <Link className="brand" to="/" aria-label="LifelineTwin overview"><svg width="31" height="33" viewBox="0 0 32 34" aria-hidden="true"><path d="M4 6v18l12 7 12-7V6L16 0Z" fill="none" stroke="currentColor" strokeWidth="1.6"/><path d="m4 16 7 4 5-10 5 14 7-8M16 31V23" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/></svg><span>Lifeline<span className="brand-light">Twin</span><small>INTELLIGENCE IN CONTEXT</small></span></Link> }
+export function Brand() {
+  return (
+    <Link className="brand" to="/" aria-label="LifelineTwin overview">
+      <span className="brand-mark" aria-hidden="true"><span /></span>
+      <span className="brand-wordmark">Lifeline<span className="brand-light">Twin</span></span>
+    </Link>
+  )
+}
 export function Tag({ children, tone = '' }: { children: React.ReactNode; tone?: string }) { return <span className={`tag ${tone}`}>{children}</span> }
 export function ErrorState({ error, retry }: { error: unknown; retry?: () => void }) { return <div className="error-state" role="alert"><AlertCircle size={18}/><span>{error instanceof Error ? error.message : 'Data could not be loaded.'}</span>{retry && <button className="text-button" onClick={retry}>Retry <RotateCcw size={13}/></button>}</div> }
 export function SectionHeading({ index, title, children }: { index: string; title: string; children?: React.ReactNode }) { return <div className="section-heading"><h2><span>{index}</span>{title}</h2>{children}</div> }
