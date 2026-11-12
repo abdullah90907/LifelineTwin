@@ -66,6 +66,8 @@ class CalculationTests(unittest.TestCase):
         self.assertIn('live availability',chosen[0]['capability_status'])
 
     def test_duplicate_roads_and_future_sources_are_rejected(self):
+        with self.assertRaisesRegex(ValueError, 'Duplicate road identifier'):
+            body(closures=[{'id':'a','u':1,'v':2}, {'id':'a','u':2,'v':3}])
         with self.assertRaises(ValueError): body(closures=[{'id':'a','u':1,'v':2},{'id':'b','u':2,'v':1}])
         with self.assertRaises(ValueError): body(observed_at='2099-01-01T00:00:00Z')
 

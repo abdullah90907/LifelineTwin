@@ -102,6 +102,8 @@ class CaseRequest(BaseModel):
     def validate_case(self):
         if not self.unavailable_facilities and not self.closures: raise ValueError('Choose a facility outage or a road restriction')
         if len(set(self.unavailable_facilities))!=len(self.unavailable_facilities): raise ValueError('Duplicate facility')
+        if len({road.id for road in self.closures}) != len(self.closures):
+            raise ValueError('Duplicate road identifier')
         if len({tuple(sorted((r.u,r.v))) for r in self.closures})!=len(self.closures): raise ValueError('Duplicate road segment')
         if self.observed_at>datetime.now(timezone.utc): raise ValueError('Observation time cannot be in the future')
         return self
