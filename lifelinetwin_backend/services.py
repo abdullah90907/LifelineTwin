@@ -75,7 +75,10 @@ class Tools:
     def environment(self, request: EnvironmentRequest) -> EnvironmentResult:
         from lifelinetwin_geo.weather import load_observations, fetch_forecast
         from .region import REGION
-        from lifelinetwin_geo.forecasting import TTMForecaster
+        try:
+            from lifelinetwin_geo.forecasting import TTMForecaster
+        except ImportError as exc:
+            raise ToolUnavailable("Granite forecasting dependencies are unavailable. Build with INSTALL_FORECASTING=1 to enable forecasting.") from exc
 
         if request.mode == "cache":
             path = self.settings.weather_snapshot
