@@ -7,6 +7,8 @@ RUN npm run build
 
 FROM python:3.13-slim-bookworm
 WORKDIR /app
+RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 \
+    && rm -rf /var/lib/apt/lists/*
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 \
     LIFELINETWIN_DATABASE=/var/lib/lifelinetwin/lifelinetwin.sqlite3
 
@@ -27,4 +29,6 @@ COPY data/alabama/ ./data/alabama/
 COPY data/houston/ ./data/houston/
 COPY data/heidelberg/ ./data/heidelberg/
 COPY --from=frontend /build/dist ./frontend/dist
+RUN python -c "from lifelinetwin_backend.continuity import dataset; dataset('houston'); dataset('alabama')" \
+    && python -c "from lifelinetwin_backend.config import Settings; from lifelinetwin_backend.schemas import GeographicRequest; from lifelinetwin_backend.services import Tools; Tools(Settings()).geographic(GeographicRequest())"
 CMD ["sh", "-c", "exec python -m uvicorn lifelinetwin_backend.web:app --host 0.0.0.0 --port ${PORT:-8000}"]

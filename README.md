@@ -248,3 +248,9 @@ docker run --rm -p 8000:8000 -v lifelinetwin-data:/var/lib/lifelinetwin lifeline
 Open `http://localhost:8000/` and check `http://localhost:8000/api/health`. The image includes both geographic datasets for continuity cases. Local Granite forecasting requires building with `INSTALL_FORECASTING=1` and placing the pinned model snapshot in a persistent directory. Set `LIFELINETWIN_MODEL_CACHE` to that Hugging Face hub directory, for example `/var/lib/lifelinetwin/hub`. Meterless requires its separate runtime.
 
 [Railway Dockerfile setup](https://docs.railway.com/builds/dockerfiles) · [Health checks](https://docs.railway.com/deployments/healthchecks) · [Persistent volumes](https://docs.railway.com/volumes)
+
+### Check a Railway deployment
+
+Open `/api/health` on the deployed domain to check API connectivity, then open `/api/analysis/baseline` to check that the server can load the Houston road graph. If the baseline returns 503 while health responds, reproduce the request and look for `Analysis tool failure` in the Railway deployment logs. That entry contains the underlying exception. The baseline runs on bundled data and requires no API key.
+
+Current conditions use public Open-Meteo and National Weather Service endpoints. Granite forecasting uses local model files and Python dependencies as described above. The optional hosted agent uses `LIFELINETWIN_LLM_BASE_URL`, `LIFELINETWIN_LLM_MODEL`, and `LIFELINETWIN_LLM_API_KEY` as Railway runtime variables when enabled.
